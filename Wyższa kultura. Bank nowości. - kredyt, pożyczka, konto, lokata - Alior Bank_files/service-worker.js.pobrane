@@ -1,0 +1,11 @@
+self.addEventListener('push', function(e) {
+  if (!(self.Notification && self.Notification.permission === 'granted')) {
+    console.error('Failed to display notification - not supported');
+    return;
+  }
+  var basePath = self.location.pathname.indexOf("magnoliaAuthor") > -1 ? "/magnoliaAuthor/" : "/";
+  var data = e.data.json();
+  var msgOptions = { body: data.message, icon: basePath + data.icon, image: basePath + data.image };
+  const promiseChain = self.registration.showNotification(data.title, msgOptions);
+  e.waitUntil(promiseChain);
+});

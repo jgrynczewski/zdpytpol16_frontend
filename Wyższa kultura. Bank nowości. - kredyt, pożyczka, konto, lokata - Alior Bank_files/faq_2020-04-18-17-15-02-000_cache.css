@@ -1,0 +1,104 @@
+/* FAQ Template Start*/
+
+.faq-filter-item {
+    margin-bottom: 10px;
+}
+
+#alior-faq .one-level:last-child { border-bottom: none; }
+#alior-faq .banner-outer .row, #content-product-details .banner-outer .row {
+    margin-left: auto;
+    margin-right: auto;
+}
+#alior-faq .banner-outer .row > .column,
+#alior-faq .banner-outer .row > .columns{
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+}
+#alior-faq .banner-outer .faq-filter{
+    margin-left: -0.9375rem;
+    margin-right: -0.9375rem;
+}
+#alior-faq .faq-filter .selectedTxt{
+    border: 1px solid #ccc;
+}
+
+/*#alior-faq .one-level { margin-left: 15px; margin-right: 15px; } vkovalenko */
+
+#alior-faq .question span {
+    font-size: 14px;
+    line-height: 1;
+    padding: 10px 10px 10px 30px;
+    color: #565656;
+    display: block;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#alior-faq.black .question span { color: #fff; }
+#alior-faq .question span:before { font-size: 20px; }
+
+
+@media only screen and (max-width: 40em) {
+    .question span{
+        margin: 0;
+    }
+    #alior-faq h3 span{
+        display: inline-block;
+        width: 95%;
+    }
+}
+
+
+@media only screen and (min-width: 30em) and (max-width: 40em){
+    #alior-faq .faq-filter > .columns{
+        width: 50%;
+    }
+}
+
+
+@media only screen and (min-width: 40.063em) {
+    
+    #alior-faq .accordion-list{
+        padding: 30px 0;    
+    }
+
+    #alior-faq .question span {
+        font-size:30px;
+    }
+
+    #alior-faq .accordion-content > { padding: 30px 0; }
+    #alior-faq .main-banner > h2 { margin-bottom: 25px; }
+    #alior-faq h2 { font-size: 30px; }
+    #alior-faq h3 { font-size: 20px; }
+    #alior-faq .question span {
+        font-size: 20px;
+        padding-left: 60px;
+    }
+
+    #alior-faq .answer { margin-left: 60px; }
+    #alior-faq .answer article { padding-bottom: 20px; }
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #alior-faq .one-level {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    #alior-faq .one-level .one-level {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    #alior-faq .main-banner > .one-level {
+        margin-right: 180px;
+    }
+    #alior-faq .question span  {
+        padding:10px 30px;
+    }
+}
+
+/* FAQ Template End*/

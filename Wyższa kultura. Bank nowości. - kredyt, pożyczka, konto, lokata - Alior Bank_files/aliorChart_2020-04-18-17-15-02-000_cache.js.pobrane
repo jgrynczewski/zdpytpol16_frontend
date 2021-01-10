@@ -1,0 +1,434 @@
+$(document).ready(function() {
+
+  if ($('.aliorChart').length > 0) {
+
+    var _thisDay = new Date(),
+        currentMoment = moment(_thisDay).format('DD.MM.YYYY, HH:mm');
+    $('.this-day').html(currentMoment);
+
+    Array.prototype.swapItems = function(a, b) {
+      this[a] = this.splice(b, 1, this[a])[0];
+      return this;
+    };
+
+    ajaxXml.init();
+  }
+});
+
+var _allData = null;
+var _dayData = null;
+
+var ajaxXml = {
+
+  init: function() {
+
+    var _url = $('.aliorChart .chart-xml-data').attr('data-url');
+    var _urlDaily = $('.aliorChart .chart-xml-data-daily').attr('data-url');
+
+    this._doAjax(_url, _urlDaily);
+  },
+
+  _doAjax: function(_url, _urlDaily) {
+
+    var _this = this;
+
+    var _requestFirst = $.ajax({
+      crossDomain: true,
+      url: _url,
+      dataType: "xml",
+    });
+
+    var _requestSecond = $.ajax({
+      crossDomain: true,
+      url: _urlDaily,
+      dataType: "xml",
+    });
+
+    $.when(_requestFirst, _requestSecond).done(function(d1, d2) {
+      _allData = _this._xmlToJson(d1[2].responseXML);
+      _dayData = _this._xmlToJson(d2[2].responseXML);
+
+      $('.aliorChart').show();
+
+      customChartSelectRange.init();
+      customChart.init();
+    });
+  },
+
+  _xmlToJson: function(xml) {
+    // Create the return object
+    var obj = {};
+
+    var nodeType = {
+      ELEMENT: 1,
+      TEXT: 3
+    };
+
+    if (xml.nodeType === nodeType.ELEMENT) {
+      // do attributes
+      if (xml.attributes.length > 0) {
+        obj["@attributes"] = {};
+        for (var j = 0; j < xml.attributes.length; j++) {
+          var attribute = xml.attributes.item(j);
+          obj["@attributes"][attribute.nodeName] = attribute.value;
+        }
+      }
+    } else if (xml.nodeType === nodeType.TEXT) {
+      obj = xml.nodeValue;
+    }
+
+    // do children
+    if (xml.hasChildNodes()) {
+      for (var i = 0; i < xml.childNodes.length; i++) {
+        var item = xml.childNodes.item(i);
+        var nodeName = item.nodeName;
+
+        if (obj[nodeName] === undefined) {
+          obj[nodeName] = this._xmlToJson(item);
+        } else {
+          if (obj[nodeName].push === undefined) {
+            var old = obj[nodeName];
+            obj[nodeName] = [];
+            obj[nodeName].push(old);
+          }
+          obj[nodeName].push(this._xmlToJson(item));
+        }
+      }
+    }
+    return obj;
+  }
+};
+
+var customChartSelectRange = {
+
+  _s: null,
+
+  _ranges: null,
+
+  init: function() {
+
+    this._s = $('#range-selector');
+    this._s.empty();
+    this._initRanges();
+    this._appendOptions(this._ranges);
+    this._styleSelect();
+    this._appendClick();
+  },
+
+  _initRanges: function() {
+
+    var _today = moment().format('x');
+
+    this._ranges = [{
+      'label': '1 dzień',
+      'custom': 'day',
+    //   'from': moment().subtract(1, 'd').format('x'),
+    //   'to': _today,
+      'previewMinFrameWidth': 40
+    }, {
+      'label': '1 tydzień',
+      'from': moment().subtract(10, 'd').format('x'),
+      'to': _today,
+      'previewMinFrameWidth': 60
+    }, {
+      'label': '1 miesiąc',
+      'from': moment().subtract(1, 'month').format('x'),
+      'to': _today,
+      'previewMinFrameWidth': 40
+    }, {
+      'label': '6 miesięcy',
+      'from': moment().subtract(5, 'months').format('x'),
+      'to': _today,
+      'previewMinFrameWidth': 20
+    }, {
+      'label': '1 rok',
+      'from': moment().subtract(1, 'years').format('x'),
+      'to': _today,
+      'previewMinFrameWidth': 10
+    }, {
+      'label': '5 lat',
+      'from': moment().subtract(5, 'years').format('x'),
+      'to': _today,
+      'previewMinFrameWidth': 10
+    }, {
+      'label': 'od początku',
+      'from': moment().subtract(20, 'years').format('x'),
+      'to': _today,
+      'selected': 'true',
+      'previewMinFrameWidth': 5
+    }];
+  },
+
+  _appendOptions: function(_r) {
+
+    for (var i = 0; i < _r.length; i++) {
+
+      var _o = $('<option>');
+      _o.attr('data-from', _r[i].from);
+      _o.attr('data-to', _r[i].to);
+      _o.attr('data-previewminframewidth', _r[i].previewMinFrameWidth);
+      _o.html(_r[i].label);
+
+      if (_r[i].selected) {
+        _o.attr('selected', 'selected');
+      }
+      if (_r[i].custom) {
+        _o.attr('data-custom', _r[i].custom);
+      }
+
+      _o.appendTo(this._s);
+    }
+  },
+
+  _styleSelect: function() {
+    this._s.addClass('custom-select').sSelect();
+  },
+
+  _appendClick: function() {
+    this._s.on('change', function(e) {
+
+      var data = $('option:selected', this).data();
+      customChart._setCustomRange(data);
+    });
+  }
+};
+
+var customChart = {
+
+  _o: { // _options
+    j: null,
+    jDay: null,
+    series: [],
+    seriesDay: [],
+    seriesHash: [],
+    graph: null,
+    xAxis: null,
+    yAxis: null,
+    hover: null,
+    preview: null,
+    chart: null,
+    previewEl: null,
+    previewMinFrameWidth: 5
+  },
+
+  init: function() {
+
+    this._o.chart = $('#chart')[0];
+    this._o.previewEl = $('#preview')[0];
+
+    this._o.j = _allData.quotes.quote;
+    this._o.jDay = _dayData.quotes.quote;
+
+    this._prepareSeries(this._o.j, this._o.series);
+    this._prepareSeries(this._o.jDay, this._o.seriesDay);
+
+    this._initChartValueLabel(this._o.seriesDay);
+
+    this._initGraph(this._o.series);
+    this._initChartOther();
+    this._initOnResize();
+
+  },
+
+
+
+
+  _initOnResize: function() {
+    var _this = this;
+
+    $(window).resize(function() {
+      setTimeout(function() {
+        _this._o.graph.width = $('#chart_container').width();
+        _this._o.graph.update();
+        _this._initPreview();
+      }, 100);
+    });
+    
+
+    window.addEventListener('orientationchange', function() {
+        
+            setTimeout(function() {
+                    
+                    var svgWidth = $('#chart_container').width(),
+                        svg = $('#chart').find('svg')[1];
+                    
+                    svg.removeAttribute('width');
+                    svg.setAttribute('width', svgWidth);
+                    
+                },250);
+
+    }, false);
+
+  },
+
+  _initChartValueLabel: function(_series) {
+    $('#chart-value').show();
+    $('#chart-value span.value').empty().html(_series[_series.length - 1]['y']);
+
+  },
+
+  _initChartOther: function() {
+    this._initXAxis();
+    this._initYAxis();
+    this._initHover();
+    this._initPreview();
+  },
+
+  _setCustomRange: function(_data) {
+
+    this._o.graph.update();
+
+    this._o.previewMinFrameWidth = _data.previewminframewidth;
+    this._setCustomMinFrameWidthForPreview();
+
+    if (_data.custom !== undefined) {
+
+      this._o.graph.series[0].data = this._o.seriesDay;
+      this._o.graph.update();
+      return false;
+    }
+
+    this._o.seriesHash = [];
+
+    var _from = Math.round(_data.from / 1000);
+    var _to = Math.round(_data.to / 1000);
+
+    for (var i = 0; i < this._o.series.length; i++) {
+      if (this._o.series[i].x >= _from) {
+        this._o.seriesHash.push(this._o.series[i]);
+      }
+    }
+
+    this._o.graph.series[0].data = this._o.seriesHash;
+    this._o.graph.update();
+
+  },
+
+  _setCustomMinFrameWidthForPreview: function() {
+
+    this._o.preview.config.minimumFrameWidth = Math.round($(this._o.previewEl).width() * this._o.previewMinFrameWidth / 100);
+    this._o.graph.update();
+  },
+
+  _prepareSeries: function(__json, __series) {
+
+    for (var i = 0; i < __json.length; i++) {
+
+      var _x = Date.parse(__json[i]['@attributes'].time.split('.').swapItems(0, 1).join('/')) / 1000;
+      var _y = parseFloat(__json[i]['@attributes'].closeprice);
+
+      __series.push({
+        x: _x,
+        y: _y
+      });
+    }
+  },
+
+  _initGraph: function(_series) {
+
+    if (_series.length === 0) {
+      return false;
+    }
+
+    this._o.graph = new Rickshaw.Graph({
+      element: this._o.chart,
+      width: $('#chart_container').width(),
+      height: 350,
+      stroke: true,
+      strokeWidth: '3px',
+      renderer: 'line',
+      min: 'auto',
+      padding: {
+        top: 0.2,
+        bottom: 0.25,
+        right: 0.005,
+        left: 0.005
+      },
+      
+      
+      series: [{
+        'data': this._o.series,
+        'color': '#facb4c'
+      }]
+
+    });
+    this._o.graph.render();
+  },
+  
+  _initXAxis: function() {
+
+    var _timeFixtures = new Rickshaw.Fixtures.Time.Local();
+    // _timeFixtures.months = ['STY', 'LUT', 'MAR', 'KWI', 'MAJ', 'CZE', 'LIP', 'SIE', 'WRZ', 'PAZ', 'LIS', 'GRU'];
+
+    this._o.xAxis = new Rickshaw.Graph.Axis.Time({
+      graph: this._o.graph,
+      ticksTreatment: 'plain',
+      timeFixture: _timeFixtures
+    });
+
+    this._o.xAxis.render();
+  },
+
+  _initYAxis: function() {
+
+    this._o.yAxis = new Rickshaw.Graph.Axis.Y({
+      graph: this._o.graph,
+      tickFormat: function(_n) {
+
+        if (Number(_n) === _n && _n % 1 === 0) { // check if number is int
+          return _n;
+        }
+        return (Math.round(_n * 100) / 100);
+      },
+      element: document.getElementById('y_axis')
+    });
+
+    this._o.yAxis.render();
+  },
+
+  _initHover: function() {
+
+    this._o.hover = new Rickshaw.Graph.HoverDetail({
+
+      graph: this._o.graph,
+      formatter: function(series, x, y, formattedX, formattedY, d) {
+
+        var selectedDay,
+          thisDay = new Date(x * 1000),
+          filter = document.getElementsByClassName('selectedTxt');
+
+        if (filter[1].innerHTML === "1 dzień") {
+          selectedDay = moment(thisDay).format('DD.MM.YYYY, HH:mm');
+        } else {
+          selectedDay = moment(thisDay).format('DD.MM.YYYY');
+        }
+
+        return 'Cena akcji na ' + selectedDay + ': ' + formattedY + " zł";
+      }
+    });
+  },
+
+  _initPreview: function() {
+    $(this._o.previewEl).empty();
+
+    var _minFrameWidth = Math.round($(this._o.previewEl).width() * this._o.previewMinFrameWidth / 100);
+
+    this._o.preview = new Rickshaw.Graph.RangeSlider.Preview({
+      graph: this._o.graph,
+      element: this._o.previewEl,
+      gripperColor: "#7a0035",
+      frameTopThickness: 0,
+      frameHandleThickness: 8,
+      frameColor: "#d1d1d1",
+      frameOpacity: 1,
+      minimumFrameWidth: _minFrameWidth,
+      width: $('#preview').width(),
+      height: 40
+    });
+    
+    this._setCustomMinFrameWidthForPreview();
+    this._o.graph.update();
+
+  }
+  
+};

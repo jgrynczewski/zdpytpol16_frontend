@@ -1,0 +1,160 @@
+/* Formatted Content Component Start*/
+
+
+
+
+.interchanged-images img {
+    width: 100%;
+}
+
+.accordion-content .formatted-content { 
+    padding-bottom: 30px;
+    overflow: auto;
+}
+.formatted-content {
+    padding-bottom: 20px;
+}
+
+.formatted-content h2 {
+    font-size: 32px;
+}
+
+.formatted-content,
+.formatted-content p,
+.formatted-content ul li { font-size: 15px; }
+
+.formatted-content ul {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.formatted-content li {
+    position: relative;
+    padding-left: 25px;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    text-align:left;
+}
+.formatted-content ul li:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #85003c; 
+}
+
+.formatted-content ol li:before {
+	content: counter(counter);
+	counter-increment: counter;
+    display: block;
+    position: absolute;
+    left: 0;
+    line-height: 1.65em;
+}
+
+
+.form-wrapper li {
+    position: relative;
+    padding-left: 25px;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align:left;
+}
+.form-wrapper ul:not(.newList) li:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #85003c; 
+}
+
+
+.formatted-content table {
+    margin-top: 20px;
+    width: 100%;
+    border: 0;
+}
+.formatted-content table td,
+.formatted-content table th {
+    padding: 25px!important;
+    font-size: 14px;
+    line-height: 1.4;
+    border: solid 1px #ccc;
+    background-color: #fff;
+    outline: 0;
+}
+.formatted-content table td:first-child,
+.formatted-content table th:first-child { border-left: 0; }
+.formatted-content table td:last-child,
+.formatted-content table th:last-child { border-right: 0; }
+.formatted-content table thead th {
+    font-weight: bold;
+    border-top-color: #000;
+    border-bottom-color: #000;
+}
+.formatted-content table tr:nth-child(odd) td { background-color: #f6f6f6; }
+.formatted-content table td.yellow { background-color: #ffcf5e!important; }
+.formatted-content table td.green { background-color: #36c670!important; border-right-color: #2b9e5a ; }
+.formatted-content table td.blue { background-color: #52aace!important; }
+.formatted-content table td.grey { background-color: #f2f2f2!important; }
+
+.formatted-content td table {margin: 0;}
+.formatted-content td table td { border: 0; padding: 5px 0 15px 10px; vertical-align: top;}
+.formatted-content td table td:first-child { padding-left: 0;}
+.formatted-content td table td:last-child { padding-right: 0;}
+
+.child-formatted-conten { margin-top: -20px; }
+.child-formatted-conten h2,
+.accordion-content article .child-formatted-content h2{ 
+    font-weight: 300; 
+    padding: 0; 
+    margin-bottom: 0;
+}
+
+
+.formatted-content.flat-tables table tr:nth-child(2n+1) td, table.flat-table tr td {
+    background-color: #fff;
+}
+
+.formatted-content.flat-tables table td, table.flat-table td {
+    border-left: 0;
+    border-right: 0;
+    padding: 15px 0;
+}
+
+
+table.flat-table td {
+    border-bottom: solid 1px #ccc;
+}
+
+table.flat-table td.link {
+    text-align: right;
+}
+
+
+@media only screen and (min-width: 40.063em) {
+    .child-formatted-content h2,
+    .accordion-content article .child-formatted-content h2 { 
+        font-weight: 300; 
+        padding: 0; 
+        margin-bottom: 0;
+    }
+    .formatted-content > h2 {font-size:55px;padding:30px 0;}
+}
+
+@media only screen and (min-width: 60.063em) {
+    
+    /*.formatted-content ul { margin-left: -25px; } rkaminski*/
+    .news_item .formatted-content ul { margin-left: 0; }
+    .news_item .formatted-content ul li:before { top: 50%; margin-top: -4px; }
+}
+
+/* Formatted Content Component Start*/

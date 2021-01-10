@@ -1,0 +1,113 @@
+.locatorbox {
+    position: relative;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.locatorbox h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.locatorbox h3 { 
+    margin-top: 0;
+    min-height: 24px;
+    font-weight: normal;
+}
+
+.locatorbox .box-description {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.locatorbox .inner-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.locatorbox .image-column {
+    height: 100%;
+    width: 40%;
+    float: right;
+}
+
+.locatorbox .vertical-center {
+}
+
+.locatorbox .box-part-width {
+    width: 60%;
+    float: left;
+    padding-right: 5px;
+}
+
+.locatorbox .single-cta {
+    margin: 0;
+    margin-top: 20px;
+    max-width: 170px;
+}
+
+.locatorbox .text-action {
+    margin-top: 20px;
+    line-height: 50px;
+}
+
+.locatorbox .text-action.short {
+    font-size: 26px;
+}
+
+.locatorbox .text-action.long {
+    font-size: 18px;
+}
+
+.locatorbox .text-action span {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.locatorbox .text-action a {
+    color: #000;    
+}
+
+.black .locatorbox .text-action a {
+    color: #fff;    
+}
+
+@media screen and (min-width: 642px) {
+    .locatorbox .image-column {
+        float: left;
+    }
+    
+    .locatorBoxes.one > div > div > .column:first-of-type {
+        margin-left: 25% !important;
+    }
+    
+    .locatorBoxes.one > div > div > .medium-4 {
+        width: 50%;
+    }
+    
+    .locatorBoxes.two > div > div > .column:first-of-type {
+        margin-left: 16.66667% !important;    
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .locatorbox h2 {
+        font-size: 30px;
+    }
+    
+    .locatorbox h3 { 
+        min-height: 24px;
+    }
+    
+    .locatorbox .text-action.short {
+        font-size: 30px;
+    }
+    
+    .locatorbox .text-action.long {
+        font-size: 24px;
+    }
+}

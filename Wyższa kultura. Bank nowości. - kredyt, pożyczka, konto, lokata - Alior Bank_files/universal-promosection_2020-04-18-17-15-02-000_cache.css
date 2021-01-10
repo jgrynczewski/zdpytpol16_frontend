@@ -1,0 +1,67 @@
+/* Universal promosection Start*/
+
+.universal-promosection {
+  display: block;
+  padding: 50px 0;
+  max-width: 1400px;
+  margin: 0 auto; 
+}
+
+@media only screen and (min-width: 40.063em) {
+  .universal-promosection {
+    padding: 70px;
+  }
+}
+
+.universal-promosection .universal-promosection-image {
+  margin-bottom: 15px;
+}
+
+.universal-promosection .universal-promosection-title {
+  font-size: 36px;
+}
+
+@media only screen and (min-width: 40.063em) {
+  .universal-promosection .universal-promosection-title {
+    font-size: 55px;
+  }
+}
+
+.universal-promosection .universal-promosection-subtitle {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+@media only screen and (min-width: 40.063em) {  
+  .universal-promosection .universal-promosection-subtitle {
+    font-size: 28px;
+  }
+}
+
+.universal-promosection .universal-promosection-description {
+  margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 40.063em) {
+  .universal-promosection .universal-promosection-columns {
+    text-align: left;
+  }
+}
+
+.universal-promosection .universal-promosection-columns .universal-promosection-item {
+  margin-bottom: 25px;
+}
+
+.universal-promosection .universal-promosection-columns p {
+  margin-bottom: 0;
+}
+
+.universal-promosection .universal-promosection-columns .universal-promosection-image-col {
+  text-align: center;
+}
+
+.universal-promosection .product-legal-note-wrapper {
+  margin: 0 0 30px;
+}
+
+/* Universal promosection End*/

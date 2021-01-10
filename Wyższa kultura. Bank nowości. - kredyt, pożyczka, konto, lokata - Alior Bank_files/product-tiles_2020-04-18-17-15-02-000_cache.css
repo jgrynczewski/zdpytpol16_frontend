@@ -1,0 +1,136 @@
+/* ======== product-tile ======== */
+.product-tiles {
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 640px) {
+  .product-tiles .row {
+    display: flex;
+  }
+}
+
+.product-tile {
+  padding: 16px 32px 48px;
+  margin: 16px -16px 0;
+  max-width: 540px;
+}
+
+@media screen and (min-width: 640px) {
+  .product-tile {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+  }
+}
+
+
+
+.product-tile .product-tile-disclaimer {
+  font-size: 12px;
+  color: #000;
+  text-decoration: none;
+  text-align: left;
+  display: block;
+}
+
+.product-tile .product-tile-image-container {
+  display: flex;
+  height: 200px;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-tiles .product-tile .product-tile-image-container {
+  height: 200px;
+}
+
+.product-tile .product-tile-image {
+  max-width: 100%;
+  display: block;
+  /*margin: 0 auto;*/
+  max-height: 200px;
+}
+
+.product-tile .product-tile-title {
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.25;
+  margin-top: 24px;
+  margin-bottom: .8rem;
+}
+
+.product-tile .product-tile-text {
+  font-size: 14px;
+  color: #21201d;
+  line-height: 1.5;
+}
+
+.product-tile .product-tile-buttons {
+  display: flex;
+}
+
+@media screen and (min-width: 640px) {
+  .product-tile .product-tile-buttons {
+    margin-top: auto;
+  }
+}
+
+.product-tile .product-tile-list {
+  margin: 0;
+  padding: 0 0 32px 16px;
+  color: #4a4a4a;
+  font-size: 14px;
+  list-style: none;
+}
+
+.product-tile .product-tile-list li {
+  position: relative;
+  margin-top: 6px;
+}
+
+.product-tile .product-tile-list li::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: -16px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #920035;
+}
+
+.product-tile .hero-carousel-slide-buttons {
+  margin-top: 16px;
+  line-height: 48px;
+}
+
+.product-tile.slide-text-white .product-tile-disclaimer,
+.product-tile.slide-text-white .product-tile-title,
+.product-tile.slide-text-white .product-tile-text,
+.product-tile.slide-text-white .product-tile-list {
+  color: #fff;
+}
+.product-tile.slide-text-white .product-tile-list li::before {
+  background: #ffc426;
+}
+
+.product-tile.slide-text-gray .product-tile-disclaimer,
+.product-tile.slide-text-gray .product-tile-title,
+.product-tile.slide-text-gray .product-tile-text,
+.product-tile.slide-text-gray .product-tile-list {
+  color: #c8c8c8;
+}
+.product-tile.slide-text-gray .product-tile-list li::before {
+  background: #ffc426;
+}
+
+.product-tile.slide-text-black .product-tile-disclaimer,
+.product-tile.slide-text-black .product-tile-title,
+.product-tile.slide-text-black .product-tile-text,
+.product-tile.slide-text-black .product-tile-list {
+  color: #000;
+}

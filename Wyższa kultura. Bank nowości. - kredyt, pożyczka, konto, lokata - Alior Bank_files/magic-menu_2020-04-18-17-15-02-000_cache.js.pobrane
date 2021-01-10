@@ -1,0 +1,398 @@
+/**
+ * Magic Menu Module
+ */
+var magicMenu = {
+    /**
+     * @property {String} _menuWrapperClass - Menu container class name
+     */
+    _menuWrapperClass: 'main-nav',
+
+    /**
+     * @property {jQuery} _menuWrapper - jQuery object
+     */
+    _menuWrapper: null,
+
+    /**
+     * @property {String} _menuTriggerClass - menu trigger container class name
+     */
+    _menuTriggerClass: 'menu-trigger',
+
+    /**
+     * @property {jQuery} _menuTriggerContainer - jQuery object
+     *
+     */
+    _menuTriggerContainer: null,
+
+    /**
+     * @property {String} _magicMenuContainerClass - Magic Menu container class name
+     */
+    _magicMenuContainerClass: 'magic-menu',
+
+    /**
+     * @property {jQuery} _magicMenuContainer - jQuery object
+     */
+    _magicMenuContainer: null,
+
+    /**
+     * @property {jQuery} _menuListContainer - jQuery object - first child <ul> in _menuWrapper
+     */
+    _menuListContainer: null,
+
+    /**
+     * @property {Array} _menuList - list of <li> (first child) in _menuListContainer
+     */
+    _menuList: null,
+
+    /**
+     * @property {Number} _tabletBreakpoint - breakpoint (in pixels) between tablet and desktop
+     */
+    _tabletBreakpoint: 960,
+
+    /**
+     * @property {Number} _logoWidth - width of logotype (in pixels)
+     */
+    _logoWidth: null,
+
+    /**
+     * @property {Number} _searchWidth - width of search input (in pixels)
+     */
+    _searchWidth: null,
+
+    /**
+     * @property {String} _magicMenuLabel - label of Magic Menu
+     */
+    _magicMenuLabel: 'Więcej...',
+
+    /**
+     * @property {jQuery} _magicMenuDropdownList - jQuery object - <ul> list for Magic Menu
+     */
+    _magicMenuDropdownList: null,
+
+    /**
+     * @property {String} _magicMenuDropdownListClass - _magicMenuDropdownList class name
+     */
+    _magicMenuDropdownListClass: 'magic-menu-list',
+
+    /**
+     * @property {Array} _hiddenMenuItems - list of hidden menu items
+     */
+    _hiddenMenuItems: [],
+
+    /**
+     * @property {Function} - setTimeout instance
+     */
+    _timeout: null,
+
+    /**
+     * @property {Number} - amount of time in milisec for _timeout
+     */
+    _delay: 300,
+
+    _width: 0,
+
+    /**
+     * Init Magic Menu
+     */
+    init: function() {
+        this.getMenuWrapper();
+        this.getMenuListContainer();
+
+        this.getMenuTriggerContainer();
+
+        this.getLogoWidth();
+        this.getSearchWidth();
+
+        this.getMenuList();
+        this.createMagicMenu();
+
+        this.createMagicMenuLabel();
+        this.createMagicMenuDropdownList();
+        this.checkSearchBar();
+
+        // this.checkMenuWidth();
+
+        this.initEvents();
+
+        var _this = this;
+        setTimeout(function () {
+            _this._width = window.innerWidth;
+        }, 1000);
+    },
+
+    /**
+     * Init events
+     */
+    initEvents: function() {
+        if (document.readyState !== 'loading') {
+            this.checkMenuWidth();
+        } else {
+            $(window).on('DOMContentLoaded', this.checkMenuWidth.bind(this));
+        }
+        $(window).on('resize', this.checkMenuWidth.bind(this));
+    },
+
+    /**
+     * Gets _menuWrapper
+     */
+    getMenuWrapper: function() {
+        this._menuWrapper = $('.' + this._menuWrapperClass);
+    },
+
+    /**
+     * Gets _menuListContainer
+     */
+    getMenuListContainer: function() {
+        this._menuListContainer = this._menuWrapper.find('> ul');
+    },
+
+    /**
+     * Get _menuTriggerContainer
+     */
+    getMenuTriggerContainer: function() {
+        this._menuTriggerContainer = $('.' + this._menuTriggerClass);
+    },
+
+    /**
+     * Gets _logoWidth
+     */
+    getLogoWidth: function() {
+        this._logoWidth = $('.logo').width();
+    },
+
+    /**
+     * Gets _searchWidth
+     */
+    getSearchWidth: function() {
+        this._searchWidth = this._menuWrapper.hasClass('with-search') ? parseInt(this._menuWrapper.css('paddingRight')) : 0;
+    },
+
+    /**
+     * Gets _menuList
+     */
+    getMenuList: function() {
+        this._menuList = this._menuListContainer.find('> li:not(.' + this._magicMenuContainerClass +')')
+    },
+
+    /**
+     * Creates Magic Menu container
+     */
+    createMagicMenu: function() {
+        this._magicMenuContainer = $('<li>');
+        this._magicMenuContainer.addClass(this._magicMenuContainerClass).appendTo(this._menuListContainer);
+        this.hideMagicMenuContainer();
+    },
+
+    /**
+     * Toggles visibility of Magic Menu container
+     */
+    toggleMagicMenuContainer: function() {
+        if (this._hiddenMenuItems.length) {
+            this.showMagicMenuContainer();
+        } else {
+            this.hideMagicMenuContainer();
+        }
+    },
+
+    /**
+     * Shows Magic Menu container
+     */
+    showMagicMenuContainer: function() {
+        this._magicMenuContainer.removeClass('hide');
+    },
+
+    /**
+     * Hides Magic Menu container
+     */
+    hideMagicMenuContainer: function() {
+        this._magicMenuContainer.addClass('hide');
+    },
+
+    /**
+     * Appends label for Magic Menu
+     */
+    createMagicMenuLabel: function() {
+        this._magicMenuContainer.append('<span>' + this._magicMenuLabel + '</span>');
+    },
+
+    /**
+     * Creates <ul> dropdown list for Magic Menu container
+     */
+    createMagicMenuDropdownList: function() {
+        this._magicMenuDropdownList = $('<ul/>');
+        this._magicMenuDropdownList.addClass(this._magicMenuDropdownListClass).appendTo(this._magicMenuContainer.find('span'));
+    },
+
+    /**
+     * Clears dropdown list in Magic Menu
+     */
+    clearMagicMenuDropdownList: function() {
+        this._magicMenuDropdownList.html('');
+    },
+
+    /**
+     * Checks for large up screen devices depending on _menuTriggerContainer
+     * display css property
+     */
+    checkForLargeUpDevices: function() {
+        return this._menuTriggerContainer.css('display') === 'none';
+    },
+
+    /**
+     * Checks if Magic Menu is needed
+     */
+    checkMenuWidth: function() {
+        var self = this,
+            windowWidth, availableWidth, menuWidth;
+        var $form = $('#search-form');
+        var trigger = $form.find('.search-contextPath');
+        var inputBox = $form.find('.input-box');
+        var isSearchInNav = inputBox.parents('#header');
+        var searchInput = $form.find('.search-input');
+        var windowSize = window.innerWidth;
+
+        if (this._width !== windowSize) {
+            this._width = windowSize;
+        } else {
+            return;
+        }
+
+        clearTimeout(this._timeout);
+
+        if (this.checkForLargeUpDevices()) {
+            this.hideMenu();
+            this.hideMagicMenuContainer();
+
+            this._timeout = setTimeout(function() {
+                self.makeMenuListItemsVisible();
+                self.removeItemsFromHiddenMenuItems();
+
+                windowWidth = $(window).width();
+                availableWidth = windowWidth - (self._logoWidth + self._searchWidth);
+                menuWidth = self._menuListContainer.width();
+
+                if (menuWidth > availableWidth) {
+                    self.showMagicMenuContainer();
+                    self.makeMenuListItemsHidden();
+                    self.clearMagicMenuDropdownList();
+                    self.createMagicMenuDropdownListItems();
+                }
+
+                self.showMenu();
+            }, this._delay);
+
+            trigger.show();
+            if (isSearchInNav.length) {
+                inputBox.hide();
+            }
+        } else {
+            self.showMenu();
+            trigger.hide();
+            inputBox.show();
+        }
+
+        $('.nav-wrap').removeClass('menu-open');
+        $('.main-nav > ul').removeClass('open');
+        $('#search-form').css('background', '');
+        trigger.addClass('icon-lupa');
+        trigger.removeClass('icon-arrows_remove');
+    },
+
+    /**
+     * Hides menu
+     */
+    hideMenu: function() {
+        this._menuListContainer.css({
+            opacity: 0,
+            visibility: 'hidden'
+        });
+    },
+
+    /**
+     * Shows menu
+     */
+    showMenu: function() {
+        this._menuListContainer.css({
+            visibility: 'visible'
+        }).animate({
+            opacity: 1
+        }, 100, function() {
+            //$(this).removeAttr('style');
+        });
+    },
+
+    /**
+     * Makes last _menuList items hidden to fit menu with Magic Menu
+     * in avaliable space
+     */
+    makeMenuListItemsHidden: function() {
+        var i = 0,
+            l = this._menuList.length,
+            item;
+
+        for (; i < l; i++) {
+            item = $(this._menuList[l - 1 - i]);
+            if (!item.hasClass('hide')) {
+                item.addClass('hide');
+                this._hiddenMenuItems.push(item);
+                break;
+            }
+        }
+
+        this.checkMenuWidthAfterLastItemIsHidden();
+    },
+
+    /**
+     * Makes all _menuList items visible
+     */
+    makeMenuListItemsVisible: function() {
+        this._menuList.removeClass('hide');
+    },
+
+    /**
+     * Checks if menu width already fits available space after last menu item
+     * was hidden
+     */
+    checkMenuWidthAfterLastItemIsHidden: function() {
+        var windowWidth = $(window).width(),
+            availableWidth = windowWidth - (this._logoWidth + this._searchWidth),
+            menuWidth = this._menuListContainer.width();
+
+        if (menuWidth > availableWidth) {
+            this.makeMenuListItemsHidden();
+        }
+    },
+
+    /**
+     * Removes all hidden menu items from _hiddenMenuItems
+     */
+    removeItemsFromHiddenMenuItems: function() {
+        this._hiddenMenuItems = [];
+    },
+
+    /**
+     * Creates Magic Menu dropdown nodes
+     */
+    createMagicMenuDropdownListItems: function() {
+        var i = 0,
+            l = this._hiddenMenuItems.length,
+            element;
+
+        for (; i < l; i++) {
+            element = this._hiddenMenuItems[l - 1 - i].clone().removeAttr('id').removeClass('hide');
+
+            this._magicMenuDropdownList.append(element);
+        }
+    },
+
+    /**
+     * Check if search bar is visible in navigation
+     */
+    checkSearchBar: function() {
+       var searchBarInNav =  this._menuWrapper.hasClass('with-search');
+       if(searchBarInNav) {
+           if(!this._menuWrapper.find('#search-form').length) {
+                this._menuWrapper.removeClass('with-search')
+           }
+       }
+    }
+};

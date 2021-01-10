@@ -1,0 +1,148 @@
+/* News List Template Start*/
+
+.news-list {padding:0 0.9375em;}
+.news-list ul {margin-left:0;}
+.news-list ul li {border-bottom:1px solid #cccccc;margin-bottom:30px;padding-bottom:40px;overflow:hidden;}
+.news-list li h3 {line-height:16px;margin-top:0;margin-bottom:20px;}
+.news-list li h3 a, .lead-text h3 {color:#85003c;font-size:14px;line-height:16px;}
+/* .news-list li p {font-size:14px;line-height:16px;margin-bottom:0;} */
+.news-list li .date{
+    font-size:14px;
+    line-height:14px;
+    font-weight: 300;
+    color:#bababa;
+}
+.news-list li a {color:#85003c;font-size:14px;line-height:16px;}
+.news-list li img {margin-bottom:10px;border:1px solid rgba(0, 0, 0, 0.1); /* border-radius:10px; WTF ? skąd to zaokrąglenie ?! / asokolowski*/}
+
+.news-list li.short {padding-bottom:10px;}
+.news-list li.short h3 {position:relative;padding-left:80px;}
+.news-list li.short h3 a {font-size:12px;}
+.news-list li.short .date {position:absolute;left:0;top:0;font-size:12px;display:inline-block;line-height:20px;}
+
+/*.banner-content h1 {font-size:30px;color:#000;text-align:center;}*/
+
+.news-header .text-center {
+    position: relative;
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .news-list li img {float:left;}
+    .news-list li h3 a, .lead-text h3 {color:#85003c;font-size:20px;line-height:35px;}
+    .news-list li .date {
+        font-size:20px;
+    }
+    .news-list li.short h3 {position:relative;padding-left:130px;}
+    .news-list li.short h3 a {
+        font-size:20px;
+    }
+    .news-list li.short .date, .lead-text .date  {font-size:20px;padding-right:35px;line-height:35px;}
+}
+
+@media only screen and (min-width: 64.063em) {
+ .news-list li h3 a, .lead-text h3 {color:#85003c;font-size:30px;line-height:35px;}
+    .news-list li .date {font-size:20px;}
+    .news-header .banner-content {padding-bottom:78px;padding-top:44px;}
+    .news-header h1 {font-size: 55px;line-height: 80px;text-align:center;}
+    .news-list li.short h3 {position:relative;padding-left:130px;}
+    .news-list li.short h3 a {font-size:20px;}
+    .news-list li.short .date {font-size:20px;padding-right:35px;line-height:35px;}
+}
+
+.pager {
+  line-height: 20px;
+  text-align: center;
+  padding: 0;
+  overflow:hidden;
+  clear:left;
+}
+@media (max-width: 479px) {
+  .pager {
+    padding: 0 0 64px 0 !important;
+  }
+}
+
+.pager ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.pager ul li,
+.pager ul,
+.pager a {
+  display: inline-block;
+  font-size: 20px;
+}
+.pager a {
+  display: inline-block;
+  font-size: 20px;
+  color: #86003d;
+}
+.pager strong {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.pager .pager-next,
+.pager .pager-prev {
+  width: 14px;
+  text-indent: -9999em;
+  margin: 0 15px;
+  position:relative;
+}
+@media (max-width: 479px) {
+  .pager .pager-next,
+  .pager .pager-prev {
+    margin: 0;
+    font-family:'icon';
+  }
+}
+
+@media (max-width: 479px) {
+  .pager .pager-next {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 479px) {
+  .pager .pager-prev {
+    margin-right: 10px;
+  }
+}
+.pager ul li {
+  margin: 0 7px;
+}
+.pager ul li b {
+  color: #000;
+}
+@media (max-width: 479px) {
+  .pager ul li {
+    font-size: 14px;
+  }
+}
+.pager .pager-next,
+  .pager .pager-prev {
+    margin: 0;
+    font-family:'icons';
+    font-size:50px;
+    height:45px;
+  }
+.pager .pager-prev:before {
+content:'\a10c';
+    float:left;
+    text-indent:0;
+    position:absolute;
+    right:0;
+    top:15px;
+}
+.pager .pager-next:before {
+content:'\e6f7';
+     float:left;
+    text-indent:0;
+    position:absolute;
+    left:0;
+    top:15px;
+}
+
+/* News List Template End*/

@@ -1,0 +1,90 @@
+/* ======== banner ======== */
+.banner {
+  background: #fcfcff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  min-height: 480px;
+  padding: 16px;
+}
+
+@media screen and (min-width: 640px) {
+  .banner .row {
+    display: flex;
+  }
+}
+
+.banner .banner-image {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+  .banner .banner-content-wrapper {
+    margin-bottom: 56px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .banner .banner-content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.banner .banner-content-wrapper .banner-title {
+  font-size: 36px;
+  font-weight: normal;
+  line-height: 1.25;
+  margin-top: 6px;
+  margin-bottom: 9px;
+}
+
+@media screen and (min-width: 640px) {
+  .banner .banner-content-wrapper .banner-title {
+    margin-top: 12px;
+    margin-bottom: 18px;
+  }
+}
+
+.banner .banner-content-wrapper .banner-text {
+  font-size: 16px;
+  color: #4a4a4a;
+  line-height: 1.5;
+  margin-top: 16px;
+  margin-bottom: 57px;
+}
+
+@media screen and (max-width: 480px) {
+  .banner .banner-content-wrapper .banner-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.banner .banner-content-wrapper .banner-buttons .button:not(:last-child) {
+  margin-bottom: 16px;
+  margin-right: 16px;
+}
+
+.banner.banner-text-white,
+.banner.banner-text-white .banner-title,
+.banner.banner-text-white .banner-text {
+  color: #fff;
+}
+
+.banner.banner-text-gray,
+.banner.banner-text-gray .banner-title,
+.banner.banner-text-gray .banner-text {
+  color: #c8c8c8;
+}
+
+.banner.banner-text-black,
+.banner.banner-text-black .banner-title,
+.banner.banner-text-black .banner-text {
+  color: #000;
+}

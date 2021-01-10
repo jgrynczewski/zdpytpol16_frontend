@@ -1,0 +1,226 @@
+    .empty {
+        display: none;
+    }
+    
+    .block-height {
+        min-height: 10px;
+    }
+    .award-years {
+        min-height: 55px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .award-years ul {
+        width: 100%;
+    }
+    
+    .award-years ul li{
+        display: inline-block;
+    }
+    
+    .award-years ul li a{
+        display: inline-block;
+        height: 54px;
+        line-height: 18px;
+        font-size: 16px;
+        padding: 20px 0 0 0;
+        margin: 0 15px;
+        border-bottom: 4px solid transparent;
+    }
+    
+    .award-years ul li.active a {
+        border-bottom: 4px solid #7A0035;
+    }
+    
+    .award-years ul li.active a {
+    
+    }
+
+    .award-title {
+        font-weight: 700;
+        font-size: 16px;
+    }
+    
+    .award-description {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .left-side, .right-side {
+        float: right;
+    }
+    
+    .axis .stripe{
+        background: #FFC426;
+        width: 10px;
+        display: block;
+        margin: 0 auto;
+        height: 103%;
+        min-height: 50px;
+    }
+    
+    .axis .stripe.last-of-type {
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    .axis .stripe:first-child {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    .axis .month {
+        width: 40px;
+        height: 40px;
+        border: 8px solid #FFC426;
+        background: #fff;
+        color: #000;
+        font-size: 12px;
+        line-height: 24px;
+        font-weight: 500;
+        text-align: center;
+        border-radius: 100%;
+        margin-left: -15px;
+    }
+    
+    .single-award .with-image img{
+        max-height: 100px;
+        margin: 10px auto 10px 0;
+    }
+    
+    .award-year {
+        font-size: 20px;
+        height: 20px;
+    }
+    
+    .single-award:first-child .award-year {
+        margin-bottom: -40px;
+    } 
+
+    .single-award:nth-child(2) .award-title {
+        margin-top: 50px;
+    }  
+    
+    .single-award:nth-child(2) .with-image .award-title {
+        margin-top: 0;
+    }  
+
+    .single-award:nth-child(2) .with-image img {
+        margin-top: 50px;
+    } 
+    .award-years.bottom {
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
+
+@media only screen and (min-width: 40.063em) {
+    .single-award:nth-child(2) .award-title, .single-award:nth-child(2) .with-image {
+        margin-top: 0;
+    } 
+
+    .single-award:nth-child(2) .with-image img {
+        margin-top: 0;
+    }  
+    
+    .empty {
+        content: ' ';    
+    }
+    
+    .awards {
+        margin-top: 40px;
+    }
+    
+    .axis .stripe.last-of-type {
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    
+    .axis .stripe:first-child {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .left-side, .right-side {
+        float: left!important; /* asokolowski - foundation :last override */
+    }
+    
+    .award-groups{
+        margin-left: 4.16777%!important; /* asokolowski - offset-0.5 */
+    }
+    
+    .axis {
+        min-height: 10px;
+    }
+    
+    .axis .stripe{
+        width: 20px;
+    }
+    .axis .month {
+        margin-left: -10px;
+    }
+    
+    .spacer {
+        display: block;
+        height: 50px;
+    }
+    
+    .single-award:first-child .award-year {
+        font-size: 60px;
+        margin-bottom: -40px;
+        height: 60px;
+    }
+    
+    .awards-year .right-side {
+        float: right;
+        text-align: left;
+    }
+    
+    .single-award:nth-child(2) .axis .month {
+        width: 50px;
+        height: 50px;
+        margin-left: -15px;
+        border: 14px solid #FFC426;
+        line-height: 22px;
+    }
+    
+}
+
+
+
+@media only screen and (min-width: 64.063em) {
+    .spacer {
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+    .spacer .triangle:after {
+        color: #DDDDDD;
+        content: '\a108';
+        font-family: icons;
+        font-size: 120px;
+        height: 150px;
+        position: relative;
+        top: -15px;
+    }
+    
+    .single-award:first-child .award-year {
+        font-size: 90px;
+        margin-bottom: -60px;
+        height: 90px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+

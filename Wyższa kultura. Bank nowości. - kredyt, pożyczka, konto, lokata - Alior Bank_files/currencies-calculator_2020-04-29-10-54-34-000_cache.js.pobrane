@@ -1,0 +1,303 @@
+function CurrenciesCalculator () {
+    this.section = $('.currencies-calculator');
+    this.market = this.section.find('#calculatorType').val();
+    this.isTmobile = this.section.hasClass('__t-mobile');
+    this.form = this.section.find('form');
+    this.serviceUrl = this.form.attr('action');
+
+    this.transactionCurrency = this.section.find('#transactionCurrency').val();
+    this.cardKind = this.section.find('#cardKind').val();
+    this.transactionAmount = this.section.find('#transactionAmount').val();
+    this.cardType = this.section.find('#cardType').val();
+    this.accountCurrency = this.section.find('#accountCurrency').val();
+
+    this.selectDefaultText = this.section.find('#transactionCurrency option:first-child').text();
+
+    this.init = function() {
+        if (!this.section.length) {
+            return;
+        }
+
+        this.onKindTypeChange();
+        this.onTransactionCurrencyChange();
+        this.setSelectColor();
+        this.initDecimalMask();
+        this.onSubmit();
+        this.onReset();
+    };
+
+    this.handleSameCurrencies = function (e) {
+        this.section.find('.total-charge-amount').text('0,00');
+        this.sameCurrency = this.transactionCurrency === this.accountCurrency;
+        var transactionAmount = $('#transactionAmount').val() || '0,00';
+
+        this.section.find('.same-currency-message').toggle(this.sameCurrency);
+        if (this.sameCurrency) {
+            $(e.target).parent().find('.success').remove();
+            this.section.find('.total-charge-amount').text(transactionAmount);
+            this.section.find('.margin-value').text('0,00%');
+        }
+    };
+
+    this.onTransactionCurrencyChange = function () {
+        var _this = this;
+
+        $('#transactionCurrency').on('change', function (e) {
+            _this.transactionCurrency = e.target.value;
+            _this.updateCurrencies(e);
+            _this.handleSameCurrencies(e);
+        });
+
+        $('#accountCurrency').on('change', function (e) {
+            _this.accountCurrency = e.target.value;
+            _this.handleSameCurrencies(e);
+        });
+    };
+
+    this.updateCurrencies = function (e) {
+       var _this = this;
+
+       try {
+           var accountCurrency = jsonConfiguration.accountCurrencies.filter(function (el){
+               return _this.matchAccountCurrency(el);
+           })[0];
+           var accountCurrencyList = accountCurrency.availableCurrencies.reduce(function (acc, _accountCurrency) {
+               var curr = _accountCurrency.transactionCurrencies.filter(function (transactionCurrency) {
+                   return transactionCurrency.code === _this.transactionCurrency;
+               })[0];
+               if (curr) {
+                   acc.push(_accountCurrency.accountCurrency);
+               }
+               return acc;
+           }, []);
+       } catch (e) {
+           var accountCurrencyList = allAvailableAccountCurrencies;
+       }
+
+       this.accountCurrency = null;
+       this.updateSelectOptions($('#accountCurrency'), accountCurrencyList);
+    };
+
+    this.onKindTypeChange = function () {
+        var _this = this;
+
+        $('#cardType').on('change', function (e) {
+            _this.cardType = e.target.value;
+            _this.updateCurrencies(e);
+        })
+
+        $('#cardKind').on('change', function (e) {
+            _this.cardKind = e.target.value;
+            _this.updateCurrencies(e);
+        });
+    };
+
+    this.matchAccountCurrency = function (el) {
+        var _this = this;
+
+        if (_this.market === 'PORTAL' && _this.isTmobile) {
+           return el.kind.name === _this.cardKind;
+        }
+
+        if (_this.market === 'PORTAL' && !_this.isTmobile) {
+           return el.kind.name === _this.cardKind && el.type.name === _this.cardType;
+        }
+
+        if (_this.market === 'KANTOR_PL') {
+           return el.kind.name === _this.cardKind;
+        }
+
+        return false;
+    };
+
+    this.updateSelectOptions = function (select, arr) {
+        var options = [];
+        options.push('<option value="">' + this.selectDefaultText + '</option>');
+        arr.map(function (el) {
+            options.push('<option value="' + el.code + '">' + (el.name || el.code) + '</option>');
+        });
+        select.html(options);
+        select.resetSS();
+    };
+
+    this.setSelectColor = function () {
+        if (!this.isTmobile) {
+            return;
+        }
+
+        $('.newListSelected').on('click', function () {
+            $('body > .SSContainerDivWrapper').find('a').map(function (i, el) {
+                $(el).css({color: '#e3017d'});
+            });
+        });
+    };
+
+    this.initDecimalMask = function () {
+        this.onKeyDown();
+        this.onKeyUp();
+    };
+
+    this.onKeyDown = function () {
+        this.section.find('input').on('keydown', function (e) {
+            var currentValue = e.target.value;
+            var keyCode = e.keyCode || e.which;
+            var validKeymap = [
+                8,
+                { from: 48, to: 57 },
+                { from: 96, to: 105 },
+                110,
+                188,
+                190
+            ];
+            var isValid = validKeymap.some(function (el) {
+                if (typeof el === 'object') {
+                    return keyCode >= el.from && keyCode <= el.to;
+                }
+
+                return keyCode === el;
+            });
+
+            if (e.shiftKey) {
+                e.preventDefault();
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+
+            var separatorCodes = [110, 188, 190];
+            var regex = /[.,]/g;
+            var separatorFound = currentValue.match(regex);
+            var hasSeparator = separatorFound && !!separatorFound.length;
+            var hasMultipleDots = separatorCodes.includes(keyCode) && hasSeparator;
+            var hasTwoDigitsAfterDot = hasSeparator && currentValue.split(separatorFound[0])[1].length === 2
+
+            isValid = keyCode === 8 || (!hasMultipleDots && !hasTwoDigitsAfterDot);
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
+    };
+
+    this.onKeyUp = function () {
+        var _this = this;
+
+        this.section.find('input').on('keyup', function (e) {
+            var keyCode = e.keyCode || e.which;
+            var separatorCodes = [110, 188, 190];
+            var commaCodes = [110, 188];
+            var hasSepearator = separatorCodes.includes(keyCode);
+
+            e.target.value = hasSepearator ? e.target.value.replace('.', ',') : e.target.value;
+            e.target.value = (hasSepearator && e.target.value.length === 1) ? '0,' : e.target.value;
+
+            if (_this.sameCurrency) {
+                _this.section.find('.total-charge-amount').text(e.target.value || '0,00');
+            }
+        });
+    };
+
+    this.onReset = function () {
+        var _this = this;
+
+        this.form.on('reset', function () {
+            _this.form.find('.newListSelected').map(function (i, el) {
+                var parent = $(el).parent();
+                var selectedTxt = $(el).find('.selectedTxt');
+
+                parent.removeClass('success error');
+                parent.find('small.success, small.error').remove();
+                parent.find('.same-currency-message').hide();
+                selectedTxt.text(_this.selectDefaultText);
+            });
+
+            $('input').map(function (i, el) {
+                var parent = $(el).parent();
+
+                parent.removeClass('success error');
+                parent.find('small.success, small.error').remove();
+            });
+
+            _this.updateSelectOptions($('#accountCurrency'), allAvailableAccountCurrencies);
+
+            _this.section.find('.total-charge-amount').text('0,00');
+            _this.section.find('.margin-value').text('0,00%');
+
+            _this.sameCurrency = false;
+
+            _this.transactionCurrency = null;
+            _this.cardKind = null;
+            _this.transactionAmount = null;
+            _this.cardType = null;
+            _this.accountCurrency = null;
+        });
+    };
+
+    this.onSubmit = function () {
+        var _this = this;
+
+        this.form.on('submit', function (e) {
+            e.preventDefault();
+
+            _this.section.find('.form-error').addClass('hide');
+
+            if (_this.sameCurrency) {
+                _this.form.find('small.error, small.success').remove();
+                _this.form.find('.columns.error').removeClass('error');
+                return;
+            }
+
+            if (_this.form.find('small.error:not(.form-error)').length) {
+                return;
+            }
+
+            _this.section.find('.total-charge-amount').text('0,00');
+            _this.section.find('.margin-value').text('0,00%');
+
+            var data = {};
+            var elements = _this.form[0].elements;
+            var len = elements.length;
+
+            for (var i = 0; i < len; i++) {
+                if (elements[i].value) {
+                    data[elements[i].name] = elements[i].value;
+                }
+            }
+
+            data.transactionAmount = parseFloat(data.transactionAmount.replace(',', '.'));
+
+            $.ajax({
+                url: _this.serviceUrl,
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+                success: function (res) {
+                    var amount = res.amount ? res.amount.toString().replace('.', ',') : '0,00';
+                    var bankEcbReferenceRate = res.bankEcbReferenceRate ? res.bankEcbReferenceRate.toString().replace('.', ',') + '%' : '0,00%';
+
+                    _this.section.find('.total-charge-amount').text(amount);
+                    _this.section.find('.margin-value').text(bankEcbReferenceRate);
+                },
+                error: function (response) {
+                    if (!response.responseText) {
+                        return;
+                    }
+
+                    if (response.statusText === 'parsererror') {
+                        return;
+                    }
+
+                    var responseText = JSON.parse(response.responseText)
+                    var field = responseText.field;
+                    var message = responseText.message;
+                    var input = $('#' + field);
+                    var parent = input.parent();
+
+                    parent.addClass('success');
+                    parent.append('<small class="error">' + message + '</small>');
+                }
+            });
+        });
+    };
+};

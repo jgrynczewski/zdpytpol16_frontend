@@ -1,0 +1,159 @@
+/* ScrollSection Component Start*/
+
+#cd-vertical-nav {
+  display: none;
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+#cd-vertical-nav.landingMenu {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+
+#cd-vertical-nav.landingMenu.sticky {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+ .sticky-on {
+  padding-bottom: 86px !important;
+}
+#cd-vertical-nav ul {
+    margin: 0;
+    line-height: 1;
+}
+
+#cd-vertical-nav li {
+  text-align: right;
+}
+
+#cd-vertical-nav a {
+  display: inline-block;
+  /* prevent weird movements on hover when you use a CSS3 transformation - webkit browsers */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  margin: 2px 0;
+  position: relative;
+}
+
+#cd-vertical-nav a:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#cd-vertical-nav a span {
+  float: right;
+  display: inline-block;
+}
+
+#cd-vertical-nav a:hover .cd-label {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+
+#cd-vertical-nav a.is-selected .cd-dot::before {
+  content: '\e6ef';
+}
+
+#cd-vertical-nav .cd-dot {
+  position: relative;
+  /* we set a top value in order to align the dot with the label. If you change label's font, you may need to change this top value*/
+  top: 0;
+  height: 20px;
+  width: 20px;
+}
+
+#cd-vertical-nav .cd-dot::before {
+    font-family: 'icons';
+    font-size: 28px;
+    line-height: 28px;
+    text-indent: 0;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 28px;
+    height: 28px;
+    content: '\e6ee';
+    text-align: center;
+    color: #7a0035;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.black #cd-vertical-nav .cd-dot::before {
+    color: #ffc426;
+}
+
+
+#cd-vertical-nav .cd-label {
+  position: relative;
+  margin-right: 10px;
+  padding: 10px;
+  color: #000;
+  background: #e6e6e6;
+  font-size: 14px;
+  font-size: 11px;
+  line-height: 18px;
+  white-space: nowrap;
+
+  position: absolute;
+  right: 15px;
+  top: -9px;
+
+  -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0;
+  -webkit-transform-origin: 100% 50%;
+  -moz-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  -o-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  -o-transform: scale(0.6);
+  transform: scale(0.6);
+}
+
+#cd-vertical-nav .cd-label:after {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid #e6e6e6;
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    margin-top: -6px;
+}
+
+/* ----------- MEDIA QUERIES ---------- */
+@media only screen and (min-width: 64.063em) {
+    #cd-vertical-nav {
+        display: block;
+    }
+}
+
+/* ScrollSection Component End*/

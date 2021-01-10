@@ -1,0 +1,636 @@
+/* Locator Component Start*/
+
+#location-type {
+    margin-top: 15px;
+}
+
+.result-additional-info-box {
+    color:  #7a0035;
+}
+
+.location-result .result-main-info:after {
+    font-family: 'icons';
+    content: "\a108";
+    position: absolute;
+    right: 4px;
+    top: 2px;
+    font-size: 40px;
+    font-weight: 300;
+    color:  #7a0035;
+    cursor: pointer;
+}
+
+.location-result.open .result-main-info:after {
+    content: "\a112";
+    cursor: pointer;
+}
+
+#location-type .newListSelected {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    display: none;
+}
+
+#location-type .selectedTxt {
+    width: auto;
+    height: 50px;
+    border: 1px solid #ededed;
+    padding-left: 10px;
+}
+
+#location-type .SSContainerDivWrapper {
+    bottom: auto;
+    width: 100%;
+}
+
+.mobile-location-type {
+    margin: 0;
+    display: table;
+    width: 100%;
+}
+
+.mobile-location-type li {
+    display: table-cell;
+    width: 33.33%;
+    text-align: center;
+}
+
+.mobile-location-type li:first-child {
+    text-align: left;
+}
+
+.mobile-location-type li:last-child {
+    text-align: right;
+}
+
+.mobile-location-type span {
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 4px solid rgba(0, 0, 0, 0);
+}
+
+.mobile-location-type .active span {
+    font-weight: 700;
+    border-color: #7a0035;
+}
+
+.location-search {
+    position: relative;
+}
+
+#search-location {
+    height: 33px;
+    padding: 0 40px 0 10px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#search-location[disabled] {
+    background: #fff;
+}
+
+.location-search .icon-lupa {
+    font-size: 23px;
+    color: #7a0035;
+    position: absolute;
+    right: 22px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.branch-types {
+    margin: 15px 0 5px;
+    display: none;
+}
+
+.branch-types li {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.branch-types input[type="checkbox"] + label img {
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+}
+
+.branch-types input[type="checkbox"] + label span {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.map-container {
+    margin-top: 15px;
+    position: relative;
+}
+
+.map-container img {
+    max-width: none;
+}
+
+.map-container,
+#map-container {
+    height: 350px;
+}
+
+.scroll-map-down {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    cursor: pointer;
+}
+
+.scroll-map-down:before {
+    font-family: 'icons';
+    content: '\a109';
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.cluster-marker {
+    font-family: "Roboto", sans-serif !important;
+    font-weight: 300 !important;
+}
+
+.infoBox img {
+    z-index: 1;
+}
+
+.facility-info-box {
+    width: 250px;
+    font-size: 14px;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #dbdbdb;
+    margin: 20px 20px 0 20px;
+    position: relative;
+    z-index: 0;
+}
+
+.facility-info-box:before,
+.facility-info-box:after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.facility-info-box:before {
+    border: 7px solid;
+    border-color: #dbdbdb #dbdbdb transparent transparent;
+    left: -14px;
+    top: 11px;
+}
+
+.facility-info-box:after {
+    border: 6px solid;
+    border-color: #fff #fff transparent transparent;
+    left: -12px;
+    top: 12px;
+}
+
+.facility-info-box .facility-name {
+    font-weight: 700;
+}
+
+.facility-info-box .available-hours-box {
+    margin-top: 20px;
+}
+
+.facility-info-box .details-contaier{
+   height: 30px;   
+}
+
+.facility-info-box .route-container {
+    margin-top: 18px;
+    color: #7a0035;
+    width: 50%;
+}
+
+.facility-info-box .more-details {
+    margin-top: 18px;
+    color: #7a0035;
+    width: 50%;
+    text-align: right;
+}
+
+
+.facility-info-box .route-container span,
+.facility-info-box .more-details span {
+    cursor: pointer;
+}
+
+.available-hours {
+    font-size: 14px;
+    line-height: 1.2;
+    margin: 0;
+    display: table;
+    width: 100%;
+}
+
+.available-hours li {
+    display: table-row;
+}
+
+.available-hours li span {
+    display: table-cell;
+    text-align: left;
+}
+
+.available-hours li .open-hours {
+    text-align: right;
+    color: #7f7f7f;
+}
+
+/*#search-location-filters {
+    margin-top: 20px;
+}*/
+
+#search-location-filters p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#results-quantity {
+    font-weight: 700;
+}
+
+.toggle-location-filters {
+    float: right;
+    color: #7a0035;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.location-filters {
+    margin: 0;
+    font-size: 14px;
+    display: none;
+}
+
+.location-result {
+    font-size: 14px;
+}
+.location-result .result-name-container {position:relative;padding-left:42px;}
+.location-result .result-name-container div,
+.location-result .result-address {
+    cursor: pointer;
+}
+.location-result .result-address {font-weight:300;}
+.location-result .result-name-container {
+    padding-top: 20px;
+    font-weight: 700;
+    border-top: 1px solid #ccc;
+
+}
+
+.location-result .result-name-container:not(:first-child) {
+    border-top: 1px solid #ccc;
+}
+
+.location-result .icon-geolocalize_full {
+    float: left;
+    font-size: 37px;
+    color: #7a0035;
+    margin-right: 5px;
+    position:absolute;
+    left:0;
+    top:25px;
+}
+
+.location-result .result-address {
+    margin-bottom: 20px;
+}
+
+.location-result .result-additional-info {
+    margin-top: 25px;
+}
+
+.location-result .result-contact-info {
+    margin: 25px 0;
+}
+
+.location-result .result-phone .value {
+    display: none;
+}
+
+.location-result .result-phone,
+.location-result .result-mail,
+.location-result .result-show-map {
+    margin-bottom: 10px;
+}
+
+.location-result .result-route .value {
+    cursor: pointer;
+}
+
+.location-result .result-show-map .value {
+    cursor: pointer;
+}
+
+.location-result .result-contact-info [class^="icon-"]:not(.hide) {
+    display: inline-block;
+    width: 30px;
+    margin-right: 10px;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.location-result .result-properties,
+.location-result .result-unavailable {
+    margin: 25px 0 0 0;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.location-result .result-unavailable-container {
+    margin-top: 20px;
+}
+
+.location-result .result-properties li,
+.location-result .result-unavailable li {
+    padding-left: 20px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    line-height: 1.15;
+}
+
+.location-result .result-properties li:before,
+.location-result .result-unavailable li:before {
+    font-family: 'icons';
+    line-height: 1;
+    position: absolute;
+    left: 0;
+}
+
+.location-result .result-properties li:before {
+     color: rgba(0, 0, 0, 1);
+}
+
+.location-result .result-unavailable li,
+.location-result .result-unavailable li:before {
+    color: #8D8D8D;
+}
+
+.location-result .branch-property-0:before {
+    content: "\e6ff";
+}
+
+.location-result .branch-property-1:before {
+    content: "\e700";
+}
+
+.location-result .branch-property-2:before {
+    content: "\e621";
+}
+
+.location-result .branch-property-3:before {
+    content: "\e614";
+}
+
+.location-result .branch-property-4:before {
+    content: "\e63a";
+}
+
+.location-result .branch-property-5:before {
+    content: "\e612";
+}
+
+.location-result .branch-property-6:before {
+    content: "\e6fe";
+}
+
+.location-result .branch-property-9:before {
+    content: "\e614";
+}
+
+.location-result .branch-property-10:before {
+    content: "\e689";
+}
+   
+.location-result:not(:first-child) .result-details {
+    display: none;
+}
+
+.location-result .result-contact-info {
+    color: #7a0035;
+}
+
+#search-location-generate-pdf {
+    font-size: 14px;
+    color: #7a0035;
+    margin-bottom: 20px;
+}
+
+#search-location-generate-pdf [class^="icon-"] {
+    font-size: 25px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+#search-location-generate-pdf .value {
+    cursor: pointer;
+}
+
+/* ----------- MEDIA QUERIES ---------- */
+@media only screen and (min-width: 40.063em) {
+    .scroll-map-down {
+        display: none;
+    }
+    
+    #search-location {
+        height: 50px;
+        padding: 0 50px 0 15px;
+        font-size: 20px;
+    }
+    
+    #location-type .newListSelected {
+        display: block;
+    }
+    
+    .mobile-location-type {
+        display: none;
+    }
+    
+    .location-search {
+        margin-top: 15px;
+    }
+    
+    .location-search .icon-lupa {
+        font-size: 30px;
+        right: 25px;
+        top: 10px;
+    }
+    
+    .branch-types {
+        /*display: block;*/
+        display: table;
+    }
+    
+    #search-location-filters p {
+        font-size: 20px;
+    }
+    
+    .toggle-location-filters {
+        color: #000;
+        float: none;
+    }
+    
+    .toggle-location-filters:before {
+        content: "- ";
+    }
+    
+    .toggle-location-filters:after {
+        content: "\a105";
+        font-family: 'icons';
+        font-size: 24px;
+        line-height: 1;
+        color: #7A0035;
+        position: relative;
+        right: -10px;
+        top: 2px;
+    }
+    
+    .toggle-location-filters.open:after {
+        content: "\a104";
+    }
+    
+    .location-filters li {
+        height: 35px;
+    }
+
+    .location-result .result-details-additional-info {
+        margin-left: 42px;
+        padding-bottom: 10px;
+    }
+    
+    .location-result .result-name-container {
+        padding-top: 25px;
+    }
+
+    .location-result .available-hours-box > * {
+        padding-left: 42px;
+    }
+    
+    .location-result .result-additional-info {
+        margin-top: 0;
+    }
+    
+    .location-result .result-phone,
+    .location-result .result-mail {
+        margin-bottom: 0;
+    }
+    
+    .location-result .result-phone {
+        padding-left: 35px;
+    }
+    
+    .location-result .result-phone .value {
+        display: inline-block;
+    }
+    
+    .location-result .result-phone a {
+        display: none;
+    }
+    
+    /*
+       Elementy niewidoczne, znajdujące się w jednym wierszu, muszą wciąż rozpychać kontener.
+       Dzięki temu każdy z nich będzie zachowywał jednakową pozycję niezależnie od  ilości. 
+    */
+    .location-result .result-contact-info .hide {
+        visibility: hidden;
+        display: block;
+    }
+    
+    .location-result .result-contact-info [class^="icon-"]:not(.hide),
+    #search-location-generate-pdf [class^="icon-"] {
+        font-size: 32px;
+    }
+    
+    .location-result .result-contact-info [class^="icon-"] {
+        font-size: 35px;
+        width: auto;
+        margin-right: 0;
+    }
+    
+    .location-result .result-mail [class^="icon-"] {
+        margin-right: 10px;
+    }
+    
+    .location-result .result-route [class^="icon-"] {
+        vertical-align: bottom;
+    }
+    
+    .location-result .result-properties li,
+    .location-result .result-unavailable li {
+        padding: 1px 1px 1px 30px;
+        margin-bottom: 15px;
+        line-height: 21px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .location-result .result-properties li:before,
+    .location-result .result-unavailable li:before {
+        left: 2px;
+        font-size: 20px;
+    }
+    
+    /* .facility-info-box .route-container {
+        margin-top: 68px;
+    } 
+    */
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #bank-facilities .main-banner {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .map-container,
+    #map-container {
+        height: 450px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .map-container,
+    #map-container {
+        height: 480px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) and (max-height: 800px) {
+    .map-container,
+    #map-container {
+        height: 480px;
+    }
+    
+    /*.facility-info-box .available-hours-box,*/
+    /*.facility-info-box .route-container, .facility-info-box .more-details {*/
+    /*    margin-top: 15px;*/
+    /*}*/
+    
+    /*.facility-info-box .facility-name,*/
+    /*.facility-info-box .address-data,*/
+    /*.facility-info-box .available-hours-box,*/
+    /*.facility-info-box .available-hours,*/
+    /*.facility-info-box .route-container,*/
+    /*.facility-info-box .more-details {*/
+    /*    font-size: 11px;*/
+    /*}*/
+}
+
+/* Locator Component Start*/

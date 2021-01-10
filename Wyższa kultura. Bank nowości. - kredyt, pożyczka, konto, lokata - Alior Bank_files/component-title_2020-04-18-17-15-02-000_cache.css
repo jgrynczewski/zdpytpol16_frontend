@@ -1,0 +1,100 @@
+.component-title {
+    padding: 15px 0;
+    clear: both;
+}
+
+.component-title h2 { 
+    font-size: 32px; 
+    margin-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+.component-title h3 { 
+    font-size: 24px; 
+    margin-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+.component-title p {
+    font-size: 14px;
+}
+
+.component-title figcaption {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+    /*margin-left: 15px; vkovalenko*/
+}
+
+#structured-product-list .component-title {
+    padding-bottom: 0;
+}
+
+#structured-product-list .component-title h2 {
+    margin-bottom: 0;
+}
+
+#alior-faq .component-title {
+    padding-top: 0;
+}
+
+#alior-faq .component-title h2 {
+    font-size: 32px;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .component-title {
+        padding: 30px 0;
+    }
+    
+    .component-title h2 {
+        font-size: 55px;
+        margin-bottom: 15px;
+    }
+    
+    .component-title h3 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .component-title p {
+        font-size: 20px;
+    }
+    
+/*    .component-title figcaption {
+        margin-left: 55px;
+    }
+*/
+    /* #alior-faq .component-title h2 { font-size: 30px; } asokolowski */
+    
+    #alior-faq .component-title h2 {
+        font-size: 55px;
+    }
+    
+    #awards .component-title{
+        margin-top: 40px;
+    }
+    
+    #structured-product-list .component-title {
+        padding: 50px 0 40px;
+    }
+    
+    #reports-home .component-title {
+        padding-top: 0;
+    }
+    
+    #reports-home .component-title h2 {
+        font-size: 30px;
+        margin: 0;
+    }
+}
+
+
+@media only screen and (min-width: 64.063em) {
+  
+    .component-title h2 {
+        font-size: 55px;
+    }
+}

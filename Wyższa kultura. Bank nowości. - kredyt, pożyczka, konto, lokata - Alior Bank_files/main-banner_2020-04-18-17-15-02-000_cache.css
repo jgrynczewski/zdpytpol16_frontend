@@ -1,0 +1,322 @@
+/* Main Banner Area/Components Start*/
+
+.main-banner {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 60px;
+    position: relative;
+}
+
+#alior-home .main-banner,
+#alior-clients .main-banner  {
+    /* background-size: auto 60%; */
+    background-size: cover;
+}
+
+.banner-outer {
+    width: 100%;
+    overflow: hidden;
+    height:auto;
+    min-height: 300px;
+}
+
+#alior-error-page .main-banner {
+    overflow: hidden;
+}
+
+#news .main-banner {
+    background-size:auto;
+    background-position: right -110px;
+}
+
+.person-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    right: -60%;
+    top: 60px;
+    width: 95%;
+}
+
+/*#alior-brokerage .person-image {*/
+/*    right: -32%;*/
+/*    width: 97%;*/
+/*}*/
+
+#thank-you-page .person-image {
+    right: -14%;
+    width: 50%;
+}
+
+/*#alior-clients .person-image { right: -49%; }*/
+
+.banner-content-container {
+    display: table;
+    width: 100%;
+}
+
+.banner-content {
+    display: table-cell;
+    vertical-align: top;
+   /* padding-top: 45px; */
+    padding-bottom: 20px;
+}
+
+.black .banner-content h1 {
+    color: #fff;
+}
+
+.welcome-text h1 {
+    color: #fff;
+    margin-top: 20px;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.black .welcome-text h1 {
+    color: #FFC426;
+}
+
+.banner-content h1 {
+    font-size: 32px;
+    line-height: 1;
+}
+
+#thank-you-page .banner-content h1{
+    font-size: 1.75em;
+    line-height: 1.1em;
+}
+
+#thank-you-page .banner-content h1 + p{
+    margin-bottom: 20px;
+}
+
+.yellow .banner-content h1{
+    color: #000;
+}
+
+.banner-content p{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.black .banner-content p{
+    color: #fff;
+}
+
+#alior-faq .banner-content h1{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#alior-faq .person-image{
+    width: 40%;
+    right: -13%;
+}
+
+#thank-you-page { overflow-x: hidden; }
+/*#thank-you-page .main-banner { overflow: visible; } vkovalenko */
+
+#thank-you-page .main-banner {
+      background-size: contain;
+      background-repeat: repeat-x;
+      overflow: visible;
+}
+
+/* ----------- MEDIA QUERIES ---------- */
+@media only screen and (max-width: 40em) {
+    
+    /*#alior-clients .person-image {*/
+    /*    right: -28%;*/
+    /*}*/
+    
+    #thank-you-page .banner-content p {
+        font-size: 14px;
+        line-height: 1.15;
+    }
+
+    #thank-you-page .banner-content h1 + p {
+        margin-top: 25px;
+    }
+    
+}
+
+@media only screen and (min-width: 40.063em) {
+    .person-image {
+        top: 100px;
+    }
+
+    #alior-home .main-banner,
+    #alior-clients .main-banner  {
+        /* background-size: auto 65%; */
+        background-size: cover;
+    }
+
+    .banner-outer.static-height {
+        display: table;
+    }
+    
+    .banner-outer.static-height .banner-outer-wrapper {
+        display: table-cell;  
+        vertical-align: middle;  
+    }
+    
+    .banner-outer.static-height .banner-content {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    .welcome-text.static-height h1 {
+        font-size: 46px;    
+    }
+    
+    /*#alior-clients .banner-content { height: 610px;}*/
+    #alior-faq .banner-content { padding: 50px 0; }
+    #alior-faq .person-image { width: 24%;  right: -6%; }
+    /*#alior-brokerage .person-image { width: 95%; }*/
+    .banner-outer {height:auto;}
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .main-banner {
+        padding-top: 86px;
+        /* padding-left: 20px;
+        padding-right: 20px; asokolowski*/
+    }
+    .news-header .banner-content {
+        padding-top:44px;
+        padding-bottom:72px;
+   }
+    .person-image {
+        right: -65%;
+    }
+    
+    /*#alior-brokerage .person-image { right: -40%;  }*/
+    #thank-you-page .person-image { right: -16%;  }
+    /*#alior-clients .person-image { right: -32%; }*/
+    
+    /*.banner-content {*/
+    /*    padding-top: 155px;*/
+    /*    padding-bottom: 85px;*/
+    /*}*/
+    
+    #alior-brokerage .banner-content { padding-top: 95px; }
+    #thank-you-page .banner-content { padding-top: 85px; }
+    
+    .banner-content h1 {
+        font-size: 55px;
+    }
+    
+    .banner-content p {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+    
+    #thank-you-page .banner-content h1 {
+        font-size: 3.5em;
+    }
+    #thank-you-page .banner-content h1 + p {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+    
+    #alior-private-banking .main-banner {
+        background-size: initial;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    
+    #alior-home .main-banner,
+    #alior-clients .main-banner  {
+        background-size: auto 65%;
+        background-size: cover;
+    }
+
+    
+    .main-banner {
+        padding-top: 86px;
+    }
+    
+    #alior-private-banking .main-banner {
+        background-size: initial;
+    }
+    
+    #article .main-banner {
+        padding-top: 127px;
+    } 
+    
+    .banner-content {
+        padding-top: 62px;
+        padding-bottom: 85px;
+    }
+
+    .banner-content h1 {
+        font-size: 55px;
+        margin-bottom: 10px;
+        white-space: nowrap;
+    }
+    
+    .banner-content p {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+    
+    #thank-you-page .banner-content h1 {
+        font-size: 3.5em;
+    }
+    
+    #thank-you-page .banner-content p.sub-header {
+        font-size: 22px;
+        margin-top: 20px;
+    }
+    
+    .person-image {
+        right: -60%;
+        top: 100px;
+        /*width: auto;*/
+    }
+
+    /*#alior-brokerage .person-image { */
+    /*    right: -39.5%; top: 5px;*/
+    /*}*/
+    
+    #thank-you-page .person-image {
+        right: -18.5%;
+        top: 22px;
+    }
+    
+    /*#alior-clients .person-image {*/
+    /*    right: -19%;*/
+    /*    top: 10px;*/
+    /*}*/
+}
+
+@media only screen and (min-width: 1390px) {
+    
+    #alior-private-banking .main-banner{ 
+        background-size: 100% auto; 
+    }
+    }
+
+
+@media only screen and (min-width: 1600px) {
+    
+    #alior-home .main-banner, 
+    #alior-clients .main-banner{ 
+        background-size: cover; 
+    }
+}
+
+/* Main Banner Area/Component End*/
+
+
+

@@ -1,0 +1,269 @@
+/* Career Path component start */
+ .career-path {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.career-path h3 {
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+.career-path p {
+    text-align: left;
+    padding-top: 0px;
+    font-size: 14px;
+  line-height: 22px;
+}
+
+.career-path .dots-wrap {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    z-index: 1;
+}
+.career-path .dots-wrap .dot {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: #ffc426;
+    color: #7A0035;
+    margin: -4px 10px;
+    box-shadow: 9px -25px 30px 0px rgba(50, 50, 50, 0.08);
+}
+.career-path .dots-wrap .dot .table-block {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.career-path .dots-wrap .dot .table-block span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.career-path .dots-wrap .dot:before, .career-path .dots-wrap .dot .table-block:first-child:before {
+    content:'';
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    margin-top: -11px;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    top: 50%;
+    z-index: 5;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+    display: block;
+}
+.career-path .dots-wrap .dot:before {
+    right: -16px;
+}
+.career-path .dots-wrap .dot .table-block:first-child:before {
+    left: -30px;
+}
+.career-path .dots-wrap .dot:after {
+    content:'';
+    width: 700%;
+    height: 30px;
+    top: 50%;
+    margin-top: -15px;
+    right: -15px;
+    z-index: -1;
+    background: #ffc426;
+    position: absolute;
+    display: block;
+}
+.career-path .dots-wrap .dot .table-block:after {
+    content:'';
+    width: 700%;
+    height: 30px;
+    top: 50%;
+    margin-top: -15px;
+    left: -15px;
+    z-index: -1;
+    background: #ffc426;
+    position: absolute;
+    display: block;
+}
+.career-path .dots-wrap .dot .table-block span p {
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding-top: 0px;
+}
+.career-path .dots-wrap .dot:nth-child(1) {
+    width: 50px;
+    height: 50px;
+    font-size: 9px;
+}
+.career-path .dots-wrap .dot:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    font-size: 10px;
+}
+.career-path .dots-wrap .dot:nth-child(3) {
+    width: 77px;
+    height: 77px;
+    font-size: 12px;
+}
+.career-path .dots-wrap .dot:nth-child(4) {
+    width: 95px;
+    height: 95px;
+    font-size: 13px;
+}
+.career-path .dots-wrap .dot:nth-child(5) {
+    width: 110px;
+    height: 110px;
+    font-size: 17px;
+}
+.career-path .dots-wrap .dot:nth-child(1) span p {
+    font-size: 9px;
+}
+.career-path .dots-wrap .dot:nth-child(2) span p {
+    font-size: 10px;
+}
+.career-path .dots-wrap .dot:nth-child(3) span p {
+    font-size: 12px;
+}
+.career-path .dots-wrap .dot:nth-child(4) span p {
+    font-size: 13px;
+}
+.career-path .dots-wrap .dot:nth-child(5) span p {
+    font-size: 17px;
+}
+@media only screen and (min-width: 40.063em) {
+ .career-path {
+    padding-top: 65px;
+    padding-bottom: 60px;
+}
+    .career-path h3 {
+        font-size: 56px;
+        margin-top: 45px;
+        padding-bottom: 30px;
+    }
+    .career-path p {
+        text-align: center;
+        font-size: 15px;
+    }
+.career-path .dots-wrap {
+     padding-top: 40px;   
+}
+    .career-path .dots-wrap .dot:nth-child(1) {
+        width: 90px;
+        height: 90px;
+        font-size: 14px;
+    }
+    .career-path .dots-wrap .dot:nth-child(2) {
+        width: 110px;
+        height: 110px;
+        font-size: 17px;
+    }
+    .career-path .dots-wrap .dot:nth-child(3) {
+        width: 130px;
+        height: 130px;
+        font-size: 19px;
+    }
+    .career-path .dots-wrap .dot:nth-child(4) {
+        width: 150px;
+        height: 150px;
+        font-size: 21px;
+    }
+    .career-path .dots-wrap .dot:nth-child(5) {
+        width: 170px;
+        height: 170px;
+        font-size: 28px;
+    }
+    .career-path .dots-wrap .dot:nth-child(1) span p {
+        font-size: 14px;
+    }
+    .career-path .dots-wrap .dot:nth-child(2) span p {
+        font-size: 17px;
+    }
+    .career-path .dots-wrap .dot:nth-child(3) span p {
+        font-size: 19px;
+    }
+    .career-path .dots-wrap .dot:nth-child(4) span p {
+        font-size: 21px;
+    }
+    .career-path .dots-wrap .dot:nth-child(5) span p {
+        font-size: 28px;
+    }
+    .career-path .dots-wrap .dot {
+        margin: -7px 15px;
+    }
+    .career-path .dots-wrap .dot:before, .career-path .dots-wrap .dot .table-block:first-child:before {
+        content:'';
+        width: 43px;
+        height: 43px;
+        position: absolute;
+        margin-top: -22px;
+        -webkit-transform: rotate(45deg);
+           -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+        top: 50%;
+        z-index: 5;
+        border-right: 2px solid white;
+        border-top: 2px solid white;
+        display: block;
+    }
+    .career-path .dots-wrap .dot:before {
+        right: -40px;
+    }
+    .career-path .dots-wrap .dot .table-block:first-child:before {
+        left: -67px;
+    }
+    .career-path .dots-wrap .dot:after {
+        content:'';
+        width: 700%;
+        height: 60px;
+        top: 50%;
+        margin-top: -30px;
+        right: -20px;
+        z-index: -1;
+        background: #ffc426;
+        position: absolute;
+        display: block;
+    }
+    .career-path .dots-wrap .dot .table-block:after {
+        content:'';
+        width: 700%;
+        height: 60px;
+        top: 50%;
+        margin-top: -30px;
+        left: -20px;
+        z-index: -1;
+        background: #ffc426;
+        position: absolute;
+        display: block;
+    }
+    .career-path .dots-wrap .dot {
+        margin: -7px 30px;
+    }
+}
+@media only screen and (min-width: 64.063em) {
+    .career-path h3 {
+        font-size: 62px;
+        max-width: 960px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .career-path .widget-header p {
+        max-width: 960px;
+        margin: 0 auto;
+        display: inline;
+    }
+    .career-path .widget-header {
+          text-align: center;
+          max-width: 960px !important;
+    }
+    .career-path .row {
+        max-width: 100%;
+    }
+}
+/* Career Path component end */

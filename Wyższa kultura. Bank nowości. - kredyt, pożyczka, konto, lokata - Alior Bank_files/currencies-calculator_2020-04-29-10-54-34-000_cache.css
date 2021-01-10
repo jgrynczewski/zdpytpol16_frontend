@@ -1,0 +1,163 @@
+.currencies-calculator .newListSelected,
+.currencies-calculator .newListSelected .selectedTxt {
+    height: 45px!important;
+    line-height: 45px!important;
+}
+
+.currencies-calculator .selectedTxt {
+    height: 45px;
+}
+.currencies-calculator .column,
+.currencies-calculator .columns {
+    padding: 0 0.9375rem!important;
+}
+
+.currencies-calculator .input-wrapper {
+    margin-bottom: 1rem;
+}
+
+.currencies-calculator .title {
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 64px;
+}
+
+.currencies-calculator form {
+    margin-bottom: 20px;
+    padding: 0!important;
+}
+
+.currencies-calculator form select {
+    margin-bottom: 0;
+}
+
+.currencies-calculator input[type="text"] {
+    padding: 0 27px 0 20px!important;
+}
+
+.currencies-calculator input[type="text"] {
+    height: 45px!important;
+}
+
+.currencies-calculator input[type="text"][disabled] {
+    background: #fff;
+}
+
+.currencies-calculator.portal label[for="totalChargeAmount"] {
+    margin-top: 20px;
+}
+
+.currencies-calculator.kantor_ro label[for="totalChargeAmount"],
+.currencies-calculator.kantor_pl label[for="totalChargeAmount"] {
+    margin-top: 14px;
+}
+
+.currencies-calculator .error small.error {
+    margin-bottom: 0;
+}
+
+#content-landing-page .currencies-calculator .button.large {
+    padding-left: 54px;
+    padding-right: 54px;
+    margin-bottom: 1rem;
+    min-width: 165px;
+}
+
+.currencies-calculator.__t-mobile.kantor_pl .newListSelected,
+.currencies-calculator.__t-mobile.kantor_pl input {
+    border-bottom-color: #e3017d;
+    color: #e3017d;
+}
+
+.currencies-calculator.kantor_pl .newListSelected,
+.currencies-calculator.kantor_pl input,
+.currencies-calculator.kantor_pl .margin-box,
+.currencies-calculator.kantor_ro .newListSelected,
+.currencies-calculator.kantor_ro input,
+.currencies-calculator.kantor_ro .margin-box {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.currencies-calculator.__t-mobile .selectedTxt:after {
+    color: #e3017d;
+}
+
+.currencies-calculator.__t-mobile .button {
+    background: #e3017d;
+}
+
+.currencies-calculator.__t-mobile .button.secondary,
+.currencies-calculator.kantor_ro .button.secondary{
+    background: #e8e9eb;
+}
+
+.currencies-calculator .margin-box {
+    background: #eaeae8;
+    padding: 30px 20px 14px;
+    margin-bottom: 1rem;
+    min-height: 106px;
+    line-height: 1.4;
+}
+
+.currencies-calculator.kantor_pl .margin-box,
+.currencies-calculator.kantor_ro .margin-box {
+    background: #fff;
+}
+
+.currencies-calculator .margin-box .margin-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.currencies-calculator .description {
+    font-size: 10px;
+    color: #4d4d4d;
+}
+
+.currencies-calculator .form-error.hide {
+    display: none;
+}
+
+#content-landing-page .currencies-calculator.form-section {
+     max-width: none;
+}
+
+#content-landing-page .currencies-calculator small.error,
+#content-landing-page .currencies-calculator small.success {
+    left: 0;
+    width: 100%;
+}
+
+#content-landing-page .currencies-calculator.kantor_pl .success small.success:after,
+#content-landing-page .currencies-calculator.kantor_ro .success small.success:after {
+    top: -42px;
+}
+
+#content-landing-page .currencies-calculator .same-currency-message {
+    display: none;
+    position: relative;
+    padding: 8px;
+    margin-top: 8px;
+    background: #e5e5e5!important;
+    font-size: 14px;
+    color: #000;
+}
+
+#content-landing-page .currencies-calculator .same-currency-message:before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 15px;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-bottom-color: #e5e5e5;
+    margin-left: -7px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#content-landing-page .currencies-calculator .same-currency-message:after {
+    content: none;
+}

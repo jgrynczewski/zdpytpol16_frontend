@@ -1,0 +1,128 @@
+/* Composite Component Start*/
+
+.composite-content {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.composite-content .periodic-report-item {
+    margin-bottom: 15px;
+}
+
+/* 
+.composite-content .composite-content-inside{
+    padding-bottom: 30px;
+}
+asokolowski */
+
+.composite-content .composite-content-title{
+    font-weight: 300;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.composite-content .button.large {
+    margin-bottom: 0;
+}
+
+.composite-content .links-content.more-than-one{
+    padding-bottom: 30px;
+}
+
+.single-list-item img{
+    max-width: 36px;
+}
+
+.composite-content .links-content .single-link {
+    border-bottom: 1px solid #d7d7d7;
+    min-height: 60px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.composite-content .links-content.more-than-one .single-link{
+    border-bottom: 0;
+}
+
+.composite-content .links-content .single-link:last-child {
+    border: none;
+}
+
+.composite-content .links-content .single-link a.link {
+    color: #7A0035;
+}
+
+.black .composite-content .links-content .single-link a.link {
+    color: #FFC426;
+}
+
+
+.composite-content .links-content .single-link svg {
+    height: 32px;
+    width: 32px;
+    margin-right: 20px;
+    display: table-cell;
+    float: left;
+}
+
+.composite-content .links-content .single-link svg path {
+    fill: #444;
+}
+
+.composite-content .links-content .single-link a {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 18px;
+}
+
+.composite-content .single-list-item{
+    position: relative;
+    margin-bottom: 15px;
+    
+}
+
+.composite-content .single-list-item:first-child{
+    margin-top: 0;
+}
+
+.composite-content .single-list-item .single-list-item-text{
+    padding-left: 50px;
+}
+
+.composite-content .single-list-item .png{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.composite-content .single-list-item .title {
+    font-size: 20px;
+    margin-bottom: 0;
+    text-align:left;
+}
+
+.composite-content .single-list-item .description {
+    clear: both;
+    margin-bottom: 5px;
+    text-align:left;
+}
+
+@media only screen and (max-width: 40.063em){
+
+    .composite-content-inside .image{
+        padding-bottom: 20px;
+    }
+    .composite-content .composite-content-title {
+        font-size:20px;
+    }
+    .composite-content .links-content.more-than-one .single-link{
+        text-align: left;
+    }
+}
+
+.trimmed-width {
+    max-width: 960px; /* temp  asokolowski*/
+    margin: 0 auto;
+}
+
+/* Composite Component End*/

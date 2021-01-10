@@ -1,0 +1,104 @@
+/* Mobile Apps List Component Start*/
+
+.mobile-applications {
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    width:100%;
+}
+
+.mobile-applications a {
+    font-size: 18px;
+    line-height: 30px;
+    text-align:center;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+}
+
+.left.mobile-applications .mobile-apps-icons {
+    display: none;
+}
+
+.mobile-applications a.apps-link {
+    font-size: 14px;
+    line-height: 15px;
+    text-align:left;
+    display: inline-block;
+    margin-right: 0;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    background: none;
+}
+
+.mobile-applications svg {
+    max-width: 38px;
+    max-height: 38px;
+    padding: 5px 0;
+}
+
+
+#footer .custom-menu {width:100%;}
+
+/* ----------- MEDIA QUERIES ---------- */
+@media only screen and (min-width: 40.063em) {
+    #footer .custom-menu {width:auto;}
+    .mobile-applications {width:auto;}
+    .mobile-applications a:first-child {
+        margin-left: 0;
+    }
+    .mobile-applications a.apps-link {
+        line-height:16px;
+    }
+    .mobile-apps-link {
+          max-width: 120px;
+          line-height:16px;
+    }
+    .mobile-apps-link a {
+          line-height:16px;
+    }
+    .left.mobile-applications .mobile-apps-icons {
+        display: inline-block;
+    }
+    .mobile-apps-icons,
+    .mobile-apps-link {
+        float: left;
+    }
+
+    .mobile-apps-icons {
+        margin-right: 10px;
+    }
+
+    .mobile-applications svg {
+        margin-left: -12px;
+        margin-top: -3px;
+    }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 46em) {
+    .mobile-apps-icons, .mobile-apps-link {clear:left;}
+     .mobile-apps-link {padding-top:10px;}
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .mobile-applications {
+       text-align: left;
+       line-height: 15px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .mobile-applications a {
+        margin-left: 0;
+    }
+    .mobile-applications, .mobile-applications a.apps-link {
+        line-height:30px;
+    }
+    .mobile-apps-link {
+          max-width: 100%;
+          line-height:30px;
+    }
+}
+
+/* Mobile Apps List Component End*/

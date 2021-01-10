@@ -1,0 +1,31 @@
+.branch-list-item{
+    
+    border-bottom: 1px solid #4c4c4d;
+}
+
+.branch-list-item .branch-info{
+    
+    color: #fff;
+    font-size: 20px;
+    font-weight: 200;
+    
+    padding: 50px 0;
+}
+
+.branch-list-item .branch-info .branch-info-title{
+    
+    font-size: 30px;
+}
+
+.branch-list-item .branch-director{
+    
+    color: #fff;
+    font-size: 20px;
+    
+    padding: 50px 0;
+}
+
+.branch-list-item .branch-director .branch-director-title{
+    
+    color: #b3b3b4;
+}

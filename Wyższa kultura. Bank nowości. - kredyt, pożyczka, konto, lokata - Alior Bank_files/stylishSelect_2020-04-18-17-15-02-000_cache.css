@@ -1,0 +1,275 @@
+/**
+* Stylish Select 0.4.9 - $ plugin to replace a select drop down box with a stylable unordered list
+* http://github.com/scottdarby/Stylish-Select/
+*
+* Copyright (c) 2009 Scott Darby
+*
+* Requires: jQuery 1.3 or newer
+*
+* Dual licensed under the MIT and GPL licenses.
+*/
+/**
+* Hide lists on page load
+---------------------------------------------------------*/
+
+.stylish-select .SSContainerDivWrapper {
+	left:-9999px;
+}
+
+/*
+* Red example
+---------------------------------------------------------*/
+.stylish-select .SSContainerDivWrapper {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 35px;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	font-size: 16px;
+	line-height: 20px;
+	z-index: 71000;
+}
+
+.stylish-select ul.newList {
+	margin:0;
+	padding:0;
+	list-style:none;
+	color:#000;
+	background:#fff;
+	border:1px solid #ddd;
+	overflow:auto;
+	line-height: 18px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    min-width: 40px;
+    width: 99.45%;
+}
+
+.stylish-select ul.newList * {
+	margin:0;
+	padding:0;
+}
+
+.stylish-select ul.newList a {
+	color: #7A0035;
+	text-decoration:none;
+	display:block;
+	padding: 7px 20px;
+	border-bottom: 1px solid #F6F6F6;
+	line-height: 18px;
+	/*white-space: nowrap;*/
+	white-space: normal;
+}
+
+.stylish-select ul.newList li:last-child a {
+	border-bottom: none;
+	padding-bottom: 8px;
+}
+
+.stylish-select .newListSelected {
+	color: #7A0035;
+	background: #fff;
+	height: 35px;
+	display: block;
+}
+
+    .stylish-select #mobile-top-bar .newListSelected{
+
+        background: none;
+    }
+
+.stylish-select ul.newList li a:focus {
+	-moz-outline-style: none;
+}
+
+.stylish-select .selectedTxt {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	cursor: pointer;
+	position: relative;
+	padding: 0 27px 0 20px;
+}
+
+.stylish-select .form-section .selectedTxt {
+    border: 1px solid #ccc;
+}
+
+.stylish-select .selectedTxt:after {
+    font-family: 'icons';
+    content: "\a108";
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.stylish-select .newListSelHover .selectedTxt:after {
+    content: "\a112";
+}
+
+
+.stylish-select .hiLite {
+	background: #f6f6f6 !important;
+}
+
+.stylish-select .newListHover {
+	background: #f6f6f6 !important;
+	cursor:default;
+}
+
+.stylish-select .newListDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListItemDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListOptionDisabled {
+	opacity: 0.6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+}
+
+.stylish-select .newListSelHover,
+.stylish-select .newListSelFocus {
+	background-position:0 -22px;
+	cursor:default;
+
+}
+
+.stylish-select .newListOptionTitle {
+	font-weight:bold;
+}
+
+.stylish-select .newListOptionTitle ul {
+	margin:3px 0 0;
+}
+
+.stylish-select .newListOptionTitle li {
+	font-weight:normal;
+}
+
+.stylish-select .newListSelected.choose-language {
+    height: 23px;
+    width: 50px;
+}
+
+/* Footer language chooser */
+.stylish-select .choose-language .selectedTxt {
+    font-size: 15px;
+    height: 23px;
+    line-height: 23px;
+    padding-left: 0;
+}
+
+.stylish-select .choose-language .SSContainerDivWrapper {
+    left: auto !important;
+    min-width: 8rem;
+}
+
+.stylish-select .choose-language ul.newList a {
+    font-size: 14px;
+    padding: 10px 1rem;
+}
+
+.stylish-select .choose-language ul.newList li:last-child a {
+    padding-bottom: 11px;
+}
+
+/* Top bar menu on tablet|mobile */
+.stylish-select .newListSelected.mobile-top-bar-menu {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.stylish-select .mobile-top-bar-menu .selectedTxt {
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    padding-left: 0;
+    font-size: 15px;
+    width: 210px;
+}
+
+/*.stylish-select .black .mobile-top-bar-menu .selectedTxt {*/
+    /*color: #fff;*/
+/*}*/
+.stylish-select .black .stick .mobile-top-bar-menu .selectedTxt,
+.stylish-select .black .nav-wrap:hover .mobile-top-bar-menu .selectedTxt,
+.stylish-select .black .nav-wrap.menu-open .mobile-top-bar-menu .selectedTxt {
+    color: #7A0035;
+}
+
+.stylish-select .mobile-top-bar-menu .SSContainerDivWrapper {
+    bottom: auto;
+    top: 40px !important;
+    left: 0 !important;
+    right: 0;
+}
+
+.stylish-select .mobile-top-bar-menu ul.newList {
+    height: 240px;
+}
+
+.stylish-select .mobile-top-bar-menu ul.newList a {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+
+@media only screen and (min-width: 40.063em) {
+	.stylish-select .newListSelected {
+		height: 45px;
+	}
+
+	.stylish-select ul.newList {
+	    width: 99.7%;
+	}
+
+	.stylish-select .selectedTxt {
+		height: 45px;
+		line-height: 45px;
+	}
+
+	.stylish-select ul.newList a {
+		padding: 10px 15px;
+		/*padding: 10px;*/
+	}
+
+	.stylish-select ul.newList li:last-child a {
+		padding-bottom: 10px;
+	}
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .stylish-select .mobile-top-bar-menu .SSContainerDivWrapper {
+        min-width: 12rem;
+    }
+
+    .stylish-select .newListSelected.mobile-top-bar-menu {
+        margin-top: 0;
+    }
+
+    .stylish-select .mobile-top-bar-menu ul.newList a {
+        padding: 7px 20px;
+    }
+
+    .stylish-select .mobile-top-bar-menu ul.newList li:last-child a {
+        padding-bottom: 8px;
+    }
+}

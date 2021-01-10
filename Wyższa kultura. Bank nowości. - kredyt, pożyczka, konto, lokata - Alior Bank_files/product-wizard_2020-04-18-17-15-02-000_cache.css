@@ -1,0 +1,233 @@
+.product-wizard .step {
+	font-size: 1rem;
+}
+
+.product-wizard .button{
+    width: 100%;
+}
+
+.product-wizard .step p {
+	font-size: 1rem;
+	margin-bottom: 0;
+}
+.product-wizard svg {
+	width: 36px;
+	height: 36px;
+	vertical-align: middle;
+}
+.product-wizard svg path{
+	fill: #999;
+}
+.product-wizard h2 {
+	font-size: 20px;
+	padding: 30px 0 20px;
+	margin: 0;
+}
+.product-wizard h3,
+.product-wizard h3 p {
+	font-size: 18px;
+	margin: 0;
+}
+.product-wizard h3 {
+	margin: 5px 0 30px;
+}
+
+.product-wizard h2 + h3{
+	margin-bottom: 10px;
+}
+
+.product-wizard ol li:before {
+	counter-increment: section;
+	content: counters(section, ".") " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 51px;
+	height: 51px;
+	font-size: 31px;
+	font-weight: 100;
+	line-height: 49px;
+	text-align: center;
+	border: 1px solid #868686;
+	border-radius: 51px;
+	color: #868686;
+} 
+.product-wizard .steps-column {
+	overflow: hidden;
+}
+.product-wizard .steps-column .list_item {
+	display: table;
+	width: 100%;
+}
+.product-wizard .steps-column .list_item > span {
+	display: table-cell;
+	vertical-align: middle;
+	padding-bottom: 20px;
+	font-size: 0.875rem;
+}
+.product-wizard .steps-column .list_item > span.image {
+	width: 50px;
+	text-align: left;
+}
+
+.product-wizard .steps-column .columns{
+	padding-bottom: 15px;
+}
+
+.product-wizard .steps .icon {
+	padding-left: 75px;
+	line-height: normal;
+}
+.product-wizard .steps .icon:before {
+	left: 10px;
+	opacity: 0.5;
+}
+.product-wizard .steps a {
+	color: #7a0035;
+}
+
+.product-wizard .text-center p {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.product-wizard .step {
+	font-size: 0.87rem;
+}
+.product-wizard .step p {
+	font-size: 0.87rem;
+	margin-bottom: 0;
+}
+.product-wizard .button-title {
+	font-size: 22px;
+	line-height: 1.25em;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.product-wizard .button-title p {
+	font-size: 22px;
+	margin-bottom: 1.25rem;
+}
+.product-wizard .button-title br{
+	display: none;
+}
+.product-wizard .steps a {
+	display: block;
+}
+
+.product-wizard .steps-row {
+	padding-top: 30px;
+	font-size: 14px;
+	width: 100%;
+}
+
+.product-wizard .columns .wizard-image{
+	display: block;
+	margin: 10px auto;
+	max-height: 200px;
+}
+
+.wizard-image img {
+    margin: 0 auto;
+    display: block;
+}
+
+.product-wizard .steps-row .list_item {
+	display: table;
+	width: 100%;
+}
+.product-wizard .steps-row > div.medium-6 {
+	padding-bottom: 15px;
+}
+.product-wizard .steps-row .list_item span {
+	display: table-cell;
+	vertical-align: middle;
+	padding-bottom: 20px;
+	font-size: 0.875rem;
+}
+.product-wizard .steps-row .list_item span p{
+	margin: 0;
+	font-size: 0.875rem;
+}
+.product-wizard .steps-row .list_item span.image {
+	width: 50px;
+	text-align: left;
+}
+.product-wizard .steps-row svg {
+	width: 40px;
+	height: 40px;
+}
+.product-wizard .steps-row svg path {
+	fill: #000;
+}
+
+@media only screen and (min-width: 40.063em)  {
+    
+    .product-wizard .button{
+        width: auto;
+        max-width: 480px;
+    }
+    
+	#structured-product-details .product-wizard {
+		margin-bottom: 60px;
+	}
+	.product-wizard h2 {
+		font-size: 55px;
+		padding: 10px 0 10px;
+	}
+	.product-wizard h3,
+	.product-wizard h3 p {
+		font-size: 22px;
+	}
+	.product-wizard h3 {
+		margin: 5px 0 50px;
+	}
+	.product-wizard .button-title,
+	.product-wizard .button-title p {
+		font-size: 26px;
+	}
+	.product-wizard .button-title{
+		margin-bottom: 30px;
+	}
+	.product-wizard .button-title br{
+		display: inline-block;
+	}
+	.product-wizard .button {
+		padding: 0 45px;
+	}
+	.product-wizard .steps-row {
+		padding-top: 20px;
+	}
+	.product-wizard .steps-row > div > span {
+		padding-bottom: 0;
+	}
+	.product-wizard .steps-column {
+		margin-top: 40px;
+	}
+	.product-presentation .product-wizard  .button.large {
+		padding-left: 54px;
+		padding-right: 54px;
+	}
+	#content-product-details .steps-column img {
+		display: inline-block;
+	}
+
+	.product-wizard .steps-row .list_item span,
+	.product-wizard .steps-column .list_item > span {
+		padding-bottom: 25px;
+	}
+}
+
+@media only screen and (min-width: 60.063em) {
+	.product-wizard .steps-column .list_item > span.image svg {
+		margin-left: 0;
+	}
+	
+	.product-wizard .columns .wizard-image{
+		max-width: 240px;
+	}
+
+	.product-wizard h2 {
+		padding: 10px 0 10px;
+	}
+}

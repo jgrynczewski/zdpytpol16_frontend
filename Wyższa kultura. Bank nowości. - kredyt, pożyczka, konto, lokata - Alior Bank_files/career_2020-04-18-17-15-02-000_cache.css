@@ -1,0 +1,864 @@
+.top-bg-alt, 
+.top-alt-bg {
+    background-size: cover;
+    position: relative;
+}
+
+.benefits-wrapper.career {
+    padding-top: 20px;
+}
+
+#career .text-block
+{
+    margin: 20px auto;
+}
+
+
+@media only screen and (max-width: 40.063em) {
+    #career .product-top.top .cta {
+        margin-top: 240px;
+    }
+
+    .career-facts .facts-columns .link-with-icon {
+        font-size: 13px;
+    }
+}
+
+.career-path {
+    background-size: cover;
+}
+
+.career-facts .facts-columns .link-with-icon {
+    min-height: 80px;
+    padding: 10px 0;
+    line-height: 20px;
+}
+  
+.career-sales {
+    min-height: auto;
+}
+
+.career-process {
+    margin: 20px auto;
+}
+
+.career-sales .career-person-image{
+    position: absolute;
+    max-width: 300px;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.career-sales .career-person-image img {
+    position: relative;
+}
+
+.process-elements .number .title {
+    display: table-cell;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+#career .top-bg{
+    height: auto;
+    min-height: 500px;
+    background-size: 100% auto;
+    background-position: center top;
+}
+
+
+#career #tekst{
+    border-top: none;
+    padding-top: 0;
+}
+#career #benefity ~ .single-cta{
+    display: none;
+}
+
+.top-person-image-career,
+.top-person-image-career img{
+    position: relative;
+    bottom:0;
+}
+
+.product-top.career .cta-in{
+    width: 100%;
+}
+.product-top.career p{
+    margin-top: 0;
+    line-height: 1.25em;
+}
+.product-top .top-bg-alt ul{
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+}
+.product-top .top-bg-alt ul li{
+    padding-left: 42px;
+    display: block;
+    margin-bottom: 12px;
+    min-height: 24px;
+    line-height: 24px;
+    position: relative;
+    color: #7A0035;
+    font-weight: 400;
+}
+.product-top .top-bg-alt ul li:last-child{
+    margin: 0;
+}
+.product-top .top-bg-alt ul li:before{
+    content: "\a103";
+    font-size: 24px;
+    font-family: 'icons';
+    font-weight: bold;
+    line-height: 1em;
+    color: #000;
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -12px;
+    background: none;
+}
+.product-top.darkBackground .top-bg-alt ul li:before{
+    color: #fff;
+}
+.career .benefit-title{
+    margin-bottom: 5px;
+}
+.career .benefit-item{
+    width: 100%;
+    margin: 5px 0 20px 0;
+}
+.career .benefit-item h2{
+    font-weight: bold;
+    line-height: 1.1em;
+    position: relative;
+}
+.career .benefit-description, 
+.career .benefit-description p{
+    font-size: 16px;
+}
+
+.benefits-wrapper.career ~ .single-cta{
+    padding-bottom: 20px;
+}
+
+#strefa-studenta .top-bg-alt{
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: auto 220px;
+    background-color: #F1ECEB;
+}
+#strefa-studenta header + div{
+    min-height: 135px;
+}
+#strefa-studenta ul{
+    position: relative;
+    display: block;
+    padding: 35px 0;
+}
+#strefa-studenta ul li:last-child{
+    margin-bottom: 0;
+}
+
+.career-content-wrapper .top-bg-alt,
+.career-content-wrapper .top-bg-alt ul{
+    padding-bottom: 30px;
+}
+.product-top.darkBackground h1,
+.product-top.darkBackground h2,
+.product-top.darkBackground li,
+.product-top.darkBackground p{
+    color: #fff !important;
+}
+
+
+
+
+.productTopPerson header{
+    position: relative;
+}
+.productTopPerson header h1{
+    margin-top: 30px;
+    font-size: 48px;
+    line-height: 1.1em;
+    margin-bottom: 0;
+    text-transform: lowercase;
+}
+.productTopPerson header span{
+    position: relative;
+    left: -2em;
+    line-height: 1.2em;
+    text-align: center;
+    font-size: 16px;
+    display: table;
+    margin: 0 auto;
+}
+.productTopPerson .top-bg{
+    height: 100%;
+}
+.productTopPerson p{
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+#aliorConnect > div{
+    padding: 50px 0 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#aliorConnect header h1{
+    margin: 0 0 5px;
+    text-align: center!important;
+}
+#aliorConnect .cta{
+    display: block !important;
+    height: auto;
+}
+#aliorConnect .cta a{
+    width: 100%;
+}
+#aliorConnect p{
+    float: left;
+    width: 100%;
+    padding: 0 0.9375em;
+    text-align: center !important;
+    margin: 0;
+}
+
+
+@media only screen and (min-width: 40.063em) {
+    
+    .productTopPerson .top-alt-bg{
+        min-height: 600px;
+    }
+    .top-person-image-career img {
+        max-height: 590px;
+    }
+
+    #career .product-top.top .cta {
+        margin-top: 100px;
+    }
+
+    .career-sales {
+        min-height: 620px;
+    }
+        
+    .benefits-wrapper.career {
+        padding-top: 40px;
+    }
+    
+    #career .gray-stripe{
+        display: block;
+    }
+    #career #tekst{
+        border-top: none;
+        padding-top: 15px;
+    }
+    .product-top.career h1{
+        font-size: 42px;
+        margin-top: 45px;
+    }
+    .product-top.career p{
+        line-height: 1.35em;
+    }
+    .career .benefit-item h2{
+        font-size: 28px;
+        line-height: 1em;
+    }   
+    .career .benefit-description, 
+    .career .benefit-description p{
+        font-size: 18px;
+    }
+    .career .benefit-item{
+        width: 100%;
+    }
+    .benefits-wrapper.career ~ .single-cta{
+        padding-bottom: 40px;
+    }
+    #strefa-studenta .top-bg-alt{
+        background-size: cover;
+        background-position: right top;
+    }
+    #strefa-studenta header + div{
+        min-height: auto;
+    }
+    #strefa-studenta ul{
+        padding: 0 0 30px;
+    }
+    .career-content-items{
+        /*display: table;*/
+        display: block;
+        width: 100%;
+    }
+    .career-content-items .product-top{
+        display: block;
+        height: 100%;
+    }
+    .productTopPerson header h1{
+        font-size: 90px;
+        margin-top: 45px;
+    }
+    .productTopPerson header span{
+        margin: 0;
+        left: 3.5em;
+        font-size: 26px;
+    }
+    .productTopPerson p span{
+        font-weight: 700;
+    }
+    .productTopPerson .cta{
+        height: auto;
+    }
+    
+    .productTopPerson .cta-in{
+        margin-bottom: 45px;
+    }
+    
+    .top-person-image-career{
+        max-width: 300px;
+        position: absolute;
+    }
+    
+    #aliorConnect h1{
+        font-size: 48px;
+    }
+    #aliorConnect > div{
+        padding: 120px 0 100px;
+    }
+    #aliorConnect .cta-in{
+        margin: 60px auto;
+    }
+    #aliorConnect .cta a{
+        width: auto;
+    }
+    #aliorConnect p{
+        font-size: 24px;
+    }
+    
+    #career .top-bg{
+        height: auto;
+        min-height: 600px;
+        background-size: cover;
+        background-position: center top;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    /*#career .main-banner{*/
+    /*    background-size: auto 790px;*/
+    /*}*/
+    
+    .product-top.career .cta-in{
+       text-align: center;
+    }
+    #career #benefity ~ .single-cta{
+        display: block;
+    }
+    #career #tekst {
+        border-top: none;
+        padding-top: 30px;
+    }
+    .top-bg-alt .career header h1{
+        margin-bottom: 40px;
+    }
+    .product-top.career h1{
+        font-size: 48px;
+        margin-top: 60px;
+    }
+    .product-top.career p{
+        margin-bottom: 40px;
+    }
+    #career .benefit-item{
+        width: 50%;
+        margin: 10px 0 30px;
+    }
+    .career .benefit-item h2{
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.35em;
+    }
+    .career .benefit-item svg{
+        width: 40px;
+        height: 40px;
+    }
+    .benefits-wrapper.career ~ .single-cta{
+        padding-bottom: 60px;
+    }
+    .product-top.career .cta{
+        height: auto;
+        margin-bottom: 40px;
+    }
+    .product-top > div {
+        padding-bottom: 20px;
+    }
+    #strefa-studenta .top-bg-alt{
+        background-position: center top;
+    }
+    #strefa-studenta ul,
+    .product-top .top-bg-alt ul{
+        display: table;
+        margin: 0 auto;
+        clear: both;
+    }
+    #strefa-studenta ul{
+        padding: 0;
+    }
+    
+    .productTopPerson header h1{
+        font-size: 120px;
+        margin-top: 75px;
+        margin-left: -135px;
+    }
+    .productTopPerson header span{
+        font-size: 36px;
+        margin: 0 auto 40px;
+        left: -3.5em;
+    }
+    .productTopPerson p{
+        font-size: 15px;
+    }
+    .productTopPerson .cta-in{
+        margin-bottom: 90px;
+    }
+    
+    .top-person-image-career{
+        max-width: 300px;
+        bottom: 0;
+    }
+    
+    #aliorConnect > div{
+        padding: 160px 0;
+    }
+    #aliorConnect .cta{
+        margin-bottom: 20px;
+    }
+    #aliorConnect header{
+        float: none;
+    }
+    #aliorConnect h1{
+        font-size: 56px;
+    }
+}
+
+
+/* box group */
+
+.box-group p {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.box-group .product-top {
+    width: 100%;
+    clear: both;
+    float: left;
+    height: auto;
+}
+
+.left.box-group .product-top .top-bg-alt {
+    padding-left: 0;
+}
+
+.left.box-group .product-top .top-bg-alt div {
+    margin-left: 0;
+}
+
+.right.box-group .product-top .top-bg-alt {
+    padding-right: 0;
+}
+
+.right.box-group .product-top .top-bg-alt div {
+    margin-right: 0;
+}
+
+
+/* Career Info Component */
+
+.career-info-element .horizontal-line{
+    content: '';
+    width: 100%;
+    border-top: solid 2px #ccc;
+    top: 65px;
+    position: relative;
+}
+
+.career-info-element .number {
+    font-size: 84px;
+    margin-left: 50px;
+    width: 155px;
+    height: 105px;
+    display: block;
+    background: #fff;
+    position: relative;
+}
+
+.career-info-element .subtitle {
+    font-size: 20px;
+    margin-left: 55px;
+    margin-top: 0px;
+}
+  
+    
+@media only screen and (min-width: 40.063em) {
+    
+.career-info-element .horizontal-line{
+    top: 125px;    
+}
+
+.career-info-element .number {
+    font-size:112px; 
+    margin-left:20px;
+    width: 200px;
+    display: block;
+    margin-top: 40px;
+    width: 200px;
+}
+
+.career-info-element .subtitle {
+    font-size: 26px;
+    margin-left: 35px;
+    margin-top: 30px;
+    }
+}
+
+    
+@media only screen and (min-width: 64.063em) {
+
+    .career-info-element .number {
+        font-size:160px; 
+        margin-left:20px;
+        width: 300px;
+        display: block;
+        margin-top: 0px;
+        height: 125px;
+        background-color: #FFFFFF;
+    }
+    
+    .career-info-element .process-image {
+        margin-right: -100px;
+    }
+    
+    .career-info-element .subtitle {
+        font-size:36px;
+        margin-top: 80px;
+        margin-left: 36px;
+    }
+    
+}
+    
+    
+
+.process-elements {
+    min-height: 30px;
+}
+    
+.box-group .product-top.career h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.career-facts .link-with-icon {
+    padding: 15px;
+}
+
+.career-facts .single-cta {
+    margin: -0;
+    position: relative;
+    top: -20px;
+}
+
+
+.facts-columns .link-with-icon a {
+    font-size: 12px;
+}
+
+
+@media only screen and (min-width: 40.063em) {
+
+.career-facts .link-with-icon {
+    padding: 0;
+}
+
+.process-elements {
+    min-height: 0;
+}
+
+    
+.left.box-group .product-top .top-bg-alt {
+    padding-left: 10%;
+}
+
+.right.box-group .product-top .top-bg-alt {
+    padding-right: 10%;
+}
+
+        
+.box-group .product-top.career h1 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    margin-top: 35px;
+}
+    
+}
+
+@media only screen and (min-width: 64.063em) {
+    
+    .left.box-group .product-top .top-bg-alt {
+        padding-left: 25%;
+    }
+    
+    .right.box-group .product-top .top-bg-alt {
+        padding-right: 25%;
+    }
+    
+}
+
+
+.facts-columns .link-with-icon a {
+    font-size: 14px;
+}
+
+
+
+
+/* Contact Center/Address component */
+
+.career-contact .top-bg-alt {
+    padding: 20px 0;
+}
+
+.process-links .link-with-icon {
+    float: left;
+    height: 180px;
+    background: #7a0035;
+    padding: 0;
+    border-right: 1px solid #000;
+}
+.process-links .link-with-icon a,
+.process-links .link-with-icon .pseudoLink{
+    padding: 25px;
+    width: 150px;
+    height: 180px;
+    margin: 0 auto;
+}
+
+
+
+.process-links .link-with-icon:nth-child(1), 
+.process-links .link-with-icon:nth-child(2) {
+    border-bottom: 1px solid #000;
+}
+
+.process-links .link-with-icon.yellow a,
+.process-links .link-with-icon:hover a {
+    color: #7a0035
+}
+
+.process-links .link-with-icon,
+.process-links .link-with-icon.yellow:hover a{
+    color: #fff
+}
+
+.process-links .link-with-icon.yellow,
+.process-links .link-with-icon:hover {
+    background: #ffc426
+}
+
+.process-links .link-with-icon,
+.process-links .link-with-icon.yellow:hover{
+    background: #7a0035
+}
+
+.process-links .link-with-icon.yellow .svg path,
+.process-links .link-with-icon:hover .svg path{
+    fill: #7a0035;
+}
+
+.process-links .link-with-icon .svg path,
+.process-links .link-with-icon.yellow:hover .svg path{
+    fill: #fff;
+}
+
+.process-links .link-with-icon.transparent,
+.process-links .link-with-icon.transparent:hover{
+    background: none;
+    border: none;
+}
+
+.process-links .link-with-icon.transparent a,
+.process-links .link-with-icon.transparent .pseudoLink{
+    color: #7a0035;
+}
+
+/*.process-links .link-with-icon.transparent .pseudoLink {*/
+/*    padding-top: 10px;*/
+/*}*/
+
+.darkBackground .process-links .link-with-icon.transparent a{
+    color: #ffc426;
+}
+.darkBackground .process-links .link-with-icon.transparent .pseudoLink {
+    color: #ffc426;
+}
+
+
+.process-links .link-with-icon a {
+    color: #fff;
+    display: block;
+}
+
+.process-links .link-with-icon .svg {
+    clear: both;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .process-links .link-with-icon:nth-child(1),
+    .process-links .link-with-icon:nth-child(2) {
+        border-bottom: none;
+    }
+    
+    .process-links .link-with-icon {
+        float: left;
+        height: 180px;
+        background: #7a0035;
+        /*padding: 25px 30px;*/
+        border-right: 1px solid #000;
+    }
+    
+    .process-links .link-with-icon:last-child {
+        border-right: none;
+    }
+    
+    .career-contact .top-bg-alt{
+        padding: 30px 0;
+    }
+    
+    .process-links:last-child {
+        border-right: none;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .career-contact .top-bg-alt {
+        padding: 40px 0;
+    }
+}
+
+
+
+
+
+
+/* Card Block Component*/
+
+
+.card-block h1{
+    color: #000;
+    margin: 15px 0;
+}
+
+.card-block.darkBackground,
+.card-block.darkBackground h1{
+    color: #fff;
+}
+
+.card-block.darkBackground a {
+    color: #ffc426;
+}
+
+.card-block a,
+.card-block .single-cta a.secondary,
+.single-cta a.secondary:after{
+    color: #7a0035;
+}
+
+.card-block a.button {
+    max-width: 400px;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .card-block .top-bg-alt{
+        padding: 25px 0;
+    }
+    
+    .card-block h1{
+        margin:  30px 0;
+    }
+}
+
+
+@media only screen and (min-width: 64.063em) {
+    .card-block .top-bg-alt {
+        padding: 30px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Career Facts Component*/
+
+.career-facts,
+.career-facts h1{
+    color: #000;
+}
+
+.career-facts.darkBackground,
+.career-facts.darkBackground h1{
+    color: #fff;
+}
+
+.career-facts.darkBackground a {
+    color: #ffc426;
+}
+
+.career-facts .facts-columns {
+    display: block;
+    margin: 20px 0 30px auto;
+}
+
+.career-facts .facts-columns .link-with-icon {
+    width: 100%;
+}
+
+.career-facts .facts-columns .link-with-icon .svg {
+    padding-right: 10px;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .career-facts .top-bg-alt{
+        padding: 25px 0;
+    }
+    
+    .career-facts h1{
+        margin:  30px 0;
+    }
+    
+    .career-facts .facts-columns .link-with-icon {
+        width: 33.3333%!important;
+        padding-right: 10px;
+        height: 100px;
+    }
+    
+
+}
+
+
+@media only screen and (min-width: 64.063em) {
+    .career-facts .top-bg-alt {
+        padding: 30px 0;
+    }
+}

@@ -1,0 +1,2340 @@
+!function(t,e,i,n){"use strict";function a(t){return("string"==typeof t||t instanceof String)&&(t=t.replace(/^['\\/"]+|(;\s?})+|['\\/"]+$/g,"")),t}var s=function(e){for(var i=e.length,n=t("head");i--;)0===n.has("."+e[i]).length&&n.append('<meta class="'+e[i]+'" />')};s(["foundation-mq-small","foundation-mq-small-only","foundation-mq-medium","foundation-mq-medium-only","foundation-mq-large","foundation-mq-large-only","foundation-mq-xlarge","foundation-mq-xlarge-only","foundation-mq-xxlarge","foundation-data-attribute-namespace"]),t(function(){"undefined"!=typeof FastClick&&"undefined"!=typeof i.body&&FastClick.attach(i.body)});var r=function(e,n){if("string"==typeof e){if(n){var a;if(n.jquery){if(a=n[0],!a)return n}else a=n;return t(a.querySelectorAll(e))}return t(i.querySelectorAll(e))}return t(e,n)},o=function(t){var e=[];return t||e.push("data"),this.namespace.length>0&&e.push(this.namespace),e.push(this.name),e.join("-")},u=function(t){for(var e=t.split("-"),i=e.length,n=[];i--;)0!==i?n.push(e[i]):this.namespace.length>0?n.push(this.namespace,e[i]):n.push(e[i]);return n.reverse().join("-")},l=function(e,i){var n=this,a=function(){var a=r(this),s=!a.data(n.attr_name(!0)+"-init");a.data(n.attr_name(!0)+"-init",t.extend({},n.settings,i||e,n.data_options(a))),s&&n.events(this)};return r(this.scope).is("["+this.attr_name()+"]")?a.call(this.scope):r("["+this.attr_name()+"]",this.scope).each(a),"string"==typeof e?this[e].call(this,i):void 0},m=function(t,e){function i(){e(t[0])}function n(){if(this.one("load",i),/MSIE (\d+\.\d+);/.test(navigator.userAgent)){var t=this.attr("src"),e=t.match(/\?/)?"&":"?";e+="random="+(new Date).getTime(),this.attr("src",t+e)}}return t.attr("src")?void(t[0].complete||4===t[0].readyState?i():n.call(t)):void i()};e.matchMedia=e.matchMedia||function(t){var e,i=t.documentElement,n=i.firstElementChild||i.firstChild,a=t.createElement("body"),s=t.createElement("div");return s.id="mq-test-1",s.style.cssText="position:absolute;top:-100em",a.style.background="none",a.appendChild(s),function(t){return s.innerHTML='&shy;<style media="'+t+'"> #mq-test-1 { width: 42px; }</style>',i.insertBefore(a,n),e=42===s.offsetWidth,i.removeChild(a),{matches:e,media:t}}}(i),function(t){function i(){n&&(r(i),u&&t.fx.tick())}for(var n,a=0,s=["webkit","moz"],r=e.requestAnimationFrame,o=e.cancelAnimationFrame,u="undefined"!=typeof t.fx;a<s.length&&!r;a++)r=e[s[a]+"RequestAnimationFrame"],o=o||e[s[a]+"CancelAnimationFrame"]||e[s[a]+"CancelRequestAnimationFrame"];r?(e.requestAnimationFrame=r,e.cancelAnimationFrame=o,u&&(t.fx.timer=function(e){e()&&t.timers.push(e)&&!n&&(n=!0,i())},t.fx.stop=function(){n=!1})):(e.requestAnimationFrame=function(t){var i=(new Date).getTime(),n=Math.max(0,16-(i-a)),s=e.setTimeout(function(){t(i+n)},n);return a=i+n,s},e.cancelAnimationFrame=function(t){clearTimeout(t)})}(t),e.Foundation={name:"Foundation",version:"5.5.1",media_queries:{small:r(".foundation-mq-small").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,""),"small-only":r(".foundation-mq-small-only").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,""),medium:r(".foundation-mq-medium").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,""),"medium-only":r(".foundation-mq-medium-only").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,""),large:r(".foundation-mq-large").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,""),"large-only":r(".foundation-mq-large-only").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,""),xlarge:r(".foundation-mq-xlarge").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,""),"xlarge-only":r(".foundation-mq-xlarge-only").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,""),xxlarge:r(".foundation-mq-xxlarge").css("font-family").replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g,"")},stylesheet:t("<style></style>").appendTo("head")[0].sheet,global:{namespace:n},init:function(t,i,n,a,s){var o=[t,n,a,s],u=[];if(this.rtl=/rtl/i.test(r("html").attr("dir")),this.scope=t||this.scope,this.set_namespace(),i&&"string"==typeof i&&!/reflow/i.test(i))this.libs.hasOwnProperty(i)&&u.push(this.init_lib(i,o));else for(var l in this.libs)u.push(this.init_lib(l,i));return r(e).load(function(){r(e).trigger("resize.fndtn.clearing").trigger("resize.fndtn.dropdown").trigger("resize.fndtn.equalizer").trigger("resize.fndtn.interchange").trigger("resize.fndtn.joyride").trigger("resize.fndtn.magellan").trigger("resize.fndtn.topbar").trigger("resize.fndtn.slider")}),t},init_lib:function(e,i){return this.libs.hasOwnProperty(e)?(this.patch(this.libs[e]),i&&i.hasOwnProperty(e)?("undefined"!=typeof this.libs[e].settings?t.extend(!0,this.libs[e].settings,i[e]):"undefined"!=typeof this.libs[e].defaults&&t.extend(!0,this.libs[e].defaults,i[e]),this.libs[e].init.apply(this.libs[e],[this.scope,i[e]])):(i=i instanceof Array?i:new Array(i),this.libs[e].init.apply(this.libs[e],i))):function(){}},patch:function(t){t.scope=this.scope,t.namespace=this.global.namespace,t.rtl=this.rtl,t.data_options=this.utils.data_options,t.attr_name=o,t.add_namespace=u,t.bindings=l,t.S=this.utils.S},inherit:function(t,e){for(var i=e.split(" "),n=i.length;n--;)this.utils.hasOwnProperty(i[n])&&(t[i[n]]=this.utils[i[n]])},set_namespace:function(){var e=this.global.namespace===n?t(".foundation-data-attribute-namespace").css("font-family"):this.global.namespace;this.global.namespace=e===n||/false/i.test(e)?"":e},libs:{},utils:{S:r,throttle:function(t,e){var i=null;return function(){var n=this,a=arguments;null==i&&(i=setTimeout(function(){t.apply(n,a),i=null},e))}},debounce:function(t,e,i){var n,a;return function(){var s=this,r=arguments,o=function(){n=null,i||(a=t.apply(s,r))},u=i&&!n;return clearTimeout(n),n=setTimeout(o,e),u&&(a=t.apply(s,r)),a}},data_options:function(e,i){function n(t){return!isNaN(t-0)&&null!==t&&""!==t&&t!==!1&&t!==!0}function a(e){return"string"==typeof e?t.trim(e):e}i=i||"options";var s,r,o,u={},l=function(t){var e=Foundation.global.namespace;return t.data(e.length>0?e+"-"+i:i)},m=l(e);if("object"==typeof m)return m;for(o=(m||":").split(";"),s=o.length;s--;)r=o[s].split(":"),r=[r[0],r.slice(1).join(":")],/true/i.test(r[1])&&(r[1]=!0),/false/i.test(r[1])&&(r[1]=!1),n(r[1])&&(r[1]=-1===r[1].indexOf(".")?parseInt(r[1],10):parseFloat(r[1])),2===r.length&&r[0].length>0&&(u[a(r[0])]=a(r[1]));return u},register_media:function(e,i){Foundation.media_queries[e]===n&&(t("head").append('<meta class="'+i+'"/>'),Foundation.media_queries[e]=a(t("."+i).css("font-family")))},add_custom_rule:function(t,e){if(e===n&&Foundation.stylesheet)Foundation.stylesheet.insertRule(t,Foundation.stylesheet.cssRules.length);else{var i=Foundation.media_queries[e];i!==n&&Foundation.stylesheet.insertRule("@media "+Foundation.media_queries[e]+"{ "+t+" }")}},image_loaded:function(t,e){var i=this,n=t.length;0===n&&e(t),t.each(function(){m(i.S(this),function(){n-=1,0===n&&e(t)})})},random_str:function(){return this.fidx||(this.fidx=0),this.prefix=this.prefix||[this.name||"F",(+new Date).toString(36)].join("-"),this.prefix+(this.fidx++).toString(36)},match:function(t){return e.matchMedia(t).matches},is_small_up:function(){return this.match(Foundation.media_queries.small)},is_medium_up:function(){return this.match(Foundation.media_queries.medium)},is_large_up:function(){return this.match(Foundation.media_queries.large)},is_xlarge_up:function(){return this.match(Foundation.media_queries.xlarge)},is_xxlarge_up:function(){return this.match(Foundation.media_queries.xxlarge)},is_small_only:function(){return!(this.is_medium_up()||this.is_large_up()||this.is_xlarge_up()||this.is_xxlarge_up())},is_medium_only:function(){return this.is_medium_up()&&!this.is_large_up()&&!this.is_xlarge_up()&&!this.is_xxlarge_up()},is_large_only:function(){return this.is_medium_up()&&this.is_large_up()&&!this.is_xlarge_up()&&!this.is_xxlarge_up()},is_xlarge_only:function(){return this.is_medium_up()&&this.is_large_up()&&this.is_xlarge_up()&&!this.is_xxlarge_up()},is_xxlarge_only:function(){return this.is_medium_up()&&this.is_large_up()&&this.is_xlarge_up()&&this.is_xxlarge_up()}}},t.fn.foundation=function(){var t=Array.prototype.slice.call(arguments,0);return this.each(function(){return Foundation.init.apply(Foundation,[this].concat(t)),this})}}(jQuery,window,window.document);
+
+;(function ($, window, document, undefined) {
+  'use strict';
+
+  Foundation.libs.interchange = {
+    name : 'interchange',
+
+    version : '5.5.1',
+
+    cache : {},
+
+    images_loaded : false,
+    nodes_loaded : false,
+
+    settings : {
+      load_attr : 'interchange',
+
+      named_queries : {
+        'default'     : 'only screen',
+        'small'       : Foundation.media_queries['small'],
+        'small-only'  : Foundation.media_queries['small-only'],
+        'medium'      : Foundation.media_queries['medium'],
+        'medium-only' : Foundation.media_queries['medium-only'],
+        'large'       : Foundation.media_queries['large'],
+        'large-only'  : Foundation.media_queries['large-only'],
+        'xlarge'      : Foundation.media_queries['xlarge'],
+        'xlarge-only' : Foundation.media_queries['xlarge-only'],
+        'xxlarge'     : Foundation.media_queries['xxlarge'],
+        'landscape'   : 'only screen and (orientation: landscape)',
+        'portrait'    : 'only screen and (orientation: portrait)',
+        'retina'      : 'only screen and (-webkit-min-device-pixel-ratio: 2),' +
+          'only screen and (min--moz-device-pixel-ratio: 2),' +
+          'only screen and (-o-min-device-pixel-ratio: 2/1),' +
+          'only screen and (min-device-pixel-ratio: 2),' +
+          'only screen and (min-resolution: 192dpi),' +
+          'only screen and (min-resolution: 2dppx)'
+      },
+
+      directives : {
+        replace : function (el, path, trigger) {
+          // The trigger argument, if called within the directive, fires
+          // an event named after the directive on the element, passing
+          // any parameters along to the event that you pass to trigger.
+          //
+          // ex. trigger(), trigger([a, b, c]), or trigger(a, b, c)
+          //
+          // This allows you to bind a callback like so:
+          // $('#interchangeContainer').on('replace', function (e, a, b, c) {
+          //   console.log($(this).html(), a, b, c);
+          // });
+
+          if (/IMG/.test(el[0].nodeName)) {
+            var orig_path = el[0].src;
+
+            if (new RegExp(path, 'i').test(orig_path)) {
+              return;
+            }
+
+            el[0].src = path;
+
+            return trigger(el[0].src);
+          }
+          var last_path = el.data(this.data_attr + '-last-path'),
+              self = this;
+
+          if (last_path == path) {
+            return;
+          }
+
+          if (/\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i.test(path)) {
+            $(el).css('background-image', 'url(' + path + ')');
+            el.data('interchange-last-path', path);
+            return trigger(path);
+          }
+
+          return $.get(path, function (response) {
+            el.html(response);
+            el.data(self.data_attr + '-last-path', path);
+            trigger();
+          });
+
+        }
+      }
+    },
+
+    init : function (scope, method, options) {
+      Foundation.inherit(this, 'throttle random_str');
+
+      this.data_attr = this.set_data_attr();
+      $.extend(true, this.settings, method, options);
+      this.bindings(method, options);
+      this.load('images');
+      this.load('nodes');
+    },
+
+    get_media_hash : function () {
+        var mediaHash = '';
+        for (var queryName in this.settings.named_queries ) {
+            mediaHash += matchMedia(this.settings.named_queries[queryName]).matches.toString();
+        }
+        return mediaHash;
+    },
+
+    events : function () {
+      var self = this, prevMediaHash;
+
+      $(window)
+        .off('.interchange')
+        .on('resize.fndtn.interchange', self.throttle(function () {
+            var currMediaHash = self.get_media_hash();
+            if (currMediaHash !== prevMediaHash) {
+                self.resize();
+            }
+            prevMediaHash = currMediaHash;
+        }, 50));
+
+      return this;
+    },
+
+    resize : function () {
+      var cache = this.cache;
+
+      if (!this.images_loaded || !this.nodes_loaded) {
+        setTimeout($.proxy(this.resize, this), 50);
+        return;
+      }
+
+      for (var uuid in cache) {
+        if (cache.hasOwnProperty(uuid)) {
+          var passed = this.results(uuid, cache[uuid]);
+
+          if (passed) {
+            this.settings.directives[passed
+              .scenario[1]].call(this, passed.el, passed.scenario[0], (function (passed) {
+                if (arguments[0] instanceof Array) { 
+                  var args = arguments[0];
+                } else {
+                  var args = Array.prototype.slice.call(arguments, 0);
+                }
+
+                return function() {
+                  passed.el.trigger(passed.scenario[1], args);
+                }
+              }(passed)));
+          }
+        }
+      }
+
+    },
+
+    results : function (uuid, scenarios) {
+      var count = scenarios.length;
+
+      if (count > 0) {
+        var el = this.S('[' + this.add_namespace('data-uuid') + '="' + uuid + '"]');
+
+        while (count--) {
+          var mq, rule = scenarios[count][2];
+          if (this.settings.named_queries.hasOwnProperty(rule)) {
+            mq = matchMedia(this.settings.named_queries[rule]);
+          } else {
+            mq = matchMedia(rule);
+          }
+          if (mq.matches) {
+            return {el : el, scenario : scenarios[count]};
+          }
+        }
+      }
+
+      return false;
+    },
+
+    load : function (type, force_update) {
+      if (typeof this['cached_' + type] === 'undefined' || force_update) {
+        this['update_' + type]();
+      }
+
+      return this['cached_' + type];
+    },
+
+    update_images : function () {
+      var images = this.S('img[' + this.data_attr + ']'),
+          count = images.length,
+          i = count,
+          loaded_count = 0,
+          data_attr = this.data_attr;
+
+      this.cache = {};
+      this.cached_images = [];
+      this.images_loaded = (count === 0);
+
+      while (i--) {
+        loaded_count++;
+        if (images[i]) {
+          var str = images[i].getAttribute(data_attr) || '';
+
+          if (str.length > 0) {
+            this.cached_images.push(images[i]);
+          }
+        }
+
+        if (loaded_count === count) {
+          this.images_loaded = true;
+          this.enhance('images');
+        }
+      }
+
+      return this;
+    },
+
+    update_nodes : function () {
+      var nodes = this.S('[' + this.data_attr + ']').not('img'),
+          count = nodes.length,
+          i = count,
+          loaded_count = 0,
+          data_attr = this.data_attr;
+
+      this.cached_nodes = [];
+      this.nodes_loaded = (count === 0);
+
+      while (i--) {
+        loaded_count++;
+        var str = nodes[i].getAttribute(data_attr) || '';
+
+        if (str.length > 0) {
+          this.cached_nodes.push(nodes[i]);
+        }
+
+        if (loaded_count === count) {
+          this.nodes_loaded = true;
+          this.enhance('nodes');
+        }
+      }
+
+      return this;
+    },
+
+    enhance : function (type) {
+      var i = this['cached_' + type].length;
+
+      while (i--) {
+        this.object($(this['cached_' + type][i]));
+      }
+
+      return $(window).trigger('resize').trigger('resize.fndtn.interchange');
+    },
+
+    convert_directive : function (directive) {
+
+      var trimmed = this.trim(directive);
+
+      if (trimmed.length > 0) {
+        return trimmed;
+      }
+
+      return 'replace';
+    },
+
+    parse_scenario : function (scenario) {
+      // This logic had to be made more complex since some users were using commas in the url path
+      // So we cannot simply just split on a comma
+      var directive_match = scenario[0].match(/(.+),\s*(\w+)\s*$/),
+      media_query         = scenario[1];
+
+      if (directive_match) {
+        var path  = directive_match[1],
+        directive = directive_match[2];
+      } else {
+        var cached_split = scenario[0].split(/,\s*$/),
+        path             = cached_split[0],
+        directive        = '';
+      }
+
+      return [this.trim(path), this.convert_directive(directive), this.trim(media_query)];
+    },
+
+    object : function (el) {
+      var raw_arr = this.parse_data_attr(el),
+          scenarios = [],
+          i = raw_arr.length;
+
+      if (i > 0) {
+        while (i--) {
+          var split = raw_arr[i].split(/\(([^\)]*?)(\))$/);
+
+          if (split.length > 1) {
+            var params = this.parse_scenario(split);
+            scenarios.push(params);
+          }
+        }
+      }
+
+      return this.store(el, scenarios);
+    },
+
+    store : function (el, scenarios) {
+      var uuid = this.random_str(),
+          current_uuid = el.data(this.add_namespace('uuid', true));
+
+      if (this.cache[current_uuid]) {
+        return this.cache[current_uuid];
+      }
+
+      el.attr(this.add_namespace('data-uuid'), uuid);
+
+      return this.cache[uuid] = scenarios;
+    },
+
+    trim : function (str) {
+
+      if (typeof str === 'string') {
+        return $.trim(str);
+      }
+
+      return str;
+    },
+
+    set_data_attr : function (init) {
+      if (init) {
+        if (this.namespace.length > 0) {
+          return this.namespace + '-' + this.settings.load_attr;
+        }
+
+        return this.settings.load_attr;
+      }
+
+      if (this.namespace.length > 0) {
+        return 'data-' + this.namespace + '-' + this.settings.load_attr;
+      }
+
+      return 'data-' + this.settings.load_attr;
+    },
+
+    parse_data_attr : function (el) {
+      var raw = el.attr(this.attr_name()).split(/\[(.*?)\]/),
+          i = raw.length,
+          output = [];
+
+      while (i--) {
+        if (raw[i].replace(/[\W\d]+/, '').length > 4) {
+          output.push(raw[i]);
+        }
+      }
+
+      return output;
+    },
+
+    reflow : function () {
+      this.load('images', true);
+      this.load('nodes', true);
+    }
+
+  };
+
+    
+}(jQuery, window, window.document));
+
+
+/* =========================================================
+ * foundation-datepicker.js
+ * Copyright 2013 Peter Beno, najlepsiwebdesigner@gmail.com, @benopeter
+ * project website http://foundation-datepicker.peterbeno.com
+ *
+ * original project:
+ * 		bootstrap-datepicker.js
+ * 		http://www.eyecon.ro/bootstrap-datepicker
+ * 		=========================================================
+ * 		Copyright 2012 Stefan Petre
+ * 		Improvements by Andrew Rowls
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================= */
+
+!function( $ ) {
+
+	function UTCDate(){
+		return new Date(Date.UTC.apply(Date, arguments));
+	}
+	function UTCToday(){
+		var today = new Date();
+		return UTCDate(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+	}
+
+	// Picker object
+
+	var Datepicker = function(element, options) {
+		var that = this;
+
+		this.element = $(element);
+		this.closeButton = options.closeButton;
+		this.language = options.language||this.element.data('date-language')||"en";
+		this.language = this.language in dates ? this.language : this.language.split('-')[0]; //Check if "de-DE" style date is available, if not language should fallback to 2 letter code eg "de"
+		this.language = this.language in dates ? this.language : "en";
+		this.isRTL = dates[this.language].rtl||false;
+		this.format = DPGlobal.parseFormat(options.format||this.element.data('date-format')||dates[this.language].format||'mm/dd/yyyy');
+		this.isInline = false;
+		this.isInput = this.element.is('input');
+		this.component = this.element.is('.date') ? this.element.find('.prefix, .postfix') : false;
+		this.hasInput = this.component && this.element.find('input').length;
+
+
+		this.onRender = options.onRender || function () {};
+		if(this.component && this.component.length === 0)
+			this.component = false;
+
+		this._attachEvents();
+
+		this.forceParse = true;
+		if ('forceParse' in options) {
+			this.forceParse = options.forceParse;
+		} else if ('dateForceParse' in this.element.data()) {
+			this.forceParse = this.element.data('date-force-parse');
+		}
+
+
+		this.picker = $(DPGlobal.template)
+							.appendTo(this.isInline ? this.element : 'body')
+							.on({
+								click: $.proxy(this.click, this),
+								mousedown: $.proxy(this.mousedown, this)
+							});
+		if (this.closeButton){
+			this.picker.find('a.datepicker-close').show();
+		}
+
+		if(this.isInline) {
+			this.picker.addClass('datepicker-inline');
+		} else {
+			this.picker.addClass('datepicker-dropdown dropdown-menu');
+		}
+		if (this.isRTL){
+			this.picker.addClass('datepicker-rtl');
+		}
+		$(document).on('mousedown', function (e) {
+			// Clicked outside the datepicker, hide it
+			if ($(e.target).closest('.datepicker.datepicker-inline, .datepicker.datepicker-dropdown').length === 0) {
+				that.hide();
+			}
+		});
+
+		this.autoclose = true;
+		if ('autoclose' in options) {
+			this.autoclose = options.autoclose;
+		} else if ('dateAutoclose' in this.element.data()) {
+			this.autoclose = this.element.data('date-autoclose');
+		}
+
+		this.keyboardNavigation = true;
+		if ('keyboardNavigation' in options) {
+			this.keyboardNavigation = options.keyboardNavigation;
+		} else if ('dateKeyboardNavigation' in this.element.data()) {
+			this.keyboardNavigation = this.element.data('date-keyboard-navigation');
+		}
+
+		this.viewMode = this.startViewMode = 0;
+		switch(options.startView || this.element.data('date-start-view')){
+			case 2:
+			case 'decade':
+				this.viewMode = this.startViewMode = 2;
+				break;
+			case 1:
+			case 'year':
+				this.viewMode = this.startViewMode = 1;
+				break;
+		}
+
+		this.todayBtn = (options.todayBtn||this.element.data('date-today-btn')||false);
+		this.todayHighlight = (options.todayHighlight||this.element.data('date-today-highlight')||false);
+
+		this.calendarWeeks = false;
+		if ('calendarWeeks' in options) {
+			this.calendarWeeks = options.calendarWeeks;
+		} else if ('dateCalendarWeeks' in this.element.data()) {
+			this.calendarWeeks = this.element.data('date-calendar-weeks');
+		}
+		if (this.calendarWeeks)
+			this.picker.find('tfoot th.today')
+						.attr('colspan', function(i, val){
+							return parseInt(val) + 1;
+						});
+
+		this.weekStart = ((options.weekStart||this.element.data('date-weekstart')||dates[this.language].weekStart||0) % 7);
+		this.weekEnd = ((this.weekStart + 6) % 7);
+		this.startDate = -Infinity;
+		this.endDate = Infinity;
+		this.daysOfWeekDisabled = [];
+		this.setStartDate(options.startDate||this.element.data('date-startdate'));
+		this.setEndDate(options.endDate||this.element.data('date-enddate'));
+		this.setDaysOfWeekDisabled(options.daysOfWeekDisabled||this.element.data('date-days-of-week-disabled'));
+
+		this.fillDow();
+		this.fillMonths();
+		this.update();
+		this.showMode();
+
+		if(this.isInline) {
+			this.show();
+		}
+	};
+
+	Datepicker.prototype = {
+		constructor: Datepicker,
+
+		_events: [],
+		_attachEvents: function(){
+			this._detachEvents();
+			if (this.isInput) { // single input
+				this._events = [
+					[this.element, {
+						focus: $.proxy(this.show, this),
+						keyup: $.proxy(this.update, this),
+						keydown: $.proxy(this.keydown, this)
+					}]
+				];
+			}
+			else if (this.component && this.hasInput){ // component: input + button
+				this._events = [
+					// For components that are not readonly, allow keyboard nav
+					[this.element.find('input'), {
+						focus: $.proxy(this.show, this),
+						keyup: $.proxy(this.update, this),
+						keydown: $.proxy(this.keydown, this)
+					}],
+					[this.component, {
+						click: $.proxy(this.show, this)
+					}]
+				];
+			}
+						else if (this.element.is('div')) {  // inline datepicker
+							this.isInline = true;
+						}
+			else {
+				this._events = [
+					[this.element, {
+						click: $.proxy(this.show, this)
+					}]
+				];
+			}
+			for (var i=0, el, ev; i<this._events.length; i++){
+				el = this._events[i][0];
+				ev = this._events[i][1];
+				el.on(ev);
+			}
+		},
+		_detachEvents: function(){
+			for (var i=0, el, ev; i<this._events.length; i++){
+				el = this._events[i][0];
+				ev = this._events[i][1];
+				el.off(ev);
+			}
+			this._events = [];
+		},
+
+		show: function(e) {
+			this.picker.show();
+			this.height = this.component ? this.component.outerHeight() : this.element.outerHeight();
+			this.update();
+			this.place();
+			$(window).on('resize', $.proxy(this.place, this));
+			if (e ) {
+				e.stopPropagation();
+				e.preventDefault();
+			}
+			this.element.trigger({
+				type: 'show',
+				date: this.date
+			});
+		},
+
+		hide: function(e){
+			if(this.isInline) return;
+			if (!this.picker.is(':visible')) return;
+			this.picker.hide();
+			$(window).off('resize', this.place);
+			this.viewMode = this.startViewMode;
+			this.showMode();
+			if (!this.isInput) {
+				$(document).off('mousedown', this.hide);
+			}
+
+			if (
+				this.forceParse &&
+				(
+					this.isInput && this.element.val() ||
+					this.hasInput && this.element.find('input').val()
+				)
+			)
+				this.setValue();
+			this.element.trigger({
+				type: 'hide',
+				date: this.date
+			});
+		},
+
+		remove: function() {
+			this._detachEvents();
+			this.picker.remove();
+			delete this.element.data().datepicker;
+		},
+
+		getDate: function() {
+			var d = this.getUTCDate();
+			return new Date(d.getTime() + (d.getTimezoneOffset()*60000));
+		},
+
+		getUTCDate: function() {
+			return this.date;
+		},
+
+		setDate: function(d) {
+			this.setUTCDate(new Date(d.getTime() - (d.getTimezoneOffset()*60000)));
+		},
+
+		setUTCDate: function(d) {
+			this.date = d;
+			this.setValue();
+		},
+
+		setValue: function() {
+			var formatted = this.getFormattedDate();
+			if (!this.isInput) {
+				if (this.component){
+					this.element.find('input').val(formatted);
+				}
+				this.element.data('date', formatted);
+			} else {
+				this.element.val(formatted);
+			}
+		},
+
+		getFormattedDate: function(format) {
+			if (format === undefined)
+				format = this.format;
+			return DPGlobal.formatDate(this.date, format, this.language);
+		},
+
+		setStartDate: function(startDate){
+			this.startDate = startDate||-Infinity;
+			if (this.startDate !== -Infinity) {
+				this.startDate = DPGlobal.parseDate(this.startDate, this.format, this.language);
+			}
+			this.update();
+			this.updateNavArrows();
+		},
+
+		setEndDate: function(endDate){
+			this.endDate = endDate||Infinity;
+			if (this.endDate !== Infinity) {
+				this.endDate = DPGlobal.parseDate(this.endDate, this.format, this.language);
+			}
+			this.update();
+			this.updateNavArrows();
+		},
+
+		setDaysOfWeekDisabled: function(daysOfWeekDisabled){
+			this.daysOfWeekDisabled = daysOfWeekDisabled||[];
+			if (!$.isArray(this.daysOfWeekDisabled)) {
+				this.daysOfWeekDisabled = this.daysOfWeekDisabled.split(/,\s*/);
+			}
+			this.daysOfWeekDisabled = $.map(this.daysOfWeekDisabled, function (d) {
+				return parseInt(d, 10);
+			});
+			this.update();
+			this.updateNavArrows();
+		},
+
+		place: function(){
+		        if(this.isInline) return;
+		  var zIndex = parseInt(this.element.parents().filter(function() {
+		          return $(this).css('z-index') != 'auto';
+		        }).first().css('z-index'))+10;
+		  var textbox = this.component ? this.component : this.element;
+		  var offset = textbox.offset();
+		  var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
+		  var width = textbox.outerWidth() + parseInt(textbox.css('margin-left'));
+		  var fullOffsetTop = offset.top + height;
+		  var offsetLeft = offset.left;
+		  // if the datepicker is going to be below the window, show it on top of the input
+		  if((fullOffsetTop + this.picker.height()) >= $(window).scrollTop() + $(window).height()){
+		  	fullOffsetTop = offset.top - height - this.picker.height();
+		  }
+
+		  // if the datepicker is going to go past the right side of the window, we want
+		  // to set the right position so the datepicker lines up with the textbox
+		  if(offset.left + this.picker.width() >= $(window).width()){
+		  	offsetLeft = (offset.left + width)  - this.picker.width();
+		  }
+		  this.picker.css({
+		    top: fullOffsetTop,
+		    left: offsetLeft,
+		    zIndex: zIndex
+		  });
+		},
+
+		update: function(){
+			var date, fromArgs = false;
+			if(arguments && arguments.length && (typeof arguments[0] === 'string' || arguments[0] instanceof Date)) {
+				date = arguments[0];
+				fromArgs = true;
+			} else {
+				date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
+			}
+
+			this.date = DPGlobal.parseDate(date, this.format, this.language);
+
+			if(fromArgs) this.setValue();
+
+			if (this.date < this.startDate) {
+				this.viewDate = new Date(this.startDate.valueOf());
+			} else if (this.date > this.endDate) {
+				this.viewDate = new Date(this.endDate.valueOf());
+			} else {
+				this.viewDate = new Date(this.date.valueOf());
+			}
+			this.fill();
+		},
+
+		fillDow: function(){
+			var dowCnt = this.weekStart,
+			html = '<tr>';
+			if(this.calendarWeeks){
+				var cell = '<th class="cw">&nbsp;</th>';
+				html += cell;
+				this.picker.find('.datepicker-days thead tr:first-child').prepend(cell);
+			}
+			while (dowCnt < this.weekStart + 7) {
+				html += '<th class="dow">'+dates[this.language].daysMin[(dowCnt++)%7]+'</th>';
+			}
+			html += '</tr>';
+			this.picker.find('.datepicker-days thead').append(html);
+		},
+
+		fillMonths: function(){
+			var html = '',
+			i = 0;
+			while (i < 12) {
+				html += '<span class="month">'+dates[this.language].monthsShort[i++]+'</span>';
+			}
+			this.picker.find('.datepicker-months td').html(html);
+		},
+
+		fill: function() {
+			var d = new Date(this.viewDate.valueOf()),
+				year = d.getUTCFullYear(),
+				month = d.getUTCMonth(),
+				startYear = this.startDate !== -Infinity ? this.startDate.getUTCFullYear() : -Infinity,
+				startMonth = this.startDate !== -Infinity ? this.startDate.getUTCMonth() : -Infinity,
+				endYear = this.endDate !== Infinity ? this.endDate.getUTCFullYear() : Infinity,
+				endMonth = this.endDate !== Infinity ? this.endDate.getUTCMonth() : Infinity,
+				currentDate = this.date && this.date.valueOf(),
+				today = new Date();
+			this.picker.find('.datepicker-days thead th.date-switch')
+						.text(dates[this.language].months[month]+' '+year);
+			this.picker.find('tfoot th.today')
+						.text(dates[this.language].today)
+						.toggle(this.todayBtn !== false);
+			this.updateNavArrows();
+			this.fillMonths();
+			var prevMonth = UTCDate(year, month-1, 28,0,0,0,0),
+				day = DPGlobal.getDaysInMonth(prevMonth.getUTCFullYear(), prevMonth.getUTCMonth());
+			prevMonth.setUTCDate(day);
+			prevMonth.setUTCDate(day - (prevMonth.getUTCDay() - this.weekStart + 7)%7);
+			var nextMonth = new Date(prevMonth.valueOf());
+			nextMonth.setUTCDate(nextMonth.getUTCDate() + 42);
+			nextMonth = nextMonth.valueOf();
+			var html = [];
+			var clsName;
+			while(prevMonth.valueOf() < nextMonth) {
+				if (prevMonth.getUTCDay() == this.weekStart) {
+					html.push('<tr>');
+					if(this.calendarWeeks){
+						// adapted from https://github.com/timrwood/moment/blob/master/moment.js#L128
+						var a = new Date(prevMonth.getUTCFullYear(), prevMonth.getUTCMonth(), prevMonth.getUTCDate() - prevMonth.getDay() + 10 - (this.weekStart && this.weekStart%7 < 5 && 7)),
+							b = new Date(a.getFullYear(), 0, 4),
+							calWeek =  ~~((a - b) / 864e5 / 7 + 1.5);
+						html.push('<td class="cw">'+ calWeek +'</td>');
+					}
+				}
+				clsName = ' '+this.onRender(prevMonth)+' ';
+				if (prevMonth.getUTCFullYear() < year || (prevMonth.getUTCFullYear() == year && prevMonth.getUTCMonth() < month)) {
+					clsName += ' old';
+				} else if (prevMonth.getUTCFullYear() > year || (prevMonth.getUTCFullYear() == year && prevMonth.getUTCMonth() > month)) {
+					clsName += ' new';
+				}
+				// Compare internal UTC date with local today, not UTC today
+				if (this.todayHighlight &&
+					prevMonth.getUTCFullYear() == today.getFullYear() &&
+					prevMonth.getUTCMonth() == today.getMonth() &&
+					prevMonth.getUTCDate() == today.getDate()) {
+					clsName += ' today';
+				}
+				if (currentDate && prevMonth.valueOf() == currentDate) {
+					clsName += ' active';
+				}
+				if (prevMonth.valueOf() < this.startDate || prevMonth.valueOf() > this.endDate ||
+					$.inArray(prevMonth.getUTCDay(), this.daysOfWeekDisabled) !== -1) {
+					clsName += ' disabled';
+				}
+				html.push('<td class="day'+clsName+'">'+prevMonth.getUTCDate() + '</td>');
+				if (prevMonth.getUTCDay() == this.weekEnd) {
+					html.push('</tr>');
+				}
+				prevMonth.setUTCDate(prevMonth.getUTCDate()+1);
+			}
+			this.picker.find('.datepicker-days tbody').empty().append(html.join(''));
+			var currentYear = this.date && this.date.getUTCFullYear();
+
+			var months = this.picker.find('.datepicker-months')
+						.find('th:eq(1)')
+							.text(year)
+							.end()
+						.find('span').removeClass('active');
+			if (currentYear && currentYear == year) {
+				months.eq(this.date.getUTCMonth()).addClass('active');
+			}
+			if (year < startYear || year > endYear) {
+				months.addClass('disabled');
+			}
+			if (year == startYear) {
+				months.slice(0, startMonth).addClass('disabled');
+			}
+			if (year == endYear) {
+				months.slice(endMonth+1).addClass('disabled');
+			}
+
+			html = '';
+			year = parseInt(year/10, 10) * 10;
+			var yearCont = this.picker.find('.datepicker-years')
+								.find('th:eq(1)')
+									.text(year + '-' + (year + 9))
+									.end()
+								.find('td');
+			year -= 1;
+			for (var i = -1; i < 11; i++) {
+				html += '<span class="year'+(i == -1 || i == 10 ? ' old' : '')+(currentYear == year ? ' active' : '')+(year < startYear || year > endYear ? ' disabled' : '')+'">'+year+'</span>';
+				year += 1;
+			}
+			yearCont.html(html);
+		},
+
+		updateNavArrows: function() {
+			var d = new Date(this.viewDate.valueOf()),
+				year = d.getUTCFullYear(),
+				month = d.getUTCMonth();
+			switch (this.viewMode) {
+				case 0:
+					if (this.startDate !== -Infinity && year <= this.startDate.getUTCFullYear() && month <= this.startDate.getUTCMonth()) {
+						this.picker.find('.prev').css({visibility: 'hidden'});
+					} else {
+						this.picker.find('.prev').css({visibility: 'visible'});
+					}
+					if (this.endDate !== Infinity && year >= this.endDate.getUTCFullYear() && month >= this.endDate.getUTCMonth()) {
+						this.picker.find('.next').css({visibility: 'hidden'});
+					} else {
+						this.picker.find('.next').css({visibility: 'visible'});
+					}
+					break;
+				case 1:
+				case 2:
+					if (this.startDate !== -Infinity && year <= this.startDate.getUTCFullYear()) {
+						this.picker.find('.prev').css({visibility: 'hidden'});
+					} else {
+						this.picker.find('.prev').css({visibility: 'visible'});
+					}
+					if (this.endDate !== Infinity && year >= this.endDate.getUTCFullYear()) {
+						this.picker.find('.next').css({visibility: 'hidden'});
+					} else {
+						this.picker.find('.next').css({visibility: 'visible'});
+					}
+					break;
+			}
+		},
+
+		click: function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+
+			if ($(e.target).hasClass('datepicker-close') || $(e.target).parent().hasClass('datepicker-close')){
+				this.hide();
+			}
+
+			var target = $(e.target).closest('span, td, th');
+			if (target.length == 1) {
+				switch(target[0].nodeName.toLowerCase()) {
+					case 'th':
+						switch(target[0].className) {
+							case 'date-switch':
+								this.showMode(1);
+								break;
+							case 'prev':
+							case 'next':
+								var dir = DPGlobal.modes[this.viewMode].navStep * (target[0].className == 'prev' ? -1 : 1);
+								switch(this.viewMode){
+									case 0:
+										this.viewDate = this.moveMonth(this.viewDate, dir);
+										break;
+									case 1:
+									case 2:
+										this.viewDate = this.moveYear(this.viewDate, dir);
+										break;
+								}
+								this.fill();
+								break;
+							case 'today':
+								var date = new Date();
+								date = UTCDate(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
+
+								this.showMode(-2);
+								var which = this.todayBtn == 'linked' ? null : 'view';
+								this._setDate(date, which);
+								break;
+						}
+						break;
+					case 'span':
+						if (!target.is('.disabled')) {
+							this.viewDate.setUTCDate(1);
+							if (target.is('.month')) {
+								var month = target.parent().find('span').index(target);
+								this.viewDate.setUTCMonth(month);
+								this.element.trigger({
+									type: 'changeMonth',
+									date: this.viewDate
+								});
+							} else {
+								var year = parseInt(target.text(), 10)||0;
+								this.viewDate.setUTCFullYear(year);
+								this.element.trigger({
+									type: 'changeYear',
+									date: this.viewDate
+								});
+							}
+							this.showMode(-1);
+							this.fill();
+						}
+						break;
+					case 'td':
+						if (target.is('.day') && !target.is('.disabled')){
+							var day = parseInt(target.text(), 10)||1;
+							var year = this.viewDate.getUTCFullYear(),
+								month = this.viewDate.getUTCMonth();
+							if (target.is('.old')) {
+								if (month === 0) {
+									month = 11;
+									year -= 1;
+								} else {
+									month -= 1;
+								}
+							} else if (target.is('.new')) {
+								if (month == 11) {
+									month = 0;
+									year += 1;
+								} else {
+									month += 1;
+								}
+							}
+							this._setDate(UTCDate(year, month, day,0,0,0,0));
+						}
+						break;
+				}
+			}
+		},
+
+		_setDate: function(date, which){
+			if (!which || which == 'date')
+				this.date = date;
+			if (!which || which  == 'view')
+				this.viewDate = date;
+			this.fill();
+			this.setValue();
+			this.element.trigger({
+				type: 'changeDate',
+				date: this.date
+			});
+			var element;
+			if (this.isInput) {
+				element = this.element;
+			} else if (this.component){
+				element = this.element.find('input');
+			}
+			if (element) {
+				element.change();
+				if (this.autoclose && (!which || which == 'date')) {
+					this.hide();
+				}
+			}
+		},
+
+		moveMonth: function(date, dir){
+			if (!dir) return date;
+			var new_date = new Date(date.valueOf()),
+				day = new_date.getUTCDate(),
+				month = new_date.getUTCMonth(),
+				mag = Math.abs(dir),
+				new_month, test;
+			dir = dir > 0 ? 1 : -1;
+			if (mag == 1){
+				test = dir == -1
+					// If going back one month, make sure month is not current month
+					// (eg, Mar 31 -> Feb 31 == Feb 28, not Mar 02)
+					? function(){ return new_date.getUTCMonth() == month; }
+					// If going forward one month, make sure month is as expected
+					// (eg, Jan 31 -> Feb 31 == Feb 28, not Mar 02)
+					: function(){ return new_date.getUTCMonth() != new_month; };
+				new_month = month + dir;
+				new_date.setUTCMonth(new_month);
+				// Dec -> Jan (12) or Jan -> Dec (-1) -- limit expected date to 0-11
+				if (new_month < 0 || new_month > 11)
+					new_month = (new_month + 12) % 12;
+			} else {
+				// For magnitudes >1, move one month at a time...
+				for (var i=0; i<mag; i++)
+					// ...which might decrease the day (eg, Jan 31 to Feb 28, etc)...
+					new_date = this.moveMonth(new_date, dir);
+				// ...then reset the day, keeping it in the new month
+				new_month = new_date.getUTCMonth();
+				new_date.setUTCDate(day);
+				test = function(){ return new_month != new_date.getUTCMonth(); };
+			}
+			// Common date-resetting loop -- if date is beyond end of month, make it
+			// end of month
+			while (test()){
+				new_date.setUTCDate(--day);
+				new_date.setUTCMonth(new_month);
+			}
+			return new_date;
+		},
+
+		moveYear: function(date, dir){
+			return this.moveMonth(date, dir*12);
+		},
+
+		dateWithinRange: function(date){
+			return date >= this.startDate && date <= this.endDate;
+		},
+
+		keydown: function(e){
+			if (this.picker.is(':not(:visible)')){
+				if (e.keyCode == 27) // allow escape to hide and re-show picker
+					this.show();
+				return;
+			}
+			var dateChanged = false,
+				dir, day, month,
+				newDate, newViewDate;
+			switch(e.keyCode){
+				case 27: // escape
+					this.hide();
+					e.preventDefault();
+					break;
+				case 37: // left
+				case 39: // right
+					if (!this.keyboardNavigation) break;
+					dir = e.keyCode == 37 ? -1 : 1;
+					if (e.ctrlKey){
+						newDate = this.moveYear(this.date, dir);
+						newViewDate = this.moveYear(this.viewDate, dir);
+					} else if (e.shiftKey){
+						newDate = this.moveMonth(this.date, dir);
+						newViewDate = this.moveMonth(this.viewDate, dir);
+					} else {
+						newDate = new Date(this.date.valueOf());
+						newDate.setUTCDate(this.date.getUTCDate() + dir);
+						newViewDate = new Date(this.viewDate.valueOf());
+						newViewDate.setUTCDate(this.viewDate.getUTCDate() + dir);
+					}
+					if (this.dateWithinRange(newDate)){
+						this.date = newDate;
+						this.viewDate = newViewDate;
+						this.setValue();
+						this.update();
+						e.preventDefault();
+						dateChanged = true;
+					}
+					break;
+				case 38: // up
+				case 40: // down
+					if (!this.keyboardNavigation) break;
+					dir = e.keyCode == 38 ? -1 : 1;
+					if (e.ctrlKey){
+						newDate = this.moveYear(this.date, dir);
+						newViewDate = this.moveYear(this.viewDate, dir);
+					} else if (e.shiftKey){
+						newDate = this.moveMonth(this.date, dir);
+						newViewDate = this.moveMonth(this.viewDate, dir);
+					} else {
+						newDate = new Date(this.date.valueOf());
+						newDate.setUTCDate(this.date.getUTCDate() + dir * 7);
+						newViewDate = new Date(this.viewDate.valueOf());
+						newViewDate.setUTCDate(this.viewDate.getUTCDate() + dir * 7);
+					}
+					if (this.dateWithinRange(newDate)){
+						this.date = newDate;
+						this.viewDate = newViewDate;
+						this.setValue();
+						this.update();
+						e.preventDefault();
+						dateChanged = true;
+					}
+					break;
+				case 13: // enter
+					this.hide();
+					e.preventDefault();
+					break;
+				case 9: // tab
+					this.hide();
+					break;
+			}
+			if (dateChanged){
+				this.element.trigger({
+					type: 'changeDate',
+					date: this.date
+				});
+				var element;
+				if (this.isInput) {
+					element = this.element;
+				} else if (this.component){
+					element = this.element.find('input');
+				}
+				if (element) {
+					element.change();
+				}
+			}
+		},
+
+		showMode: function(dir) {
+			if (dir) {
+				this.viewMode = Math.max(0, Math.min(2, this.viewMode + dir));
+			}
+			/*
+				vitalets: fixing bug of very special conditions:
+				jquery 1.7.1 + webkit + show inline datepicker in bootstrap popover.
+				Method show() does not set display css correctly and datepicker is not shown.
+				Changed to .css('display', 'block') solve the problem.
+				See https://github.com/vitalets/x-editable/issues/37
+
+				In jquery 1.7.2+ everything works fine.
+			*/
+			//this.picker.find('>div').hide().filter('.datepicker-'+DPGlobal.modes[this.viewMode].clsName).show();
+			this.picker.find('>div').hide().filter('.datepicker-'+DPGlobal.modes[this.viewMode].clsName).css('display', 'block');
+			this.updateNavArrows();
+		}
+	};
+
+	$.fn.fdatepicker = function ( option ) {
+		var args = Array.apply(null, arguments);
+		args.shift();
+		return this.each(function () {
+			var $this = $(this),
+				data = $this.data('datepicker'),
+				options = typeof option == 'object' && option;
+			if (!data) {
+				$this.data('datepicker', (data = new Datepicker(this, $.extend({}, $.fn.fdatepicker.defaults,options))));
+			}
+			if (typeof option == 'string' && typeof data[option] == 'function') {
+				data[option].apply(data, args);
+			}
+		});
+	};
+
+    $.fn.fdatepicker.defaults = {
+        onRender: function(date) {
+            return '';
+        }
+    };
+	$.fn.fdatepicker.Constructor = Datepicker;
+	var dates = $.fn.fdatepicker.dates = {
+		en: {
+			days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+			daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+			daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+			today: "Today"
+		},
+		fr: {
+			days: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
+			daysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
+			daysMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa", "Di"],
+			months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+			monthsShort: ["Jan", "Fev", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Dec"],
+			today: "Aujourd'hui"
+		},
+		pl: {
+			days: ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"],
+			daysShort: ["Nie", "Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nie"],
+			daysMin: ["Nd", "Po", "Wt", "Śr", "Czw", "Pt", "So", "Nd"],
+			months: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+			monthsShort: ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paź", "Lis", "Gru"],
+			today: "Dzisiaj"
+		},
+		es: {
+			days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+			daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"],
+			daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
+			months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre"],
+			monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+			today: "Hoy"
+		},
+		pt: {
+		    days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
+		    daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+		    daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sá", "Do"],
+		    months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+		    monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+		    today: "Hoje"
+		},
+		it: {
+		    days: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"],
+		    daysShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Veb", "Sab", "Dom"],
+		    daysMin: ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa", "Do"],
+		    months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+		    monthsShort: ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"],
+		    today: "Oggi"
+		},
+		de: {
+		    days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+		    daysShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+		    daysMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+		    months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+		    monthsShort: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+		    today: "Heute"
+		},
+		ro: {
+		    days: ["Duminica", "Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata", "Duminica"],
+		    daysShort: ["Dum", "Lun", "Mar", "Mie", "Joi", "Vin", "Sam", "Dum"],
+		    daysMin: ["Du", "Lu", "Ma", "Mi", "Jo", "Vi", "Sa", "Du"],
+		    months: ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"],
+		    monthsShort: ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Noi", "Dec"],
+		    today: "Astazi"
+		},
+		hu: {
+		    days: ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"],
+		    daysShort: ["Vas", "Hét", "Kedd", "Sze", "Csü", "Pén", "Szo", "Vas"],
+		    daysMin: ["Va", "Hé", "Ke", "Sz", "Cs", "Pé", "Sz", "Va"],
+		    months: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
+		    monthsShort: ["Jan", "Feb", "Már", "Ápr", "Máj", "Jún", "Júl", "Aug", "Szep", "Okt", "Nov", "Dec"],
+		    today: "Ma"
+		},
+		ru: {
+			days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],
+			daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб", "Вск"],
+			daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+			months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+			monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+			today: "Сегодня",
+		},
+		cz: {
+			days: ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle"],
+			daysShort: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
+			daysMin: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
+			months: ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
+			monthsShort: ["Led", "Úno", "Bře", "Dub", "Kvě", "Čer", "Čnc", "Srp", "Zář", "Říj", "Lis", "Pro"],
+			today: "Dnes"
+		}
+	};
+
+	var DPGlobal = {
+		modes: [
+			{
+				clsName: 'days',
+				navFnc: 'Month',
+				navStep: 1
+			},
+			{
+				clsName: 'months',
+				navFnc: 'FullYear',
+				navStep: 1
+			},
+			{
+				clsName: 'years',
+				navFnc: 'FullYear',
+				navStep: 10
+		}],
+		isLeapYear: function (year) {
+			return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+		},
+		getDaysInMonth: function (year, month) {
+			return [31, (DPGlobal.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+		},
+		validParts: /dd?|DD?|mm?|MM?|yy(?:yy)?/g,
+		nonpunctuation: /[^ -\/:-@\[\u3400-\u9fff-`{-~\t\n\r]+/g,
+		parseFormat: function(format){
+			// IE treats \0 as a string end in inputs (truncating the value),
+			// so it's a bad format delimiter, anyway
+			var separators = format.replace(this.validParts, '\0').split('\0'),
+				parts = format.match(this.validParts);
+			if (!separators || !separators.length || !parts || parts.length === 0){
+				throw new Error("Invalid date format.");
+			}
+			return {separators: separators, parts: parts};
+		},
+		parseDate: function(date, format, language) {
+			if (date instanceof Date) return date;
+			if (/^[\-+]\d+[dmwy]([\s,]+[\-+]\d+[dmwy])*$/.test(date)) {
+				var part_re = /([\-+]\d+)([dmwy])/,
+					parts = date.match(/([\-+]\d+)([dmwy])/g),
+					part, dir;
+				date = new Date();
+				for (var i=0; i<parts.length; i++) {
+					part = part_re.exec(parts[i]);
+					dir = parseInt(part[1]);
+					switch(part[2]){
+						case 'd':
+							date.setUTCDate(date.getUTCDate() + dir);
+							break;
+						case 'm':
+							date = Datepicker.prototype.moveMonth.call(Datepicker.prototype, date, dir);
+							break;
+						case 'w':
+							date.setUTCDate(date.getUTCDate() + dir * 7);
+							break;
+						case 'y':
+							date = Datepicker.prototype.moveYear.call(Datepicker.prototype, date, dir);
+							break;
+					}
+				}
+				return UTCDate(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0);
+			}
+			var parts = date && date.match(this.nonpunctuation) || [],
+				date = new Date(),
+				parsed = {},
+				setters_order = ['yyyy', 'yy', 'M', 'MM', 'm', 'mm', 'd', 'dd'],
+				setters_map = {
+					yyyy: function(d,v){ return d.setUTCFullYear(v); },
+					yy: function(d,v){ return d.setUTCFullYear(2000+v); },
+					m: function(d,v){
+						v -= 1;
+						while (v<0) v += 12;
+						v %= 12;
+						d.setUTCMonth(v);
+						while (d.getUTCMonth() != v)
+							d.setUTCDate(d.getUTCDate()-1);
+						return d;
+					},
+					d: function(d,v){ return d.setUTCDate(v); }
+				},
+				val, filtered, part;
+			setters_map['M'] = setters_map['MM'] = setters_map['mm'] = setters_map['m'];
+			setters_map['dd'] = setters_map['d'];
+			date = UTCDate(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
+			var fparts = format.parts.slice();
+			// Remove noop parts
+			if (parts.length != fparts.length) {
+				fparts = $(fparts).filter(function(i,p){
+					return $.inArray(p, setters_order) !== -1;
+				}).toArray();
+			}
+			// Process remainder
+			if (parts.length == fparts.length) {
+				for (var i=0, cnt = fparts.length; i < cnt; i++) {
+					val = parseInt(parts[i], 10);
+					part = fparts[i];
+					if (isNaN(val)) {
+						switch(part) {
+							case 'MM':
+								filtered = $(dates[language].months).filter(function(){
+									var m = this.slice(0, parts[i].length),
+										p = parts[i].slice(0, m.length);
+									return m == p;
+								});
+								val = $.inArray(filtered[0], dates[language].months) + 1;
+								break;
+							case 'M':
+								filtered = $(dates[language].monthsShort).filter(function(){
+									var m = this.slice(0, parts[i].length),
+										p = parts[i].slice(0, m.length);
+									return m == p;
+								});
+								val = $.inArray(filtered[0], dates[language].monthsShort) + 1;
+								break;
+						}
+					}
+					parsed[part] = val;
+				}
+				for (var i=0, s; i<setters_order.length; i++){
+					s = setters_order[i];
+					if (s in parsed && !isNaN(parsed[s]))
+						setters_map[s](date, parsed[s]);
+				}
+			}
+			return date;
+		},
+		formatDate: function(date, format, language){
+			var val = {
+				d: date.getUTCDate(),
+				D: dates[language].daysShort[date.getUTCDay()],
+				DD: dates[language].days[date.getUTCDay()],
+				m: date.getUTCMonth() + 1,
+				M: dates[language].monthsShort[date.getUTCMonth()],
+				MM: dates[language].months[date.getUTCMonth()],
+				yy: date.getUTCFullYear().toString().substring(2),
+				yyyy: date.getUTCFullYear()
+			};
+			val.dd = (val.d < 10 ? '0' : '') + val.d;
+			val.mm = (val.m < 10 ? '0' : '') + val.m;
+			var date = [],
+				seps = $.extend([], format.separators);
+			for (var i=0, cnt = format.parts.length; i < cnt; i++) {
+				if (seps.length)
+					date.push(seps.shift());
+				date.push(val[format.parts[i]]);
+			}
+			return date.join('');
+		},
+		headTemplate: '<thead>'+
+							'<tr>'+
+								'<th class="prev">&lt;</th>'+
+								'<th colspan="5" class="date-switch"></th>'+
+								'<th class="next">&gt;</th>'+
+							'</tr>'+
+						'</thead>',
+		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
+		footTemplate: '<tfoot><tr><th colspan="7" class="today"></th></tr></tfoot>'
+	};
+	DPGlobal.template = '<div class="datepicker">'+
+
+							'<div class="datepicker-days">'+
+								'<table class=" table-condensed">'+
+									DPGlobal.headTemplate+
+									'<tbody></tbody>'+
+									DPGlobal.footTemplate+
+								'</table>'+
+							'</div>'+
+							'<div class="datepicker-months">'+
+								'<table class="table-condensed">'+
+									DPGlobal.headTemplate+
+									DPGlobal.contTemplate+
+									DPGlobal.footTemplate+
+								'</table>'+
+							'</div>'+
+							'<div class="datepicker-years">'+
+								'<table class="table-condensed">'+
+									DPGlobal.headTemplate+
+									DPGlobal.contTemplate+
+									DPGlobal.footTemplate+
+								'</table>'+
+							'</div>'+
+							'<a class="button datepicker-close small alert right" style="width:auto;">&times;</a>'+
+						'</div>';
+
+	$.fn.fdatepicker.DPGlobal = DPGlobal;
+
+}( window.jQuery );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// File altered !, Lines: 16, 51 & 55
+
+// ;(function ($, window, document, undefined) {
+//   'use strict';
+
+//   Foundation.libs.equalizer = {
+//     name : 'equalizer',
+
+//     version : '5.5.1',
+
+//     settings : {
+//       use_tallest : true,
+//       before_height_change : $.noop,
+//       after_height_change : $.noop,
+//       equalize_on_stack : false,
+//       equalize_on_small: false 
+//     },
+       
+
+//     init : function (scope, method, options) {
+//       Foundation.inherit(this, 'image_loaded');
+//       this.bindings(method, options);
+//       this.reflow();
+//     },
+
+//     events : function () {
+//       this.S(window).off('.equalizer').on('resize.fndtn.equalizer', function (e) {
+//         this.reflow();
+//       }.bind(this));
+//     },
+
+//     equalize : function (equalizer) {
+//       var isStacked = false,
+//           vals = equalizer.find('[' + this.attr_name() + '-watch]:visible'),
+//           settings = equalizer.data(this.attr_name(true) + '-init');
+
+//       if (vals.length === 0) {
+//         return;
+//       }
+//       var firstTopOffset = vals.first().offset().top;
+//       settings.before_height_change();
+//       equalizer.trigger('before-height-change').trigger('before-height-change.fndth.equalizer');
+//       vals.height('inherit');
+//       vals.each(function () {
+//         var el = $(this);
+//         if (el.offset().top !== firstTopOffset) {
+//           isStacked = true;
+//         }
+//       });
+
+//       if (settings.equalize_on_stack === true) {
+//         if(settings.equalize_on_small === true){ // asokolowski
+//             if (isStacked) {
+//               return;
+//             }
+//         };  // asokolowski
+//       };
+
+//       var heights = vals.map(function () { return $(this).outerHeight(false) }).get();
+
+//       if (settings.use_tallest) {
+//         var max = Math.max.apply(null, heights);
+//         vals.css('height', max);
+//       } else {
+//         var min = Math.min.apply(null, heights);
+//         vals.css('height', min);
+//       }
+//       settings.after_height_change();
+//       equalizer.trigger('after-height-change').trigger('after-height-change.fndtn.equalizer');
+//     },
+
+//     reflow : function () {
+//       var self = this;
+
+//       this.S('[' + this.attr_name() + ']', this.scope).each(function () {
+//         var $eq_target = $(this);
+//         self.image_loaded(self.S('img', this), function () {
+//           self.equalize($eq_target)
+//         });
+//       });
+//     }
+//   };
+// })(jQuery, window, window.document);
+
+
+
+;(function ($, window, document, undefined) {
+  'use strict';
+
+  Foundation.libs.equalizer = {
+    name : 'equalizer',
+
+    version : '5.5.3',
+
+    settings : {
+      use_tallest : true,
+      before_height_change : $.noop,
+      after_height_change : $.noop,
+      equalize_on_stack : true
+    },
+
+    init : function (scope, method, options) {
+      Foundation.inherit(this, 'image_loaded');
+      this.bindings(method, options);
+      this.reflow();
+    },
+
+    events : function () {
+      this.S(window).off('.equalizer').on('resize.fndtn.equalizer', function (e) {
+        this.reflow();
+      }.bind(this));
+    },
+
+    equalize : function (equalizer) {
+      var isStacked = false,
+          group = equalizer.data('equalizer'),
+          settings = equalizer.data(this.attr_name(true)+'-init') || this.settings,
+          vals,
+          firstTopOffset;
+
+      if (settings.act_on_hidden_el) {
+        vals = group ? equalizer.find('['+this.attr_name()+'-watch="'+group+'"]') : equalizer.find('['+this.attr_name()+'-watch]');
+      }
+      else {
+        vals = group ? equalizer.find('['+this.attr_name()+'-watch="'+group+'"]:visible') : equalizer.find('['+this.attr_name()+'-watch]:visible');
+      }
+      
+      if (vals.length === 0) {
+        return;
+      }
+
+      settings.before_height_change();
+      equalizer.trigger('before-height-change.fndth.equalizer');
+      vals.height('inherit');
+
+      if (settings.equalize_on_stack === false) {
+        firstTopOffset = vals.first().offset().top;
+        vals.each(function () {
+          if ($(this).offset().top !== firstTopOffset) {
+            isStacked = true;
+            return false;
+          }
+        });
+        if (isStacked) {
+          return;
+        }
+      }
+
+      var heights = vals.map(function () { return $(this).outerHeight(false) }).get();
+
+      if (settings.use_tallest) {
+        var max = Math.max.apply(null, heights);
+        vals.css('height', max);
+      } else {
+        var min = Math.min.apply(null, heights);
+        vals.css('height', min);
+      }
+
+      settings.after_height_change();
+      equalizer.trigger('after-height-change.fndtn.equalizer');
+    },
+
+    reflow : function () {
+      var self = this;
+
+      this.S('[' + this.attr_name() + ']', this.scope).each(function () {
+        var $eq_target = $(this),
+            media_query = $eq_target.data('equalizer-mq'),
+            ignore_media_query = true;
+
+        if (media_query) {
+          media_query = 'is_' + media_query.replace(/-/g, '_');
+          if (Foundation.utils.hasOwnProperty(media_query)) {
+            ignore_media_query = false;
+          }
+        }
+
+        self.image_loaded(self.S('img', this), function () {
+          if (ignore_media_query || Foundation.utils[media_query]()) {
+            self.equalize($eq_target)
+          } else {
+            var vals = $eq_target.find('[' + self.attr_name() + '-watch]:visible');
+            vals.css('height', 'auto');
+          }
+        });
+      });
+    }
+  };
+})(jQuery, window, window.document);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;(function ($, window, document, undefined) {
+  'use strict';
+
+  Foundation.libs.tab = {
+    name : 'tab',
+
+    version : '5.5.1',
+
+    settings : {
+      active_class : 'active',
+      callback : function () {},
+      deep_linking : false,
+      scroll_to_content : true,
+      is_hover : false
+    },
+
+    default_tab_hashes : [],
+
+    init : function (scope, method, options) {
+      var self = this,
+          S = this.S;
+
+      this.bindings(method, options);
+
+      // store the initial href, which is used to allow correct behaviour of the
+      // browser back button when deep linking is turned on.
+      self.entry_location = window.location.href;
+
+      this.handle_location_hash_change();
+
+      // Store the default active tabs which will be referenced when the
+      // location hash is absent, as in the case of navigating the tabs and
+      // returning to the first viewing via the browser Back button.
+      S('[' + this.attr_name() + '] > .active > a', this.scope).each(function () {
+        self.default_tab_hashes.push(this.hash);
+      });
+    },
+
+    events : function () {
+      var self = this,
+          S = this.S;
+
+      var usual_tab_behavior =  function (e) {
+          var settings = S(this).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');
+          if (!settings.is_hover || Modernizr.touch) {
+            e.preventDefault();
+            e.stopPropagation();
+            self.toggle_active_tab(S(this).parent());
+          }
+        };
+
+      S(this.scope)
+        .off('.tab')
+        // Click event: tab title
+        .on('focus.fndtn.tab', '[' + this.attr_name() + '] > * > a', usual_tab_behavior )
+        .on('click.fndtn.tab', '[' + this.attr_name() + '] > * > a', usual_tab_behavior )
+        // Hover event: tab title
+        .on('mouseenter.fndtn.tab', '[' + this.attr_name() + '] > * > a', function (e) {
+          var settings = S(this).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');
+          if (settings.is_hover) {
+            self.toggle_active_tab(S(this).parent());
+          }
+        });
+
+      // Location hash change event
+      S(window).on('hashchange.fndtn.tab', function (e) {
+        e.preventDefault();
+        self.handle_location_hash_change();
+      });
+    },
+
+    handle_location_hash_change : function () {
+
+      var self = this,
+          S = this.S;
+
+      S('[' + this.attr_name() + ']', this.scope).each(function () {
+        var settings = S(this).data(self.attr_name(true) + '-init');
+        if (settings.deep_linking) {
+          // Match the location hash to a label
+          var hash;
+          if (settings.scroll_to_content) {
+            hash = self.scope.location.hash;
+          } else {
+            // prefix the hash to prevent anchor scrolling
+            hash = self.scope.location.hash.replace('fndtn-', '');
+          }
+          if (hash != '') {
+            // Check whether the location hash references a tab content div or
+            // another element on the page (inside or outside the tab content div)
+            var hash_element = S(hash);
+            if (hash_element.hasClass('content') && hash_element.parent().hasClass('tabs-content')) {
+              // Tab content div
+              self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=' + hash + ']').parent());
+            } else {
+              // Not the tab content div. If inside the tab content, find the
+              // containing tab and toggle it as active.
+              var hash_tab_container_id = hash_element.closest('.content').attr('id');
+              if (hash_tab_container_id != undefined) {
+                self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=#' + hash_tab_container_id + ']').parent(), hash);
+              }
+            }
+          } else {
+            // Reference the default tab hashes which were initialized in the init function
+            for (var ind = 0; ind < self.default_tab_hashes.length; ind++) {
+              self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=' + self.default_tab_hashes[ind] + ']').parent());
+            }
+          }
+        }
+       });
+     },
+
+    toggle_active_tab : function (tab, location_hash) {
+      var self = this,
+          S = self.S,
+          tabs = tab.closest('[' + this.attr_name() + ']'),
+          tab_link = tab.find('a'),
+          anchor = tab.children('a').first(),
+          target_hash = '#' + anchor.attr('href').split('#')[1],
+          target = S(target_hash),
+          siblings = tab.siblings(),
+          settings = tabs.data(this.attr_name(true) + '-init'),
+          interpret_keyup_action = function (e) {
+            // Light modification of Heydon Pickering's Practical ARIA Examples: http://heydonworks.com/practical_aria_examples/js/a11y.js
+
+            // define current, previous and next (possible) tabs
+
+            var $original = $(this);
+            var $prev = $(this).parents('li').prev().children('[role="tab"]');
+            var $next = $(this).parents('li').next().children('[role="tab"]');
+            var $target;
+
+            // find the direction (prev or next)
+
+            switch (e.keyCode) {
+              case 37:
+                $target = $prev;
+                break;
+              case 39:
+                $target = $next;
+                break;
+              default:
+                $target = false
+                  break;
+            }
+
+            if ($target.length) {
+              $original.attr({
+                'tabindex' : '-1',
+                'aria-selected' : null
+              });
+              $target.attr({
+                'tabindex' : '0',
+                'aria-selected' : true
+              }).focus();
+            }
+
+            // Hide panels
+
+            $('[role="tabpanel"]')
+              .attr('aria-hidden', 'true');
+
+            // Show panel which corresponds to target
+
+            $('#' + $(document.activeElement).attr('href').substring(1))
+              .attr('aria-hidden', null);
+
+          },
+          go_to_hash = function(hash) {
+            // This function allows correct behaviour of the browser's back button when deep linking is enabled. Without it
+            // the user would get continually redirected to the default hash.
+            var is_entry_location = window.location.href === self.entry_location,
+                default_hash = settings.scroll_to_content ? self.default_tab_hashes[0] : is_entry_location ? window.location.hash :'fndtn-' + self.default_tab_hashes[0].replace('#', '')
+
+            if (!(is_entry_location && hash === default_hash)) {
+              window.location.hash = hash;
+            }
+          };
+
+      // allow usage of data-tab-content attribute instead of href
+      if (S(this).data(this.data_attr('tab-content'))) {
+        target_hash = '#' + S(this).data(this.data_attr('tab-content')).split('#')[1];
+        target = S(target_hash);
+      }
+
+      if (settings.deep_linking) {
+
+        if (settings.scroll_to_content) {
+
+          // retain current hash to scroll to content
+          go_to_hash(location_hash || target_hash);
+
+          if (location_hash == undefined || location_hash == target_hash) {
+            tab.parent()[0].scrollIntoView();
+          } else {
+            S(target_hash)[0].scrollIntoView();
+          }
+        } else {
+          // prefix the hashes so that the browser doesn't scroll down
+          if (location_hash != undefined) {
+            go_to_hash('fndtn-' + location_hash.replace('#', ''));
+          } else {
+            go_to_hash('fndtn-' + target_hash.replace('#', ''));
+          }
+        }
+      }
+
+      // WARNING: The activation and deactivation of the tab content must
+      // occur after the deep linking in order to properly refresh the browser
+      // window (notably in Chrome).
+      // Clean up multiple attr instances to done once
+      tab.addClass(settings.active_class).triggerHandler('opened');
+      tab_link.attr({'aria-selected' : 'true',  tabindex : 0});
+      siblings.removeClass(settings.active_class)
+      siblings.find('a').attr({'aria-selected' : 'false',  tabindex : -1});
+      target.siblings().removeClass(settings.active_class).attr({'aria-hidden' : 'true',  tabindex : -1});
+      target.addClass(settings.active_class).attr('aria-hidden', 'false').removeAttr('tabindex');
+      settings.callback(tab);
+      target.triggerHandler('toggled', [tab]);
+      tabs.triggerHandler('toggled', [target]);
+
+      tab_link.off('keydown').on('keydown', interpret_keyup_action );
+    },
+
+    data_attr : function (str) {
+      if (this.namespace.length > 0) {
+        return this.namespace + '-' + str;
+      }
+
+      return str;
+    },
+
+    off : function () {},
+
+    reflow : function () {}
+  };
+}(jQuery, window, window.document));
+
+;(function ($, window, document, undefined) {
+  'use strict';
+
+  Foundation.libs.abide = {
+    name : 'abide',
+
+    version : '5.5.0',
+
+    settings : {
+      live_validate : true,
+      validate_on_blur: true,
+      focus_on_invalid : true,
+      error_labels: true, // labels with a for="inputId" will recieve an `error` class
+      error_class: 'error',
+      timeout : 1000,
+      patterns : {
+        alpha: /^[a-zA-Z]+$/,
+        alpha_numeric : /^[a-zA-Z0-9]+$/,
+        integer: /^[-+]?\d+$/,
+        number: /^[-+]?\d*(?:[\.\,]\d+)?$/,
+
+        // amex, visa, diners
+        card : /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/,
+        cvv : /^([0-9]){3,4}$/,
+
+        // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
+        email : /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/,
+
+        url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
+        // abc.de
+        domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,8}$/,
+
+        datetime: /^([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))$/,
+        // YYYY-MM-DD
+        date: /(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/,
+        // HH:MM:SS
+        time : /^(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}$/,
+        dateISO: /^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}$/,
+        // MM/DD/YYYY
+        month_day_year : /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]\d{4}$/,
+        // DD/MM/YYYY
+        day_month_year : /^(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.]\d{4}$/,
+
+        // #FFF or #FFFFFF
+        color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
+      },
+      validators : {
+        equalTo: function(el, required, parent) {
+          var from  = document.getElementById(el.getAttribute(this.add_namespace('data-equalto'))).value,
+              to    = el.value,
+              valid = (from === to);
+
+          return valid;
+        }
+      }
+    },
+
+    timer : null,
+
+    init : function (scope, method, options) {
+      this.bindings(method, options);
+    },
+
+    events : function (scope) {
+      var self = this,
+          form = self.S(scope).attr('novalidate', 'novalidate'),
+          settings = form.data(this.attr_name(true) + '-init') || {};
+
+      this.invalid_attr = this.add_namespace('data-invalid');
+
+      form
+        .off('.abide')
+        .on('submit.fndtn.abide validate.fndtn.abide', function (e) {
+          var is_ajax = /ajax/i.test(self.S(this).attr(self.attr_name()));
+          return self.validate(self.S(this).find('input, textarea, select').get(), e, is_ajax);
+        })
+        .on('reset', function() {
+          return self.reset($(this));
+        })
+        .find('input, textarea, select')
+          .off('.abide')
+          .on('blur.fndtn.abide change.fndtn.abide', function (e) {
+            if (settings.validate_on_blur === true) {
+              self.validate([this], e);
+            }
+          })
+          .on('keydown.fndtn.abide', function (e) {
+            if (settings.live_validate === true && e.which != 9) {
+              clearTimeout(self.timer);
+              self.timer = setTimeout(function () {
+                self.validate([this], e);
+              }.bind(this), settings.timeout);
+            }
+          });
+    },
+
+    reset : function (form) {
+      form.removeAttr(this.invalid_attr);
+      $(this.invalid_attr, form).removeAttr(this.invalid_attr);
+      $('.' + this.settings.error_class, form).not('small').removeClass(this.settings.error_class);
+    },
+
+    validate : function (els, e, is_ajax) {
+      var validations = this.parse_patterns(els),
+          validation_count = validations.length,
+          form = this.S(els[0]).closest('form'),
+          submit_event = /submit/.test(e.type);
+
+      // Has to count up to make sure the focus gets applied to the top error
+      for (var i=0; i < validation_count; i++) {
+        if (!validations[i] && (submit_event || is_ajax)) {
+          if (this.settings.focus_on_invalid) els[i].focus();
+          form.trigger('invalid').trigger('invalid.fndtn.abide');
+          this.S(els[i]).closest('form').attr(this.invalid_attr, '');
+          return false;
+        }
+      }
+
+      if (submit_event || is_ajax) {
+        form.trigger('valid').trigger('valid.fndtn.abide');
+      }
+
+      form.removeAttr(this.invalid_attr);
+
+      if (is_ajax) return false;
+
+      return true;
+    },
+
+    parse_patterns : function (els) {
+      var i = els.length,
+          el_patterns = [];
+
+      while (i--) {
+        el_patterns.push(this.pattern(els[i]));
+      }
+
+      return this.check_validation_and_apply_styles(el_patterns);
+    },
+
+    pattern : function (el) {
+      var type = el.getAttribute('type'),
+          required = typeof el.getAttribute('required') === 'string';
+
+      var pattern = el.getAttribute('pattern') || '';
+
+      if (this.settings.patterns.hasOwnProperty(pattern) && pattern.length > 0) {
+        return [el, this.settings.patterns[pattern], required];
+      } else if (pattern.length > 0) {
+        return [el, new RegExp(pattern), required];
+      }
+
+      if (this.settings.patterns.hasOwnProperty(type)) {
+        return [el, this.settings.patterns[type], required];
+      }
+
+      pattern = /.*/;
+
+      return [el, pattern, required];
+    },
+
+    // TODO: Break this up into smaller methods, getting hard to read.
+    check_validation_and_apply_styles : function (el_patterns) {
+      var i = el_patterns.length,
+          validations = [],
+          form = this.S(el_patterns[0][0]).closest('[data-' + this.attr_name(true) + ']'),
+          settings = form.data(this.attr_name(true) + '-init') || {};
+      while (i--) {
+        var el = el_patterns[i][0],
+            required = el_patterns[i][2],
+            value = el.value.trim(),
+            direct_parent = this.S(el).parent(),
+            validator = el.getAttribute(this.add_namespace('data-abide-validator')),
+            is_radio = el.type === "radio",
+            is_checkbox = el.type === "checkbox",
+            label = this.S('label[for="' + el.getAttribute('id') + '"]'),
+            valid_length = (required) ? (el.value.length > 0) : true,
+            el_validations = [];
+
+        var parent, valid;
+
+        // support old way to do equalTo validations
+        if(el.getAttribute(this.add_namespace('data-equalto'))) { validator = "equalTo" }
+
+        if (!direct_parent.is('label')) {
+          parent = direct_parent;
+        } else {
+          parent = direct_parent.parent();
+        }
+
+        if (validator) {
+          valid = this.settings.validators[validator].apply(this, [el, required, parent]);
+          el_validations.push(valid);
+        }
+
+        if (is_radio && required) {
+          el_validations.push(this.valid_radio(el, required));
+        } else if (is_checkbox && required) {
+          el_validations.push(this.valid_checkbox(el, required));
+        } else {
+
+          if (el_patterns[i][1].test(value) && valid_length ||
+            !required && el.value.length < 1 || $(el).attr('disabled')) {
+            el_validations.push(true);
+          } else {
+            el_validations.push(false);
+          }
+
+          el_validations = [el_validations.every(function(valid){return valid;})];
+
+          if(el_validations[0]){
+            this.S(el).removeAttr(this.invalid_attr);
+            el.setAttribute('aria-invalid', 'false');
+            el.removeAttribute('aria-describedby');
+            parent.removeClass(this.settings.error_class);
+            if (label.length > 0 && this.settings.error_labels) {
+              label.removeClass(this.settings.error_class).removeAttr('role');
+            }
+            $(el).triggerHandler('valid');
+          } else {
+            this.S(el).attr(this.invalid_attr, '');
+            el.setAttribute('aria-invalid', 'true');
+
+            // Try to find the error associated with the input
+            var errorElem = parent.find('small.'+this.settings.error_class, 'span.'+this.settings.error_class);
+            var errorID = errorElem.length > 0 ? errorElem[0].id : "";
+            if (errorID.length > 0) el.setAttribute('aria-describedby', errorID);
+
+            // el.setAttribute('aria-describedby', $(el).find('.error')[0].id);
+            parent.addClass(this.settings.error_class);
+            if (label.length > 0 && this.settings.error_labels) {
+              label.addClass(this.settings.error_class).attr('role', 'alert');
+            }
+            $(el).triggerHandler('invalid');
+          }
+        }
+        validations.push(el_validations[0]);
+      }
+      validations = [validations.every(function(valid){return valid;})];
+      return validations;
+    },
+
+    valid_checkbox : function(el, required) {
+      var el = this.S(el),
+          valid = (el.is(':checked') || !required);
+
+      if (valid) {
+        el.removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
+      } else {
+        el.attr(this.invalid_attr, '').parent().addClass(this.settings.error_class);
+      }
+
+      return valid;
+    },
+
+    valid_radio : function (el, required) {
+      var name = el.getAttribute('name'),
+          group = this.S(el).closest('[data-' + this.attr_name(true) + ']').find("[name='"+name+"']"),
+          count = group.length,
+          valid = false;
+
+      // Has to count up to make sure the focus gets applied to the top error
+      for (var i=0; i < count; i++) {
+        if (group[i].checked) valid = true;
+      }
+
+      // Has to count up to make sure the focus gets applied to the top error
+      for (var i=0; i < count; i++) {
+        if (valid) {
+          this.S(group[i]).removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
+        } else {
+          this.S(group[i]).attr(this.invalid_attr, '').parent().addClass(this.settings.error_class);
+        }
+      }
+
+      return valid;
+    },
+
+    valid_equal: function(el, required, parent) {
+      var from  = document.getElementById(el.getAttribute(this.add_namespace('data-equalto'))).value,
+          to    = el.value,
+          valid = (from === to);
+
+      if (valid) {
+        this.S(el).removeAttr(this.invalid_attr);
+        parent.removeClass(this.settings.error_class);
+        if (label.length > 0 && settings.error_labels) label.removeClass(this.settings.error_class);
+      } else {
+        this.S(el).attr(this.invalid_attr, '');
+        parent.addClass(this.settings.error_class);
+        if (label.length > 0 && settings.error_labels) label.addClass(this.settings.error_class);
+      }
+
+      return valid;
+    },
+
+    valid_oneof: function(el, required, parent, doNotValidateOthers) {
+      var el = this.S(el),
+        others = this.S('[' + this.add_namespace('data-oneof') + ']'),
+        valid = others.filter(':checked').length > 0;
+
+      if (valid) {
+        el.removeAttr(this.invalid_attr).parent().removeClass(this.settings.error_class);
+      } else {
+        el.attr(this.invalid_attr, '').parent().addClass(this.settings.error_class);
+      }
+
+      if (!doNotValidateOthers) {
+        var _this = this;
+        others.each(function() {
+          _this.valid_oneof.call(_this, this, null, null, true);
+        });
+      }
+
+      return valid;
+    }
+  };
+}(jQuery, window, window.document));
+
+$(document).ready(function() {
+  var switched = false;
+  var updateTables = function() {
+    if (($(window).width() < 769) && !switched ){
+      switched = true;
+      $("table.responsive").each(function(i, element) {
+        splitTable($(element));
+      });
+      return true;
+    }
+    else if (switched && ($(window).width() > 768)) {
+      switched = false;
+      $("table.responsive").each(function(i, element) {
+        unsplitTable($(element));
+      });
+    }
+  };
+   
+  $(window).load(updateTables);
+  $(window).on("redraw",function(){switched=false;updateTables();}); // An event to listen for
+  $(window).on("resize", updateTables);
+   
+	
+	function splitTable(original)
+	{
+		original.wrap("<div class='table-wrapper' />");
+		
+		var copy = original.clone();
+        copy.find('tr').each(function(i,c){
+            $(c).find('td').each(function(i,d){
+                if( $(d).index()==0||$(d).index()==1){
+                }
+                else {
+                    $(d).css("display", "none");
+                }
+            })
+            $(c).find('th').each(function(i,d){
+                if( $(d).index()==0||$(d).index()==1){
+                }
+                else {
+                    $(d).css("display", "none");
+                }
+            })
+
+
+        })
+		copy.removeClass("responsive");
+		
+		original.closest(".table-wrapper").append(copy);
+		copy.wrap("<div class='pinned' />");
+		original.wrap("<div class='scrollable' />");
+
+    setCellHeights(original, copy);
+	}
+	
+	function unsplitTable(original) {
+    original.closest(".table-wrapper").find(".pinned").remove();
+    original.unwrap();
+    original.unwrap();
+	}
+
+  function setCellHeights(original, copy) {
+   var tr = original.find('tr'),
+        tr_copy = copy.find('tr'),
+        heights = [];
+
+    tr.each(function (index) {
+      var self = $(this),
+          tx = self;
+
+      tx.each(function () {
+        var height = $(this).outerHeight(true);
+        heights[index] = heights[index] || 0;
+        if (height > heights[index]) heights[index] = height;
+      });
+
+    });
+
+    tr_copy.each(function (index) {
+        if($(this).parent('thead').length){
+            $(this).height((heights[index]));
+        }
+        else {
+            $(this).height((heights[index]));
+        }
+
+    });
+  }
+
+});

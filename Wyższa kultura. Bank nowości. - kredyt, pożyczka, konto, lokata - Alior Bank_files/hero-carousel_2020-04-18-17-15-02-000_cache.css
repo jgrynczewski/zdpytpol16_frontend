@@ -1,0 +1,234 @@
+/* ======== hero-carousel ======== */
+.hero {
+  position: relative;
+}
+
+.hero-carousel .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hero-carousel .slick-track {
+  display: flex;
+}
+
+.hero-carousel .slick-track .slick-slide {
+  display: flex;
+  flex-flow: row wrap;
+  height: auto;
+}
+
+.hero-carousel .slick-track .slick-slide .container {
+  width: 100%;
+}
+
+.hero-carousel .slick-dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  bottom: 60px;
+}
+
+.hero-carousel .slick-dots li {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex: 0 1 auto;
+  max-width: 54px;
+  margin: 0 5px;
+}
+
+.hero-carousel .slick-dots button {
+  font-size: 0;
+  margin: 6px;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  min-width: 4px;
+  height: 4px;
+  background: rgba(155, 155, 155, 0.4);
+  display: block;
+  position: relative;
+  border-radius: 2px;
+}
+
+.hero-carousel .slick-dots button::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  border-radius: 2px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #920035;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0s linear;
+}
+
+.hero-carousel .slick-dots .slick-active button::before {
+  content: "";
+  transform: scaleX(1);
+  transition-duration: 3s;
+}
+
+.hero-carousel .slick-next,
+.hero-carousel .slick-prev {
+  visibility: hidden;
+}
+
+@media screen and (min-width: 640px) {
+  .hero-carousel .slick-next,
+  .hero-carousel .slick-prev {
+    visibility: visible;
+  }
+}
+
+.hero-carousel-arrows {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 40px;
+  max-width: 1140px;
+  z-index: 1;
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-carousel-arrows {
+    display: block;
+  }
+}
+
+.hero-carousel-prev,
+.hero-carousel-next {
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  display: none;
+  margin: 0;
+  padding: 0;
+  color: rgba(155, 155, 155, 0.4);
+  font-size: 24px;
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-carousel-prev,
+  .hero-carousel-next {
+    display: block;
+  }
+}
+
+.hero-carousel-prev {
+  left: 4px;
+}
+
+.hero-carousel-next {
+  right: 4px;
+}
+
+.hero-carousel-slide {
+  width: 100%;
+  padding: 16px 24px 96px;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.hero-carousel-slide.slide-text-white,
+.hero-carousel-slide.slide-text-white .hero-carousel-disclaimer,
+.hero-carousel-slide.slide-text-white .hero-carousel-slide-title,
+.hero-carousel-slide.slide-text-white .hero-carousel-slide-text {
+  color: #fff;
+}
+
+.hero-carousel-slide.slide-text-gray,
+.hero-carousel-slide.slide-text-gray .hero-carousel-disclaimer,
+.hero-carousel-slide.slide-text-gray .hero-carousel-slide-title,
+.hero-carousel-slide.slide-text-gray .hero-carousel-slide-text {
+  color: #c8c8c8;
+}
+
+.hero-carousel-slide.slide-text-black,
+.hero-carousel-slide.slide-text-black .hero-carousel-disclaimer,
+.hero-carousel-slide.slide-text-black .hero-carousel-slide-title,
+.hero-carousel-slide.slide-text-black .hero-carousel-slide-text {
+  color: #000;
+}
+
+.hero-carousel-disclaimer {
+  font-size: 12px;
+  color: #9b9b9b;
+  text-decoration: none;
+  text-align: left;
+  display: block;
+}
+
+.hero-carousel-slide .product-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.hero-carousel-image {
+  max-width: 100%;
+  display: block;
+  margin: 32px auto 0;
+  flex: 0 0 auto;
+  height: auto;
+}
+
+@media screen and (min-width: 640px) {
+  .hero-carousel-image {
+    max-height: 320px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-carousel-slide-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+.hero-carousel-slide-title {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-top: 24px;
+  letter-spacing: -1px;
+}
+
+.hero-carousel-slide-text {
+  font-size: 16px;
+  margin-top: 16px;
+  color: #4a4a4a;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.hero-carousel-slide-buttons {
+  margin-top: 16px;
+}
+
+.hero-carousel-slide-buttons .button:not(:last-child) {
+  margin-right: 16px;
+  margin-bottom: 16px;
+}

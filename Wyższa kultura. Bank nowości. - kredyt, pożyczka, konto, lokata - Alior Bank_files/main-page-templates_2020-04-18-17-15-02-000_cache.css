@@ -1,0 +1,315 @@
+.boxesWithoutBgTheme .banner-content h1 {
+    font-size: 25px;
+}
+
+.boxesWithoutBgTheme .welcome-text h1 {
+    margin-top: 35px;
+}
+
+.boxesWithoutBgTheme .banner-outer.static-height h1 {
+    margin-top: 0;
+}
+
+.boxesWithoutBgTheme .person-image {
+    display: none !important;
+}
+
+.boxesWithoutBgTheme .headerbox h2 {
+    margin-top: 0;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.boxesWithoutBgTheme .headerbox h3 {
+    font-size: 75px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.boxesWithoutBgTheme .headerbox p {
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.boxesWithoutBgTheme .single-cta {
+    margin: 0;
+}
+
+.headerbox-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 642px) {
+    
+    .boxesWithoutBgTheme .banner-outer {
+        margin: 10px 0;
+    }
+
+    .boxesWithoutBgTheme .banner-outer.static-height {
+        margin: 0;
+    }
+    
+    .boxesWithoutBgTheme .headerbox h2 {
+        font-size: 20px;
+    }
+
+    .boxesWithoutBgTheme .headerbox h3 {
+        display: block;
+    }
+    
+    .boxesWithoutBgTheme .headerbox p {
+        display: block;
+        font-size: 20px;
+    }
+    
+    .boxesWithoutBgTheme .single-cta {
+        max-width: 185px;
+        margin: 0;
+    }
+    
+    .headerbox-container {
+        border-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .boxesWithoutBgTheme .banner-content {
+        padding-top: 0;
+        padding-bottom: 0;
+    } 
+    
+    .boxesWithoutBgTheme .banner-outer {
+        margin: 10px 0;
+        display: table;
+        min-height: 423px;
+    }
+    
+    .boxesWithoutBgTheme .banner-outer.static-height {
+        min-height: auto;
+    }
+    
+    .boxesWithoutBgTheme .banner-outer-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+    .boxesWithoutBgTheme #search-form .input-box {
+        height: 55px;
+    }
+    
+    .boxesWithoutBgTheme #search-form input[type="text"] {
+        height: 55px;
+        line-height: 55px;
+    }
+    
+    .boxesWithoutBgTheme #search-form input[type="text"]::-webkit-input-placeholder { height: 55px; line-height: 55px; }
+    .boxesWithoutBgTheme #search-form input[type="text"]::-moz-placeholder { height: 55px; line-height: 55px; }
+    .boxesWithoutBgTheme #search-form input[type="text"]:-ms-input-placeholder { height: 55px; line-height: 55px; }
+    
+    .boxesWithoutBgTheme #search-form .search-submit,
+    .boxesWithoutBgTheme #button-speek {
+        top: 13px;
+    }
+
+    .boxesWithoutBgTheme .headerbox h2,
+    .boxesWithoutBgTheme .headerbox p {
+        font-size: 25px;
+    }
+    
+    .boxesWithoutBgTheme .header-boxes-transparent {
+        margin-top: 35px;
+    }
+}
+
+
+@media only screen and (min-width: 1280px) {
+    .banner-outer .header-boxes-transparent  {
+        padding: 10px 0 40px;
+    }
+    .banner-outer.static-height .header-boxes-transparent {
+        padding: 0;
+    }
+    
+    .boxesWithoutBgTheme .person-image {
+        display: block !important;
+        right: -60%;
+    }
+    
+    .boxesWithoutBgTheme .header-search-container {
+        padding-left: 0;
+    }
+    
+    .headerbox-container {
+        padding: 0;
+    }
+} 
+
+/*
+*
+*   boxesBgTheme
+*
+*/
+.boxesBgTheme .person-image {
+    display: none;
+}
+
+.boxesBgTheme .banner-outer {
+    margin: 15px 0;
+}
+
+.boxesBgTheme .banner-outer.static-height {
+    margin: 0;
+}
+
+.boxesBgTheme .headerbox-container {
+    padding: 0 25px;
+    border-bottom: none;
+}
+
+.boxesBgTheme .headerbox-bg {
+    position: relative;
+    margin-top: 65px;
+    margin-bottom: 35px;
+    padding: 70px 40px 15px;
+    text-align: center;
+}
+
+.boxesBgTheme .headerbox-bg.bg-white {
+    background: #fff;
+    border: 4px solid #fff;
+}
+
+.boxesBgTheme .bg-white h2, 
+.boxesBgTheme .bg-white h3, 
+.boxesBgTheme .bg-white h4, 
+.boxesBgTheme .bg-white p,
+.boxesBgTheme .bg-white .product-legal-note-wrapper {
+    color: #000;
+} 
+
+.boxesBgTheme .headerbox-bg.bg-semi-transparent {
+    background: rgba(255,255,255,.7);
+    border: 4px solid transparent;
+}
+
+.boxesBgTheme .bg-semi-transparent h2, 
+.boxesBgTheme .bg-semi-transparent h3, 
+.boxesBgTheme .bg-semi-transparent h4, 
+.boxesBgTheme .bg-semi-transparent p,
+.boxesBgTheme .bg-semi-transparent .product-legal-note-wrapper {
+    color: #000;
+} 
+
+.boxesBgTheme .headerbox-bg.bg-bordered {
+    border: 4px solid #fff;
+}
+
+.boxesBgTheme .headerbox-bg .image-column {
+    width: 100%;
+}
+
+.boxesBgTheme .headerbox-bg img {
+    max-height: 120px;
+}
+
+.boxesBgTheme .headerbox-bg h2 {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.boxesBgTheme .headerbox-bg h3 {
+    line-height: 1;
+}
+
+.boxesBgTheme .headerbox-bg h4 {
+    padding-right: 5px;
+    font-size: 55px;
+    line-height: 1;
+}
+
+.boxesBgTheme .headerbox-bg p {
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 1.1;
+}
+
+.boxesBgTheme .headerbox-bg .product-legal-note-wrapper {
+    margin: 10px 0 0;
+}
+
+.boxesBgTheme .headerbox-bg .image-column {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.boxesBgTheme .headerbox-bg .single-cta {
+    margin: 10px 0;    
+}
+
+.boxesBgTheme .headerbox-bg .product-legal-note-wrapper {
+    padding: 0;
+    line-height: 1;
+}
+
+@media only screen and (min-width: 642px) {
+    .banner-outer .headerBoxesBg {
+        padding: 10px 0 20px;
+    }
+    
+    .banner-outer.static-height .headerBoxesBg {
+        padding: 0;
+    }
+    
+    
+    .headerBoxesBg {
+        padding: 0 25px;
+    }
+    
+    .headerBoxesBg.two .medium-4 {
+        width: 50%;
+    }
+    
+    .boxesBgTheme .headerbox-container {
+        padding: 0 10px;
+    }
+
+     .boxesBgTheme .headerbox-bg {
+        padding: 70px 15px 10px;
+    }
+}
+
+@media only screen and (min-width: 642px) and (max-width: 1279px) {
+    .headerBoxesBg.person .medium-4 {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .boxesBgTheme .headerbox-bg {
+        margin-top: 60px;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .boxesBgTheme .headerbox-container {
+        padding: 0 24px;
+    }
+    
+    .boxesBgTheme .headerbox-bg {
+        padding: 70px 40px 15px;
+    }
+    
+    .boxesBgTheme .person-image {
+        display: block;
+        right: -55%;
+    }
+} 

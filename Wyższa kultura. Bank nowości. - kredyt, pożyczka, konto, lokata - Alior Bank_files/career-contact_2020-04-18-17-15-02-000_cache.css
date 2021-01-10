@@ -1,0 +1,33 @@
+.career-contact { text-align: center; }
+
+.career-contact h1 { 
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.career-contact-item svg {
+    float: none!important;
+    display: block;
+    margin: 10px auto 15px;
+    
+}
+.career-contact-item svg path { fill: #000; }
+
+.career-contact-item a {
+    display: block;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #000;
+}
+
+.career-contact-item .additional-text {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.career-contact-footer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #7f6d3c;
+    font-size: 11px;
+}

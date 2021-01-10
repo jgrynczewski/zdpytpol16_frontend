@@ -1,0 +1,16 @@
+/* - Product list item - */
+.accordion-item {margin-bottom:20px;}
+.accordion-item .one-level section {border-bottom:1px solid #e5e5e5;padding:20px 0;}
+.accordion-item .one-level section:before {content:"\a105";font-family:icons;float:left;margin-right:25px;font-size:24px;color:#7A0035;margin-top: -7px;}
+.accordion-item .one-level section.open:before {content:"\a104";font-family:icons;float:left;margin-right:25px;}
+.accordion-item .one-level section article p {font-size:12px;padding-top:20px;}
+.accordion-item header h2 {font-size:1.25rem;padding:32px 0 10px;margin:0;}
+
+
+/* ----------- MEDIA QUERIES ---------- */
+@media only screen and (min-width: 40.063em) {
+.accordion-item header h2 {font-size: 55px;}
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+}

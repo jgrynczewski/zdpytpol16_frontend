@@ -1,0 +1,41 @@
+/* Quote Component Start*/
+
+.quo-title fieldset {
+    padding: 15px 20px;
+}
+.quo-title legend {
+  padding: 0 20px;
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.3;
+}
+.quo-title p {
+  line-height: 1.7;
+  font-style: italic;
+}
+.quo-title .quo-author {
+    display: table;
+    margin-top: 30px;
+}
+.quo-title .quo-author:before {
+    content: '';
+    display: table-cell;
+    width: 100%;
+    border-top: solid 1px #000;
+}
+.quo-title .quo-author > span {
+    display: table-cell;
+    padding-left: 10px;
+    white-space: nowrap;
+    color: #5c5c5c;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.quo-title .quo-author > span > span {
+    position: relative;
+    top: -12px;
+}
+
+/* Quote Component End*/

@@ -1,0 +1,188 @@
+.accordion-list {
+    font-size: 55px;
+    line-height: 55px;
+    padding: 5px 0 15px;
+    position: relative;
+    z-index: 1;
+    clear:both;
+}
+#structured-product-details .accordion-list {
+    font-size: 20px;
+    line-height: 1;
+    padding: 20px 0;
+}
+#structured-product-details .accordion-list h2 { font-size: 20px; }
+#useful-documents .accordion-list {
+    font-size: 20px;
+    line-height: 1;
+    padding: 40px 0;
+}
+#structured-product-list .accordion-list { padding: 25px 0; }
+
+#alior-faq .accordion-content > .accordion-list { padding: 20px 0; }
+#alior-faq .accordion-content > .accordion-list + div .accordion-list { padding-top: 0; }
+#alior-faq .accordion-list h2 { font-size: 20px; }
+#alior-faq .accordion-list h3 { font-size: 14px; margin: 0; }
+#alior-faq .accordion-list:last-of-type { padding-bottom: 0; }
+#alior-faq .accordion-list .one-level:last-child { border-bottom: none; }
+#alior-faq .accordion-list .one-level { margin-left: 15px; margin-right: 15px; }
+
+#alior-faq .accordion-list .question span {
+    font-size: 14px;
+    line-height: 1;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #565656;
+    display: block;
+}
+
+#alior-faq.black .accordion-list .question span { color: #fff; }
+
+#alior-faq .accordion-list .question span:before {
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    margin-top: 0;
+}
+
+.accordion-list span {
+    cursor: pointer;
+    padding: 6px 45px 6px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.accordion-list span:after {
+    content: "\a105";
+    font-family: 'icons';
+    font-size: 32px;
+    line-height: 1;
+    color: #7A0035;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -16px;
+    vertical-align: middle;
+}
+.black .accordion-list span:after, .black .accordion-list .question span:before { color: #ffc426; }
+.black .accordion-list span, .black .accordion-list .question span { color: #fff; }
+
+.accordion-list .question span:before {
+    content: "\a105";
+    font-family: 'icons';
+    font-size: 32px;
+    color: #7A0035;
+    position: relative;
+    font-weight: 500;
+    margin-right: 15px;
+    top: 50%;
+    margin-top: -16px;
+    vertical-align: middle;
+}
+
+.accordion-list .question { margin: 19px 0; }
+.accordion-list .one-level:first-child .question { margin-top: 0; }
+
+.accordion-list .question span,
+.accordion-list .question div {
+    font-size: 18px;
+    line-height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 6px 0px 6px 0;
+}
+
+.accordion-list .answer {
+    margin-left: 30px;
+    font-size: 14px;
+    line-height: 18px;
+    display:none;
+}
+.one-level div[data-content]{
+    display:none;
+}
+.accordion-list .answer article { padding-bottom: 10px; }
+.accordion-list .question span:after { display: none; }
+.open .accordion-list span:after, .open .question span:before { content: "\a104"; }
+.open .accordion-list + div .accordion-list span:before { content: "\a105"; }
+.open .accordion-list + div .accordion-list .open span:before { content: "\a104"; }
+
+.accordion-list .one-level {
+    border-bottom: 1px solid #e5e5e5;
+    /*padding-bottom: 10px;*/
+}
+
+.accordion-content { border-top: 1px solid #e5e5e5; }
+.accordion-content .article-link {
+    margin: 10px;    
+}
+
+#content-product-details .accordion-content { border-top: 0; }
+.accordion-content .accordion-list h2 { margin: 0; }
+
+.accordion-content article h2 {
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 400;
+  padding-bottom: 15px;
+  margin: 0;
+}
+
+@media only screen and (max-width: 40em) {
+    .accordion-list span {
+        margin: 0 20px;
+        font-size:20px;
+    }
+}
+
+@media only screen and (min-width: 40.063em) {
+    .accordion-list h2 > span {
+        padding-right: 60px;
+    }
+    
+    .accordion-content article h2 {
+      font-size: 20px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+    
+    #structured-product-list .accordion-list { padding: 45px 0; }
+    
+    #alior-faq .accordion-content > .accordion-list { padding: 30px 0; }
+    #alior-faq .main-banner > .accordion-list h2 { margin-bottom: 25px; }
+    #alior-faq .accordion-list h2 { font-size: 30px; }
+    #alior-faq .accordion-list h3 { font-size: 20px; }
+    #alior-faq .accordion-list .question span { font-size: 20px; padding-left: 60px; }
+    #alior-faq .accordion-list .question span:before { top: 6px; }
+    #alior-faq .accordion-list .answer { margin-left: 60px; }
+    #alior-faq .accordion-list .answer article { padding-bottom: 20px; }
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #alior-faq .one-level {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    #alior-faq .one-level .one-level {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+  #alior-faq .main-banner > .accordion-list .one-level {
+      margin-right: 180px;
+  }
+  #alior-faq .accordion-list .question span  {
+      padding:10px 0 10px 40px;
+  }
+  .accordion-list{
+      padding: 40px 0;    
+  }
+  #alior-faq .accordion-list .answer { 
+      margin-left: 40px;
+      margin-right: 0;
+  }
+}

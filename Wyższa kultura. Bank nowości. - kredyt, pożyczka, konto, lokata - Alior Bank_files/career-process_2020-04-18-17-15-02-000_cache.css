@@ -1,0 +1,312 @@
+.career-sales .top-bg-alt {
+    padding: 20px 0;
+    min-height: 100%;
+}
+
+#career .top-bg, {
+	max-height:100%
+}
+
+.product-top.career {
+	overflow:hidden
+}
+
+.career-sales .description {
+	font-size:14px;
+	padding:0 10px
+}
+
+.top-bg-alt {
+	background-size:cover
+}
+
+.career-sales p {
+	color:#7a0035;
+	font-size:19px;
+	margin-bottom:20px;
+	margin-top:10px
+}
+
+.career-sales.darkBackground p {
+	color:#ffc426
+}
+
+/* DARK BACKGROUND */
+.career-sales.darkBackground,.career-sales.darkBackground h1 {
+	color:#fff
+}
+
+.darkBackground .career-list-item a {
+    color: #fff;
+}
+
+.career-sales.darkBackground .title {
+	color:#ffc426
+}
+
+.career-sales.darkBackground .number .title {
+	color:#ffc426
+}
+
+/* LISTA */
+.career-process ul li:before {
+	content:'';
+	width:8px;
+	height:8px;
+	display:block;
+	position:absolute;
+	left:0;
+	margin-top:9px;
+	background:#85003c
+}
+
+/*.career-process.withImage ul li:before{*/
+/*    left: 75px;*/
+/*}*/
+
+
+.career-process ul li {
+	color:inherit;
+	/*padding-left:14px;*/
+	padding-left: 25px;
+	
+}
+
+/* LIGHT BACKGROUND */
+.career-sales,.career-sales h1 {
+	color:#000
+}
+
+.career-sales h1 {
+	font-size:30px;
+	text-align:center;
+	margin-top:30px
+}
+
+.career-sales p {
+	text-align:center
+}
+
+.career-sales .title {
+	position:relative;
+	color:#000;
+	display:table-cell;
+	/*height:80px;*/
+	line-height:20px;
+	font-weight:400;
+	vertical-align:top;
+}
+
+
+.career-process.title,
+.career-sales .title {
+	padding-left:0
+}
+
+.career-process.withImage .title,
+.career-sales.withImage .title,
+.career-sales .withImage .title{
+	padding-left:75px
+}
+
+.title.with-number{
+	padding-left:50px;
+	height: 60px;
+}
+
+.process-elements .title {
+    margin-top: 10px;
+}
+
+.process-elements .number:before {
+    counter-increment:sekcja;
+	content:counter(sekcja);
+	position:absolute;
+	margin-right:5px;
+	font-weight:200;
+	display: inline-block;
+	vertical-align:top;
+	font-size:60px;
+	margin: auto 0;
+	margin-left:0;
+	color:#7a0035;
+	top: 0;
+}
+
+.process-elements .withImage .number:before{
+    margin-left:30px;
+}
+
+
+.title .with-number {
+    min-height: 60px;
+}
+
+.darkBackground .process-elements .number:before {
+	color:#fff;
+}
+
+.process-elements {
+	counter-reset:sekcja;
+}
+
+.process-element {
+	margin-top:15px;
+	margin-bottom:15px;
+	position:relative
+}
+
+.process-elements .process-image {
+	display:table-cell;
+	width:75px;
+	max-width: 75px;
+	/*vertical-align:middle*/
+	vertical-align:top
+}
+
+.process-elements .process-image img {
+	max-width:60px;
+	margin-top: 28px;
+}
+
+.process-elements .process-text {
+	display:table-cell;
+	font-size:14px;
+	border-top: 2px solid #7a0035;
+	padding-top:10px;
+}
+
+/*.career-sales .process-element .process-text,*/
+/*.career-sales.darkBackground .number .process-element .process-text{*/
+/*    border-top: 2px solid #fdfdfd;*/
+/*    padding-top:10px;*/
+/*}*/
+
+    
+.career-sales.darkBackground .process-element .process-text {
+	border-top: 2px solid #ffc426;
+	padding-top:20px;
+}
+
+.product-top.career .gray-stripe .triangle:after {
+	top: -60px;
+}
+    
+
+@media only screen and (min-width: 40.063em) {
+    
+
+    .product-top.career .gray-stripe .triangle:after {
+    	top: -180px;
+    }
+    
+    .process-element {
+        margin-top: 10px;
+    }
+    
+    .career-sales .top-bg-alt {
+        padding: 30px 0;
+        min-height: 620px;
+    }  
+
+    .career-sales h1 {
+    	font-size:50px;
+    	margin-bottom:20px
+    }
+
+    .career-sales p {
+    	font-size:22px;
+    	margin: 20px auto;
+    }
+
+  
+}
+
+@media only screen and (min-width: 64.063em) {
+    
+    .career-process.withImage ul li:before{
+        left: 0;
+    }
+
+  .career-sales .top-bg-alt {
+    padding: 40px 0;
+
+}  
+    
+.process-elements .process-image {
+	display:table-cell;
+	width:75px;
+	vertical-align:top
+}
+
+.process-elements .process-image img {
+	padding-right:15px;
+	max-width: 75px;
+}
+
+.withImage .title {
+	padding-left:75px;
+	display: table-cell;
+	vertical-align: top;
+	padding-bottom: 5px;
+	min-height: 60px!important;
+}
+
+.career-sales h1 {
+	font-size:55px;
+	margin-bottom:30px
+}
+
+.process-elements {
+	/*padding:55px 15px;*/
+	/*margin:0 65px*/
+}
+
+.process-element:after {
+	display:none
+}
+
+.process-elements .process-text {
+	position:relative
+}
+
+/*.process-elements .process-text:after {*/
+/*	content:'';*/
+/*	width:100%;*/
+/*	position:absolute;*/
+/*	top:-13px;*/
+/*	right:0;*/
+/*	height:2px*/
+/*}*/
+
+/*.career-sales .process-text:after {*/
+/*	background:#7a0035*/
+/*}*/
+
+/*.career-sales.darkBackground .process-text:after {*/
+/*	background:#ffc426*/
+/*}*/
+
+/*.career-sales.darkBackground .number .process-text:after {*/
+/*	background:#fdfdfd*/
+/*}*/
+
+.product-top.career .top-bg {
+	min-height:620px
+}
+
+.career-sales p {
+	font-size:30px;
+	margin-bottom:40px;
+	margin-top:15px
+}
+
+.process-elements .number .title:before {
+	line-height:60px;
+	font-size:60px;
+	margin-left:-40px;
+}
+}
+
+
+

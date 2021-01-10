@@ -1,0 +1,124 @@
+/* Currency Table Component Start*/
+
+.trade-quotes-table .row:first-child {
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+.trade-quotes-table table {
+  margin-bottom: 1rem;
+  background: transparent;
+}
+.trade-quotes-table { margin: 15px 0; }
+.trade-quotes-table tr th,
+.trade-quotes-table tr td {
+    color: #000;
+    font-size: 12px;
+    border: 1px solid #CCC;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.trade-quotes-table tr:last-child td {
+    border-bottom-color:#000;
+}
+.trade-quotes-table {
+    color: #000;
+    font-family: "Roboto",sans-serif;
+    font-weight: 300;
+    border: medium none;
+    width: 100%;
+    background: none repeat scroll 0 0 #FFF;
+    margin-bottom: 20px;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.trade-quotes-table, .trade-quotes-table thead, .trade-quotes-table thead, .trade-quotes-table tr,  .trade-quotes-table tr:nth-of-type(even) { background: transparent; }
+.trade-quotes-table thead tr th { padding: 6px; background: transparent; }
+.trade-quotes-table tbody tr td { padding:0 8px; vertical-align: middle; background: #F1F1F1;height:51px;}
+.trade-quotes-table tbody tr:nth-child(even) td { background: transparent; }
+
+.trade-quotes-table thead tr th { border-color: #000; }
+
+.trade-quotes-table span.change-up,
+.trade-quotes-table span.change-down {
+	font-size: 14px;
+	padding-left: 3px;
+	display: inline-block;
+
+}
+.trade-quotes-table span.change-up:before {
+	content: '↑';
+	color: #00840C;
+}
+
+.trade-quotes-table span.change-down:before {
+	content: '↓';
+	color: #D10000;
+}
+
+.trade-quotes-table {
+    padding-bottom: 30px;
+}
+
+.trade-quotes-table .download-file {
+    line-height: 20px;
+    color: #831142;
+    font-size: 14px;
+    white-space: nowrap;
+    position: relative;
+    padding-left: 30px;
+    margin-right: 20px;
+}
+.trade-quotes-table .download-file:before {
+    font-family: 'icons';
+    content: "\e6f6";
+    color: #000;
+    font-size: 26px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.no-data{
+    position: relative;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.table-title { font-size: 20px; line-height: 24px; font-weight: 400; }
+
+.trade-quotes-table-additional-data { margin-top: 40px; }
+
+@media only screen and (max-width: 64.063em) {
+    .trade-quotes-table {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .trade-quotes-table {min-width:900px;}
+    .trade-quotes-table tr th, .trade-quotes-table tr td {font-size:12px;}
+}
+
+@media only screen and (min-width: 40.063em) {
+    .trade-quotes-table {min-width:732px;}
+    .trade-quotes-table tbody tr td:nth-child(1) { width: auto; min-width: auto}
+
+    .trade-quotes-table .download-file {
+        margin-left: 20px;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 30em) {
+    .trade-quotes-table .download-file{
+        font-size: 14px;
+        line-height: 20px;
+        margin-right: 15px;
+    }
+    .trade-quotes-table .download-file:last-of-type{
+        margin-right: 0;
+    }
+}
+
+/* Currency Table Component End*/

@@ -1,0 +1,447 @@
+/* Video Player Component Start*/
+.mediaplayer{
+	position: relative;
+	cursor: pointer;
+}
+
+video{
+	padding: 0;
+	margin: 0;
+	display: block;
+	width: 100%;
+	height: auto;
+	border: none;
+	position: relative;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: 	all 0.5s ease-in-out;
+	-ms-transition: 	all 0.5s ease-in-out;
+	-o-transition: 		all 0.5s ease-in-out;
+	transition: 		all 0.5s ease-in-out;
+}
+
+/* === Controls === */
+.video-controls{
+	height: 30px;
+	line-height:30px;
+	position: relative;
+	display:table;
+	/*table-layout: fixed;*/
+	width: 100%;
+	background: #85003c;
+	color: #fff;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	margin-bottom: 20px;
+}
+.video-controls > div{
+	display: table-cell;
+	vertical-align: middle;
+	position: relative;
+	height: 30px;
+	line-height: 1;
+}
+.video-controls .cell_1{
+	width: 40px;
+}
+.video-controls .cell_1 span{
+	font-size: 16px;
+}
+.video-controls .cell_2{
+	width: 50px;
+}
+.video-controls .cell_2 span{
+	font-size: 14px;
+	display: block;
+	text-align: center;
+}
+.video-controls .cell_3{
+	width: auto;
+	position: relative;
+}
+.video-controls .cell_3.disabled:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    z-index: 9;
+}
+.video-controls .cell_3 input{
+	width: 96%;
+}
+.video-controls .cell_4{
+	width: 40px;
+}
+.video-controls .cell_4 span{
+	font-size: 16px;
+	line-height: 30px;
+}
+
+.video-controls .cell_5{
+	width: 40px;
+}
+.video-controls .cell_5 span{
+	font-size: 14px;
+}
+
+.video-controls .cell_1 span,
+.video-controls .cell_4 span,
+.video-controls .cell_5 span{
+	font-family: 'icons';
+	cursor: pointer;
+	display: block;
+	text-align: center;
+}
+
+.video-controls .cell_4 span.icon-music_volume_1{
+	position: relative;
+	left: -2px;
+}
+
+.video-overlay{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-size: 50px;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+.video-overlay:before{
+	font-family: 'icons';
+	/*color: #fff;*/
+	cursor: pointer;
+	width: 100px;
+	height: 100px;
+	display: table;
+	position: relative;
+	top: 50%;
+	line-height: 100px;
+	margin: 0 auto;
+	cursor: pointer;
+	-webkit-transform: 	translateY(-50%);
+	-moz-transform: 	translateY(-50%);
+	-ms-transform: 		translateY(-50%);
+	transform: 			translateY(-50%);
+	-webkit-transition: all 0.25s;
+	-moz-transition: 	all 0.25s;
+	-ms-transition: 	all 0.25s;
+	transition: 		all 0.25s;
+}
+
+.mediaplayer .noUi-target,
+.mediaplayer .noUi-target * {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -ms-touch-action: none;
+      -ms-user-select: none;
+      -moz-user-select: none;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+.mediaplayer .noUi-target {
+      position: relative;
+      direction: ltr;
+      width: 92%;
+      margin: 0 4%;
+}
+
+.mediaplayer .noUi-base {
+      width: 100%;
+      height: 100%;
+      position: relative;
+}
+
+.mediaplayer .noUi-origin {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #670023;
+}
+
+.mediaplayer .noUi-handle {
+      position: relative;
+      z-index: 1;
+}
+
+.mediaplayer .noUi-stacking .noUi-handle {
+    z-index: 10;
+}
+
+.mediaplayer .noUi-stacking + .noUi-origin {
+    *z-index: -1;
+}
+
+.mediaplayer .noUi-state-tap .noUi-origin {
+      -webkit-transition: left 0.3s, top 0.3s;
+      transition: left 0.3s, top 0.3s;
+}
+
+.mediaplayer .noUi-state-drag * {
+    cursor: inherit !important;
+}
+
+.mediaplayer .noUi-base {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+}
+
+.mediaplayer .noUi-horizontal {
+      background: #670023;
+      height: 2px;
+}
+
+.mediaplayer .noUi-horizontal .noUi-base {
+    background: #fff;
+}
+
+.mediaplayer .noUi-horizontal .noUi-handle {
+      width: 10px;
+      height: 10px;
+      left: -5px;
+      top: -4px;
+      cursor: pointer;
+}
+
+.mediaplayer .noUi-vertical {
+      width: 40px;
+      height: 90px;
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      padding: 0 18px;
+      margin: 0 auto;
+      z-index: 9;
+      display: none;
+}
+
+.mediaplayer .cell_4:hover .volume-bar {
+    display: block;
+}
+
+.mediaplayer .cell_4 .volume-container {
+    position: relative;
+    height: 30px;
+}
+
+.mediaplayer .noUi-vertical .noUi-handle {
+        /*width: 16px;*/
+        /*height: 16px;*/
+        /*left: -5px;*/
+        /*top: -8px;*/
+        height: 12px;
+        left: -4px;
+        top: -6px;
+        width: 12px;
+        cursor: pointer;
+        /*border: 1px solid #85003C;*/
+}
+.mediaplayer .noUi-vertical .noUi-base {
+    background: #85003C;
+}
+
+/*.mediaplayer .noUi-background {*/
+/*    background: rgba(0,0,0,0.25);*/
+/*}*/
+
+.mediaplayer .noUi-connect {
+    -webkit-transition: background 450ms;
+    transition: background 450ms;
+}
+
+/*.mediaplayer .noUi-origin {*/
+/*    border-radius: 2px;*/
+/*}*/
+
+.mediaplayer .noUi-dragable {
+    cursor: w-resize;
+}
+
+.mediaplayer .noUi-vertical .noUi-dragable {
+    cursor: n-resize;
+}
+
+.mediaplayer .noUi-handle {
+    width:16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    display: block;    
+}
+
+.mediaplayer .noUi-handle:before,
+.mediaplayer .noUi-handle:after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 14px;
+      width: 1px;
+      left: 14px;
+      top: 6px;
+}
+
+.mediaplayer .noUi-handle:after {
+    left: 17px;
+}
+
+.mediaplayer [disabled].noUi-connect,
+.mediaplayer [disabled] .noUi-connect {
+    background: #B8B8B8;
+}
+
+.mediaplayer [disabled] .noUi-handle {
+    cursor: not-allowed;
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .video-overlay {
+        font-size: 100px;
+    }
+    
+    .video-controls {
+        height: 48px;
+        line-height: 48px;
+    }
+    
+    .video-controls > div {
+        height: 48px;
+    }
+    
+    .video-controls .cell_1 {
+        width: 55px;
+    }
+    
+    .video-controls .cell_1 span {
+        font-size: 23px;
+    }
+    
+    .video-controls .cell_2 {
+        width: 55px;
+    }
+    
+    .mediaplayer .cell_4 .volume-container {
+        height: 48px;
+    }
+    
+    .video-controls .cell_4 span {
+        font-size: 20px;
+        line-height: 48px;
+    }
+    
+    .video-controls .cell_5 {
+        width: 45px;
+    }
+    
+    .video-controls .cell_5 span {
+        font-size: 16px;
+    }
+    
+    .mediaplayer .noUi-horizontal {
+        height: 6px;
+    }
+    
+    .mediaplayer .noUi-horizontal .noUi-handle {
+        height: 18px;
+        left: -9px;
+        top: -6px;
+        width: 18px;
+    }
+    
+    .mediaplayer .noUi-vertical {
+        height: 100px;
+    }
+    
+    .mediaplayer .noUi-vertical .noUi-handle {
+        cursor: pointer;
+        height: 16px;
+        left: -6px;
+        top: -8px;
+        width: 16px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .video-overlay {
+        font-size: 124px;
+    }
+    
+    .video-controls {
+        height: 66px;
+	    line-height: 66px;;
+    }
+    
+    .video-controls > div {
+        height: 30px;
+    }
+    
+    .video-controls .cell_1 {
+        width: 70px;
+    }
+    
+    .video-controls .cell_1 span {
+        font-size: 36px;
+    }
+    
+    .video-controls .cell_2 {
+        width: 60px;
+    }
+    
+    .mediaplayer .cell_4 .volume-container {
+        height: 66px;
+    }
+    
+    .video-controls .cell_4 {
+        width: 46px;
+    }
+    
+    .video-controls .cell_4 span{
+    	font-size: 28px;
+    	line-height: 66px;
+    }
+    
+    .video-controls .cell_5 {
+        width: 70px;
+    }
+    
+    .video-controls .cell_5 span {
+        font-size: 24px;
+    }
+    
+    .mediaplayer .noUi-horizontal {
+        height: 8px;
+    }
+    
+    .mediaplayer .noUi-horizontal .noUi-handle {
+        width: 24px;
+        height: 24px;
+        left: -12px;
+        top: -8px;
+    }
+    
+    .mediaplayer .noUi-vertical {
+        padding: 0 20px;
+        width: 46px;
+        height: 120px;
+    }
+    
+    .mediaplayer .noUi-vertical .noUi-handle {
+        width: 16px;
+        height: 16px;
+        left: -5px;
+        top: -8px;
+    }
+}
+/* Video Player Component End*/

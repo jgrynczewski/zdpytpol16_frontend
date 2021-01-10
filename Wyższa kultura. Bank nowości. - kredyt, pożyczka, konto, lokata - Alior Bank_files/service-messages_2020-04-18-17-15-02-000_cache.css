@@ -1,0 +1,151 @@
+/* Service Messages Component Start*/
+
+.info-block {
+	display: none;
+	position: relative;
+	width: 100%;
+	padding: 10px 36px 10px 10px;
+	background: #d10000;
+	color: white;
+	font-size: 14px;
+	z-index: 999;
+}
+
+.info-block p {
+    margin-bottom: 0;
+}
+
+@media (min-width: 480px) {
+	.info-block {
+		padding: 10px 40px 10px 15px;
+	}
+}
+@media (min-width: 768px) {
+	.info-block {
+		padding: 13px 45px 13px 15px;
+	}
+}
+
+.info-block.cookies {
+	background: #e5e5e5;
+	color: black;
+	position: fixed;
+	bottom: 0;
+}
+
+
+/* === CLose Btn === */
+.info-block .close{
+	width: 36px;
+	height: 36px;
+	display: block;
+	cursor: pointer;
+    cursor: hand;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+@media (min-width: 480px) {
+	.info-block .close{
+		width: 36px;
+		height: 36px;
+	}
+}
+@media (min-width: 768px) {
+	.info-block .close{
+		width: 45px;
+		height: 45px;
+	}
+}
+
+.info-block .close:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	cursor: pointer;
+    cursor: hand;
+	font-family: 'icons';
+	font-weight: 300;
+	font-size: 36px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\a10f";
+	color: #fff;
+}
+
+@media (min-width: 768px) {
+	.info-block .close:before {
+		font-size: 45px;
+	}
+}
+
+.info-block.cookies .close {
+	top: 0;
+}
+.info-block.cookies span.text a,
+.info-block.cookies span.text a:after{
+    color: #000;
+}
+.info-block.cookies .close:before {
+	color: #000;
+}
+
+
+.info-block span.text {
+	line-height: 16px;
+	font-size: 13px;
+	font-weight: 400;
+	display: table;
+	margin: 0 auto;
+	position: relative;
+}
+.info-block:not(.cookies) span.text{
+    padding-left: 28px;
+}
+.info-block:not(.cookies) span.text:before{
+	font-family: 'icons';
+	content: "\e673";
+	color: #fff;
+	font-weight: 300;
+	font-size: 20px;
+	position: absolute;
+	top: -1px;
+	left: 0;
+	display: block;
+}
+
+.info-block span.text a {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.info-block span.text a:after {
+    color: #FFFFFF;
+    content: "\e6f7";
+    font-family: 'icons';
+    font-size: 22px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    line-height: 16px;
+    text-transform: none;
+    vertical-align: top;
+}
+
+@media (min-width: 480px) {
+	.info-block span.text {
+		
+	}
+}
+
+/* Service Messages Component End*/

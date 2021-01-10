@@ -1,0 +1,65 @@
+/**
+ * Base functions for Alior Bank
+ * @type {Object}
+ */
+var AliorBase = {
+    
+    /**
+     * Defines callback
+     *
+     * @param {Function} callback - callback function handler
+     * @param {Object} scope - scope, where we want to call the function
+     * @param {Array} args - callback arguments. We can pass many arguments
+     *
+     * @returns {Function}|null
+     */
+    callback: function(callback, scope, args)
+    {
+        if (typeof callback === 'function') {
+            args = args || [];
+            scope = scope || window;
+
+            return callback.apply(scope, args);
+        }
+
+        return null;
+    },
+    
+    isObject: function(variable) {
+        return Object.prototype.toString.call(variable) === '[object Object]';
+    },
+
+    isArray: function(variable) {
+        return Object.prototype.toString.call(variable) === '[object Array]';
+    },
+
+    isFunction: function(variable) {
+        return Object.prototype.toString.call(variable) === '[object Function]';
+    },
+
+    isBoolean: function(variable) {
+        return Object.prototype.toString.call(variable) === '[object Boolean]';
+    },
+
+    isString: function(variable) {
+        return Object.prototype.toString.call(variable) === '[object String]';
+    },
+
+    isJSON: function(variable) {
+        try {
+            JSON.parse(variable);
+        } catch (e) {
+            return false;
+        }
+
+        return true;
+    },
+
+    dictionary: {
+        days: ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'],
+        daysEn: ['Monday', 'Tuesday', 'Wednsday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        operatingRange: ['Klienci Indywidualni', 'Indywidualna Działalność Gospodarcza', 'Segment Korporacyjny', 'Segment MP', 'Biuro Maklerskie', 'Kredyty Hipoteczne'],
+        facilityProperties: ['Parking', 'Wrzutnia', 'Obsługa kasowa', 'Kantor w oddziale', 'Obsługa niepełnosprawnych', 'Bankomat', 'Wpłatomat', 'Czynne w sobotę', 'Czynne w niedzielę']
+    }
+   
+}

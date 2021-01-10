@@ -1,0 +1,115 @@
+/* ======== product-carousel ======== */
+.product-carousel-wrapper .row {
+  position: relative;
+}
+
+@media screen and (max-width: 1023px) {
+  .product-carousel-wrapper .columns {
+    padding: 0;
+  }
+}
+
+.product-carousel {
+  padding-top: 48px;
+  margin-bottom: 80px;
+}
+
+.product-carousel .slick-prev {
+  left: -120px;
+}
+
+.product-carousel .slick-next {
+  right: -120px;
+}
+
+.product-carousel .product-tile {
+  margin: 0 8px;
+  padding: 16px 24px 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 640px) {
+  .product-carousel .slick-list {
+    padding: 0 24px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .product-carousel .slick-list {
+    padding: 0;
+  }
+}
+
+.product-carousel .slick-track {
+  display: flex;
+}
+
+.product-carousel .slick-slide {
+  /*display: flex;*/
+  height: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-carousel .slick-dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  bottom: -48px;
+}
+
+.product-carousel .slick-dots li {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex: 1 1 auto;
+  max-width: 54px;
+  margin: 0 5px;
+}
+
+.product-carousel .slick-dots button {
+  font-size: 0;
+  margin: 6px;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  min-width: 4px;
+  height: 4px;
+  background: rgba(155, 155, 155, 0.4);
+  display: block;
+  position: relative;
+  border-radius: 2px;
+}
+
+.product-carousel .slick-dots button::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  border-radius: 2px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #920035;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0s linear;
+}
+
+.product-carousel .slick-dots .slick-active button::after {
+  content: none;
+}
+
+.product-carousel .slick-dots .slick-active button::before {
+  transform: scaleX(1);
+  transition-duration: 3s;
+}

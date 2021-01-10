@@ -1,0 +1,138 @@
+/* Download Links Component Start*/
+
+.download-link-item {
+    min-height: 40px;
+}
+.download-links{
+    padding-bottom: 20px;
+}
+.download-links:last-child {
+    padding-bottom: 40px;
+}
+.download-links h3 {
+    margin-bottom: 20px;
+}
+.download-links > p {
+    font-size: 20px;
+    line-height: 1.3;
+} 
+.download-links:not(:first-child) > p {
+    margin-top: 30px;
+}
+.download-links .single-link {
+    position: relative;
+    padding-left: 45px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.download-links .single-link:nth-child(2n+1) {clear:left;}
+.download-links .single-link a,
+.download-links .single-link a:hover {
+    color: #7A0035;
+}
+.download-links .single-link a:hover {
+    text-decoration: underline;
+}
+.download-links .single-link svg {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    /* top: 50%; */
+    top: 5px;
+    /* margin-top: -16px; */
+}
+.download-links .single-link svg path {
+    fill: #7A0035;
+}
+
+.black .download-links .single-link svg path {
+    fill: #ffc426;
+}
+
+/*  url links   */
+.url-links{
+    padding-bottom: 20px;
+}
+.url-links h3 {
+    margin-bottom: 20px;
+}
+.url-links .links-content > div{
+    margin-bottom: 15px;
+}
+.url-links .single-link {
+    position: relative;
+    padding-left: 40px;
+    font-size: 14px;
+    min-height: 40px;
+    display: table-cell;
+    vertical-align: middle;
+    /*margin-bottom: 25px; */    /*vkovalenko*/
+}
+.url-links .single-link a,
+.url-links .single-link a:hover {
+    color: #7A0035;
+}
+
+.black .url-links .single-link a,
+.black .download-links .single-link a{
+    color: #ffc426;
+}
+.url-links .single-link a:hover {
+    text-decoration: underline;
+}
+.url-links .single-link svg {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -16px;
+}
+
+.url-links .single-link svg path {
+    fill: #7A0035;
+}
+
+.black .url-links .single-link svg path {
+    fill: #ffc426;
+}
+/*    end url links*/
+
+.download-links .single-link .details, .download-links .single-link .details a {
+    line-height: 1.3;
+    color: #acabab;
+}
+.download-links .single-link .details:after {
+    display: none;
+}
+
+.all-docs {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.landing .links-content {
+    padding: 10px 0;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .download-links .single-link {
+        padding-left: 40px;
+        min-height: 40px;
+    }
+    .download-links .single-link svg {
+        position: absolute;
+        left: 0;
+    }
+    
+    .url-links .single-link {
+        padding-left: 40px;
+    }
+    .url-links .single-link svg {
+        position: absolute;
+        left: 0;
+    }
+}
+
+/* Download Links Component End*/

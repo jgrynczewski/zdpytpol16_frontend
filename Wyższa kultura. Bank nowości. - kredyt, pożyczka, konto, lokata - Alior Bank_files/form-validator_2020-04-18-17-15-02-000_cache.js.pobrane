@@ -1,0 +1,371 @@
+var FormValidator = (function() {
+    'use strict';
+
+    var validator = {
+        init: function() {
+            if ($('form').length) {
+                $('form').each(function(i, c) {
+                    var $c = $(c);
+
+                    $c.submit(function(e) {
+                        if (validator.validator(c) > 0) {
+                            e.preventDefault();
+                            return false;
+                        }
+                    });
+
+                    $c.find('input[type="text"], textarea').on('blur', function() {
+                        validator.validateEl($(this));
+                    });
+
+                    $c.find('input[type="checkbox"], input[type="radio"], select').on('change', function() {
+                        validator.validateEl($(this));
+                    });
+                });
+            }
+        },
+        validator: function(_form) {
+            var countErrors = 0;
+            $(_form).find('[required]').each(function(i, c) {
+                countErrors = countErrors + validator.validateEl(c);
+            });
+
+            return countErrors;
+        },
+        validateEl: function(_el) {
+            // validators is array rendered in inline script in template
+            var language = $('html').attr('lang'),
+                listElem = window.validators || [],
+                countError = 0,
+                $el = $(_el),
+                isChecked = $el.is(':checked'),
+                value = $el.val(),
+                isEmpty = !value,
+                customRequiredMessage = $el.data('error-msg');
+
+             this.errorRemove(_el);
+             this.successRemove(_el);
+
+            if ($el.attr('required') === 'required') {
+                var message = {
+                    pl: "Pole jest wymagane",
+                    en: "Mandatory field",
+                    ro: "Campul este obligatoriu"
+                };
+                var content = {
+                    "name": "required",
+                    "type": "RegexValidator",
+                    "expression": ".+",
+                    "message": customRequiredMessage || message[language]
+                };
+
+                if ($el.attr('type') === 'checkbox') {
+                    if (!isChecked) {
+                        countError = countError + validator.validateOption(_el, content);
+                    } else {
+                        validator.errorRemove(_el);
+                    }
+                } else if ($el.attr('type') === 'text') {
+                    if (isEmpty) {
+                        countError = countError + validator.validateOption(_el, content);
+                    } else {
+                        // validator.errorRemove(_el);
+                        validator.successShow(_el);
+                    }
+                } else if ($el.attr('type') === 'hidden' && $el.hasClass('multiLevelSelectInput')) {
+                    if (isEmpty) {
+                        countError = countError + validator.validateOption(_el, content);
+                    } else {
+                        validator.hiddenErrorRemove(_el);
+                        //validator.successShow(_el);
+                    }
+                } else if ($el.attr('type') === 'password') {
+                    if (isEmpty) {
+                        countError = countError + validator.validateOption(_el, content);
+                    } else {
+                        // validator.errorRemove(_el);
+                        validator.successShow(_el);
+                    }
+                } else if ($el.attr('type') === 'number') {
+                    if (isEmpty) {
+                        countError = countError + validator.validateOption(_el, content);
+                    } else {
+                        // validator.errorRemove(_el);
+                        validator.successShow(_el);
+                    }
+                } else if ($el.attr('type') === 'email') {
+                    if (isEmpty) {
+                        countError = countError + validator.validateOption(_el, content);
+                    } else {
+                        // validator.errorRemove(_el);
+                        validator.successShow(_el);
+                    }
+                } else if ($el.attr('type') === 'radio') {
+                    if (!isChecked) {
+                        countError = countError + validator.validateOption(_el, content);
+                    } else {
+                        validator.errorRemove(_el);
+                    }
+                } else if ($el.prop('nodeName') === 'TEXTAREA') {
+                    if (isEmpty) {
+                        countError = countError + validator.validateOption(_el, content);
+                    } else {
+                        // validator.errorRemove(_el);
+                        validator.successShow(_el);
+                    }
+                }
+            }
+
+            if ($el.context.dataset && $el.context.dataset.validation !== undefined && !countError) {
+                var listReq = $el.context.dataset.validation;
+                var ArrReq = listReq.split(",");
+
+                $.each(ArrReq, function(i, c) {
+                    $.each(listElem, function(i, d) {
+                        if (d.name == c && countError === 0) {
+                            countError = countError + validator.validateOption(_el, d);
+                        }
+                    });
+                });
+            }
+
+            return countError;
+        },
+        validateOption: function(c, d) {
+            var $c = $(c),
+                cValue = $c.val();
+
+            if (d.type === 'RegexValidator' && $c.attr('type') !== 'checkbox') {
+                var regExp = new RegExp(d.expression);
+                if (!regExp.test($c.val())) {
+                    validator.errorShow(c, d);
+                    return 1;
+                } else {
+                    // validator.errorRemove(c);
+                    validator.successShow(c);
+                    return 0;
+                }
+            }
+
+            switch (d.name) {
+                case 'noHTML':
+                    var regExp = new RegExp("<[^>]*>");
+                    if (regExp.test(cValue)) {
+                        validator.errorShow(c, d);
+                        return 1;
+                    } else {
+                        // validator.errorRemove(c);
+                        validator.successShow(c);
+                        return 0;
+                    }
+                    break;
+                case 'identity-document':
+                    if (validator.validateidentity(cValue)) {
+                        // validator.errorRemove(c);
+                        validator.successShow(c);
+                        return 0;
+                    } else {
+                        validator.errorShow(c, d);
+                        return 1;
+                    }
+                    break;
+                case 'NIP':
+                    if (validator.validateNIP(cValue)) {
+                        // validator.errorRemove(c);
+                        validator.successShow(c);
+                        return 0;
+                    } else {
+                        validator.errorShow(c, d);
+                        return 1;
+                    }
+                    break;
+                case 'PESEL':
+                    if (validator.validatePESEL(cValue)) {
+                        // validator.errorRemove(c);
+                        validator.successShow(c);
+                        return 0;
+                    } else {
+                        validator.errorShow(c, d);
+                        return 1;
+                    }
+                    break;
+                case 'REGON':
+                    if (validator.validateREGON(cValue)) {
+                        // validator.errorRemove(c);
+                        validator.successShow(c);
+                        return 0;
+                    } else {
+                        validator.errorShow(c, d);
+                        return 1;
+                    }
+                    break;
+                default:
+                    if ($(c).attr('checked')) {
+                        // validator.errorRemove(c);
+                        validator.successShow(c);
+                        return 0;
+                    } else {
+                        validator.errorShow(c, d);
+                        return 1;
+                    }
+                    break;
+            }
+        },
+        errorShow: function(c, d) {
+            var $c = $(c),
+                $parent = $c.parent();
+
+            if (!$parent.hasClass('error')) {
+                this.successRemove(c);
+                $parent.addClass('error');
+                $parent.append('<small class="error">' + d.message + '</small>');
+            } else {
+                $parent.find('small.error').html(d.message);
+            }
+        },
+        errorRemove: function(c) {
+            var $c = $(c),
+                $parent = $c.parent();
+
+            if (!$c.closest('.group-selection').length) {
+                $parent.removeClass('error');
+                $parent.find('small.error').remove();
+            }
+        },
+        hiddenErrorRemove: function(c) {
+            var $c = $(c),
+                $parent = $c.closest('.multilevel-select');
+
+                $parent.removeClass('error');
+                $parent.find('small.error').remove();
+
+        },
+        successShow: function(c) {
+            var $c = $(c),
+                $parent = $c.parent();
+
+            if (!$parent.hasClass('success') && $c.attr('type') !== 'radio' && $c.attr('type') !== 'checkbox' && $c.attr('name') !== 'captcha') {
+                this.errorRemove(c);
+                $parent.addClass('success');
+                $parent.append('<small class="success"/>');
+            }
+        },
+        successRemove: function(c) {
+            var $c = $(c),
+                $parent = $c.parent();
+
+            if (!$c.closest('.group-selection').length) {
+                $parent.removeClass('success');
+                $parent.find('small.success').remove();
+            }
+        },
+        validateidentity: function(id) {
+            var i;
+
+            id = id.toUpperCase();
+            id = id.replace(/[\s-]/g, '');
+
+            if (id.length !== 9) {
+                return false;
+            } else {
+                for (i = 0; i < 3; i++) {
+                    if (validator.checkLetterValue(id[i]) < 10) {
+                        return false;
+                    }
+                }
+
+                for (i = 3; i < 9; i++) {
+                    if (validator.checkLetterValue(id[i]) < 0 || validator.checkLetterValue(id[i]) > 9) {
+                        return false;
+                    }
+                }
+                var sum = 7 * validator.checkLetterValue(id[0]) + 3 * validator.checkLetterValue(id[1]) + 1 * validator.checkLetterValue(id[2]) + 9 * validator.checkLetterValue(id[3]) + 7 * validator.checkLetterValue(id[4]) + 3 * validator.checkLetterValue(id[5]) + 1 * validator.checkLetterValue(id[6]) + 7 * validator.checkLetterValue(id[7]) + 3 * validator.checkLetterValue(id[8]);
+
+                if (sum % 10 === 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+        validateNIP: function(nip) {
+            var NIP_WEIGHTS = [6, 5, 7, 2, 3, 4, 5, 6, 7];
+            if (nip.length !== 10) {
+                return false;
+            }
+            var n = 0;
+            for (var i = 0; i < 9; i++) {
+                n += nip[i] * NIP_WEIGHTS[i];
+            }
+            n %= 11;
+            if (n != nip[9]) {
+                return false;
+            }
+            return true;
+        },
+        validatePESEL: function(value) {
+            if (value === null || value === undefined) {
+                value = '';
+            }
+            var weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3],
+                sum = 0,
+                i,
+                control,
+                isZeroVal = false;
+
+            if (value && value.toString() === '00000000000') {
+                isZeroVal = true;
+            }
+
+            value = value.split('');
+
+            if (value.length !== weights.length + 1) {
+                return false;
+            }
+            for (i = 0; i < weights.length; i++) {
+                sum += weights[i] * value[i];
+            }
+            control = ((10 - sum % 10) % 10);
+            if (!isZeroVal && control === parseInt(value[weights.length], 10)) {
+                return true;
+            }
+            return false;
+        },
+        validateREGON: function(regon) {
+            var REGON_WEIGHTS_SHORT = [8, 9, 2, 3, 4, 5, 6, 7],
+                REGON_WEIGHTS_LONG = [2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8],
+                regonLength = regon.length,
+                isLongRegon = regonLength === 14;
+            if (regonLength !== 9 && !isLongRegon) {
+                return false;
+            }
+            var crc = validator.calculateChecksum(regon, isLongRegon ? REGON_WEIGHTS_LONG : REGON_WEIGHTS_SHORT);
+            if (isLongRegon) {
+                return crc == regon[13];
+            }
+            return crc == regon[8];
+        },
+        calculateChecksum: function(number, weights) {
+            var checksum = 0;
+            for (var i = 0; i < weights.length; i++) {
+                checksum += parseInt(number[i]) * weights[i];
+            }
+            var mod = checksum % 11;
+            if (mod === 10) {
+                return 0;
+            }
+            return mod;
+        },
+        checkLetterValue: function(letter) {
+            var letterValues = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            for (var j = 0; j < letterValues.length; j++) {
+                if (letter == letterValues[j])  {
+                    return j;
+                }
+            }
+            return -1;
+        }
+    };
+
+    return validator;
+})();

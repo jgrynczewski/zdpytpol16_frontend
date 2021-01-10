@@ -1,0 +1,197 @@
+/* - Product list item - */
+.product-list-item {
+    padding: 40px 0;
+    border-top:1px solid rgba(0,0,0,0.1);
+}
+
+*:not(.product-list-item) + .product-list-item {
+    padding-top: 20px; border-top: 0;
+}
+
+body.black .product-list-item {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.product-list-item header h2 {
+    font-size:30px;
+    margin:0 0 50px; 
+}
+
+#structured-product-list .product-list-item header h2 {
+    font-size:20px;
+}
+
+body.black .product-list-item header h2 {
+    color: #fff;
+}
+
+.product-list-item ul {
+    margin:0;
+}
+
+.product-list-item ul li p {
+    position: relative;
+    padding-left: 50px;
+    padding-top: 5px;
+    font-size: 14px;
+}
+
+.product-list-item ul li p .description-bullet {
+    position:absolute;
+    left:0;
+    top:5px;
+}
+
+.product-list-item ul li p .description-bullet svg {
+    max-width: 32px; 
+    max-height: 32px;
+}
+
+.product-list-item ul li p .description-bullet svg path {
+    fill:#000
+}
+
+body.black .product-list-item ul li p .description-bullet svg path {
+    fill:#fff
+}
+
+body.black .product-list-item .more-details a{
+    color: #FFC426;
+}
+
+.product-list-item .product-image {
+    margin-bottom: 10px;
+}
+
+.product-list-item .product-info {
+    margin-bottom: 20px; 
+}
+
+.product-list-item .more-details { 
+    font-size: 14px; 
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.product-list-item img {
+    width:60%;
+}
+
+.product-list-item .btn-group {
+    padding-top:20px;
+}
+
+.product-list-item .link-more,
+.product-list-item .no-details .product-legal-note {
+    margin-left: 50px;
+}
+
+
+.product-list-item .link-more,
+.product-list-item .link-more a {
+    color: #7a0035;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+
+body.black .product-list-item .link-more,
+body.black .product-list-item .link-more a,
+body.black .product-list-item .product-legal-note {
+    color: #f9c025;
+}
+
+.product-list-item .product-legal-note {
+    line-height: 30px;
+    display: inline-block;
+    min-width: 70px;
+}
+
+.one-level .product-legal-note{
+    line-height: 24px;
+    margin-top: 5px;
+}
+
+.details:after {
+    content: "\a105";
+    font-family: 'icons';
+    font-size: 24px;
+    line-height: 1;
+    color: #7A0035;
+    position: relative;
+    right: -10px;
+    top: 5px;
+}
+.open .details:after {
+    content: "\a104";
+}
+
+.black .details:after {
+    color: #FFC426;
+}
+
+/* ----------- MEDIA QUERIES ---------- */
+@media only screen and (min-width: 40.063em) {
+    .product-list-item .more-details { 
+        margin-bottom: 0;
+    }
+    .product-list-item header h2 {
+        font-size:55px;
+    }
+    #structured-product-list .product-list-item header h2 {
+        font-size: 55px;
+    }
+    
+    .product-list-item .product-image { margin-bottom: 0; }
+    
+    .product-list-item img { width: 100%; }
+    
+    .product-list-item-details > .row:first-child { display: table; }
+    
+    .product-list-item-details > .row:first-child > .column {
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+    }
+    
+    .product-list-item-details > .row:first-child > .column:last-child {
+        vertical-align: middle;
+    }
+    
+    .product-list-item-details .prl-button-up { margin-top: -50px; }
+    
+    .product-list-item .link-more,
+    .product-list-item .link-more a { font-size: 16px; display: block;}
+    
+    
+    #private-banking-product-list .product-list-item.last-of-type {
+        padding-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .product-list-item .button {
+        font-size: 14px;
+        padding: 0 25px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .product-list-item ul li p {font-size: 20px;}
+    
+}
+
+/* Fix for button */
+@media only screen and (min-width: 642px) and (max-width: 700px){
+
+    .product-list-item .button-rwd-tablet-fix{
+        padding-left: 10px !important;
+    }
+}
+
+.product-list-item-details .product-info li {
+    padding-left: 0!important;
+}
+.product-list-item-details .product-info li:before {
+    display: none!important;
+}

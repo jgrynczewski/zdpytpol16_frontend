@@ -1,0 +1,465 @@
+var Player = {
+    /**
+    *  @property {String} _containerClass - Player container class name
+     */
+    _containerClass: 'video',
+
+    /**
+     *  @property {jQuery} _container - jQuery object
+     */
+    _container: null,
+
+    /**
+     *  @property {Object} _seekbarConfig - configuration for noUiSlider
+     */
+    _seekbarConfig: {
+        start: 0,
+        step: 0.0000001,
+        animate: false,
+        connect: "lower",
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    },
+
+    /**
+     *  @property {Object} _volumebarConfig - configuration for noUiSlider
+     */
+    _volumebarConfig: {
+        start: 0.75,
+        step: 0.01,
+        orientation: "vertical",
+        direction: "rtl",
+        range: {
+            'min': 0,
+            'max': 1
+        }
+    },
+
+    /**
+     * Init Player module
+     */
+    init: function() {
+        var self = this;
+
+        this._getContainer();
+        this._container.each(function() {
+            self.runProcess(this);
+        });
+    },
+
+    /**
+     * Gets container for Player
+     */
+    _getContainer: function() {
+        this._container = $('.' + this._containerClass);
+    },
+
+    /**
+     * Checks if fullscreen mode is on
+     */
+    _isFullscreen: function() {
+        var fullscreenElement = document.fullscreenElement || document.msFullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement,
+            isFullscreen = fullscreenElement !== undefined && fullscreenElement !== null;
+
+        return isFullscreen;
+    },
+
+    /**
+     * Runs the process for each Player container
+     */
+    runProcess: function(el) {
+        var $el = $(el);
+
+
+        this.initVideoOptions($el);
+        this.initSeekbar($el);
+        this.initVolumebar($el);
+
+        this.initEvents($el);
+    },
+
+    /**
+     * Init Player events
+     */
+    initEvents: function(el) {
+        this.initOnOverlayClick(el);
+        this.initOverlaySize(el);
+        this.initOnPlayClick(el);
+        this.initOnVolumebarSlide(el);
+        this.initOnSeekbarSlide(el);
+        this.initOnSeekbarChange(el);
+        this.initOnSeekbarMousedown(el);
+        this.initOnFullscreenClick(el);
+        this.initOnFullscreenChange(el);
+        this.initOnMuteClick(el);
+        this.initOnVideoTimeupdate(el);
+        this.initOnVideoEnded(el);
+        this.initOnVideoPaused(el);
+        this.initOnVideoPlay(el);
+        this.initOnVideoVolumeChange(el);
+    },
+
+    /**
+     * Init click on '.video-overlay'
+     */
+    initOnOverlayClick: function(el) {
+        var self = this,
+            video = el.find('video')[0];
+
+        el.find('.video-overlay').on('click', function() {
+            el.find('.video-controls .cell_3').removeClass('disabled');
+
+            if (video.paused) {
+                self.playVideo(el);
+            } else {
+                self.pauseVideo(el);
+            }
+
+            self.initOverlaySize(el);
+        });
+    },
+
+
+    /**
+     * Init overlay size update
+     */
+    initOverlaySize: function(el) {
+
+        function setHeight(el){
+            var self = this,
+                h = el.find('video').height();
+
+            el.find('.video-overlay').css('height', h + 'px');
+        }
+        setTimeout(function() {
+            setHeight(el);
+        }, 200);
+
+        $(window).on('resize', function(){
+            setHeight(el);
+        });
+
+    },
+
+    /**
+     * Init click on '.play-pause'
+     */
+    initOnPlayClick: function(el) {
+        var self = this,
+            video = el.find('video')[0];
+
+        el.find('.play-pause').on('click', function() {
+            el.find('.video-controls .cell_3').removeClass('disabled');
+
+            if (video.paused) {
+                self.playVideo(el);
+            } else {
+                self.pauseVideo(el);
+            }
+        });
+    },
+
+    /**
+     * Init slide on '.volume-bar'
+     */
+    initOnVolumebarSlide: function(el) {
+        var self = this;
+
+        el.find('.volume-bar').on('slide', function(){
+            var val = $(this).val(),
+                video = el.find('video')[0],
+                muted = video.muted;
+
+            if (muted) {
+                video.muted = false;
+            }
+
+            self.setVideoVolume(el, val);
+        });
+    },
+
+    /**
+     * Init slide on '.seekbar'
+     */
+    initOnSeekbarSlide: function(el) {
+        var self = this;
+
+        el.find('.seekbar').on('slide', function(){
+            var seekBarOffset = $(this).val(),
+                video = el.find('video')[0],
+                time = video.duration * seekBarOffset;
+
+            self.setVideoTime(el, time);
+        });
+    },
+
+    initOnSeekbarChange: function(el) {
+        var self = this;
+
+        el.find('.seekbar').on('change', function(){
+            self.playVideo(el);
+        });
+    },
+
+    /**
+     * Init seekbar on mousedown
+     */
+    initOnSeekbarMousedown: function(el) {
+        var self = this;
+
+        el.find('.seekbar .noUi-handle').on('mousedown', function() {
+            self.pauseVideo(el);
+        });
+    },
+
+    /**
+     * Init fullscreen click
+     */
+    initOnFullscreenClick: function(el) {
+        el.find('.full-screen').on('click', function() {
+            var video = el.find('video')[0];
+
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.controls = true;
+                video.msRequestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            }
+
+            if (video.webkitEnterFullscreen) {
+                video.webkitEnterFullscreen();
+            }
+        });
+    },
+
+    /**
+     * Init fullscreen change
+     */
+    initOnFullscreenChange: function(el) {
+        var self = this;
+
+        $(document).on('webkitfullscreenchange mozfullscreenchange MSFullscreenChange fullscreenchange', function() {
+            var video = el.find('video')[0],
+                value = (1 - video.volume) * 100;
+
+            if (self._isFullscreen()) {
+                video.controls = true;
+            } else {
+                video.controls = false;
+                self.setVideoVolumeBarPosition(el, value);
+            }
+        });
+    },
+
+    /**
+     * Init mute click
+     */
+    initOnMuteClick: function(el) {
+        var self = this;
+
+        el.find('.volume').on('click', function() {
+            var video = el.find('video')[0];
+            // console.log(video);
+            if (!video.muted || video.volume !== 0) {
+                video.muted = true;
+                self.setVideoVolumeBarPosition(el, 0);
+            } else {
+                video.muted = false;
+                self.setVideoVolumeBarPosition(el, video.volume);
+            }
+        });
+    },
+
+    /**
+     * Init video timeupdate
+     */
+    initOnVideoTimeupdate: function(el) {
+        el.find('video').on('timeupdate', function() {
+            var video = $(this)[0],
+                value = (video.currentTime / video.duration).toFixed(6),
+                secs = Math.round(video.currentTime % 60),
+                mins = Math.round((video.currentTime / 60) % 60);
+
+            secs = ("0" + secs).slice(-2);
+            mins = ("0" + mins).slice(-2);
+
+            el.find('.seekbar').val(value);
+            el.find('.current-time').html(mins + ':' + secs);
+        });
+    },
+
+    /**
+     * Init video ended
+     */
+    initOnVideoEnded: function(el) {
+        var self = this;
+
+        el.find('video').on('ended', function() {
+            self.setOverlayAsPaused(el);
+            self.setPlayButtonAsPaused(el);
+
+            el.find('.seekbar').val(0);
+            el.find('.current-time').html('00:00');
+        });
+    },
+
+    /**
+     * Init video paused
+     */
+    initOnVideoPaused: function(el) {
+        var self = this;
+
+        el.find('video').on('pause', function() {
+            self.setOverlayAsPaused(el);
+            self.setPlayButtonAsPaused(el);
+        });
+    },
+
+    /**
+     * Init video play
+     */
+    initOnVideoPlay: function(el) {
+        var self = this;
+
+        el.find('video').on('play', function() {
+            self.setOverlayAsPlaying(el);
+            self.setPlayButtonAsPlaying(el);
+        });
+    },
+
+    /**
+     * Init video volumechange
+     */
+    initOnVideoVolumeChange: function(el) {
+        var self = this;
+
+        el.find('video').on('volumechange', function() {
+            var video = $(this)[0],
+                volume = video.volume,
+                muted = video.muted,
+                container = el.find('.volume');
+
+            if (muted) {
+                container.removeClass().addClass('volume icon-music_mute');
+            } else {
+                if (volume >=  0.67) {
+                    container.removeClass().addClass('volume icon-music_volume_3');
+                } else if (volume <= 0.66 && volume >= 0.33) {
+                    container.removeClass().addClass('volume icon-music_volume_2');
+                } else if (volume <= 0.32 && volume >= 0.01) {
+                    container.removeClass().addClass('volume icon-music_volume_1');
+                } else {
+                    container.removeClass().addClass('volume icon-music_mute');
+                }
+            }
+        });
+    },
+
+    /**
+     * Init video options
+     */
+    initVideoOptions: function(el) {
+        var video = el.find('video')[0];
+
+        video.volume = 0.75;
+    },
+
+    /**
+     * Init Seekbar noUiSlider plugin
+     */
+    initSeekbar: function(el) {
+        el.find('.seekbar').noUiSlider(this._seekbarConfig);
+    },
+
+    /**
+     * Init Volumebar noUiSlider plugin
+     */
+    initVolumebar: function(el) {
+        el.find('.volume-bar').noUiSlider(this._volumebarConfig);
+    },
+
+    /**
+     * Sets video volume bar top position
+     */
+    setVideoVolumeBarPosition: function(el, value) {
+        el.find('.volume-bar').val(value);
+    },
+
+    /**
+     * Sets video volume
+     */
+    setVideoVolume: function(el, value) {
+        el.find('video')[0].volume = value;
+    },
+
+    /**
+     * Sets video currentTime
+     */
+    setVideoTime: function(el, time) {
+        el.find('video')[0].currentTime = time;
+    },
+
+    /**
+     * Sets play button as playing
+     */
+    setPlayButtonAsPlaying: function(el) {
+        var playButton = el.find('.play-pause');
+
+        playButton.attr('data-state','playing');
+        playButton.removeClass('icon-play3').addClass('icon-pause2');
+        playButton.attr('title','Pause');
+    },
+
+    /**
+     * Sets play button as paused
+     */
+    setPlayButtonAsPaused: function(el) {
+        var playButton = el.find('.play-pause');
+
+        playButton.attr('data-state','paused');
+        playButton.removeClass('icon-pause2').addClass('icon-play3');
+        playButton.attr('title','Play');
+    },
+
+    /**
+     * Sets overlay as playing
+     */
+    setOverlayAsPlaying: function(el) {
+        var overlay = el.find('.video-overlay');
+
+        overlay.removeClass('icon-play3');
+    },
+
+    /**
+     * Sets overlay as paused
+     */
+    setOverlayAsPaused: function(el) {
+        var overlay = el.find('.video-overlay');
+
+        overlay.addClass('icon-play3');
+    },
+
+    /**
+     * Play video
+     */
+    playVideo: function(el) {
+        var video = el.find('video')[0];
+
+        video.play();
+    },
+
+    /**
+     * Pause video
+     */
+    pauseVideo: function(el) {
+        var video = el.find('video')[0];
+
+        video.pause();
+    }
+};

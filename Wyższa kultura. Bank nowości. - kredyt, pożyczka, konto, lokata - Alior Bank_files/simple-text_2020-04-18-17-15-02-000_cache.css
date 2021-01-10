@@ -1,0 +1,71 @@
+
+.text-block ul li, .text-block ol li {
+    font-size: 14px;
+}
+
+.text-block {
+    padding:30px 0 0 0;
+    border-top: solid 1px #e5e5e5;
+}
+.text-block + .form-section {
+    margin-top: 40px;
+}
+
+.teaser-wrappper-alior .text-block {
+   /* padding:15px 0; */
+   padding: 5px 0 15px 0;
+}
+
+.text-block .simple-text-title {
+  font-size: 32px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.text-block .simple-text,
+.text-block .simple-text p,
+.text-block .simple-text ul {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.text-block.small .simple-text,
+.text-block.small .simple-text p,
+.text-block.small .simple-text ul li,
+.text-block.small .simple-text ol li
+{
+    font-size: 11px;
+    line-height: 17px;
+}
+
+.text-block .simple-text ul {
+    margin: 10px 0 0;
+    list-style: none; 
+}
+
+.text-block .simple-text ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 5px;
+}
+.text-block .simple-text ul li:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #85003c; 
+}
+
+
+@media only screen and (min-width: 40.063em) {
+    .text-block {
+        padding:30px 0;
+    }
+    .text-block .simple-text-title {
+      font-size: 55px;
+    }
+}

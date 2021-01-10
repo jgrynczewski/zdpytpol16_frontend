@@ -1,0 +1,75 @@
+/* Typography Start*/
+
+/* ---- Headings ---- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    line-height: 1.2em;
+}
+
+h1 {
+    /* style ze style guide - nie zmieniac */
+    font-size: 30px;
+}
+
+h2 {
+    /* style ze style guide - nie zmieniac */
+    font-size: 20px;
+}
+
+h3 {
+    /* style ze style guide - nie zmieniac */
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 1.75rem;
+}
+/* ---- End of Headings ---- */
+
+/* ---- Alternative colors - Black Background ---- */
+.black h1, .black h2, .black h3, .black h4, .black h5, .black h6 {
+    color: #fff;
+}
+
+
+/* ----------- MEDIA QUERIES ---------- */
+@media only screen and (min-width: 40.063em) {
+}
+
+@media only screen and (min-width: 64em) {
+/* ---- Headings ---- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    line-height: 1.2em;
+}
+
+h1 {
+    /* style ze style guide - nie zmieniac */
+    font-size: 55px;
+}
+
+h2 {
+    /* style ze style guide - nie zmieniac */
+    font-size: 30px;
+}
+
+h3 {
+    /* style ze style guide - nie zmieniac */
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 1.75rem;
+}
+/* ---- End of Headings ---- */
+
+/* ---- Alternative colors - Black Background ---- */
+.black h1, .black h2, .black h3, .black h4, .black h5, .black h6 {
+    color: #fff;
+}
+    
+}
+
+/* Typography End*/

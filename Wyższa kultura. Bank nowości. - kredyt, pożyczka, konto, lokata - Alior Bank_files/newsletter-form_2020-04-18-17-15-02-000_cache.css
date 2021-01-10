@@ -1,0 +1,305 @@
+/* Newsletter Form Component Start*/
+
+.newsletter .small-centered.large-8{
+    width: 100%;
+}
+
+.newsletter .small-centered.large-8 h2{
+    float: left;
+}
+
+.newsletter .small-centered.large-8 fieldset {
+    margin-left: auto;
+    margin-right: auto;
+    /*margin-left: 85px;*/
+    max-width: 705px;
+}
+
+.newsletter .small-centered.large-8 fieldset .small-12{
+    
+    width: 51%;
+}
+
+.newsletter .small-centered.large-8 fieldset .submit-outer{
+    
+    width: auto;
+}
+
+.newsletter .small-centered.large-8 fieldset button.large{
+    
+    line-height: 35px;
+    font-size: 0.85rem;
+}
+
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    
+    .newsletter .small-centered.large-8 h2{
+    
+        width: 100%;
+        display: block;
+        margin-bottom: 0.625em;
+    }
+ 
+    .newsletter .small-centered.large-8 fieldset .small-12 {
+    
+        width: 54%;
+        margin-left: 10%;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset .button-wrapper{
+        
+        float: left;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset .button-wrapper .small-12{
+        width: auto;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 40em){
+    
+    .newsletter .small-centered.large-8 h2{
+        
+        text-align: center;
+        width: 100%;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset{
+        
+        position: relative;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset .small-12{
+        
+        position: relative;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset .button-wrapper{
+        
+        width: 36px;
+        height: 35px;
+        display: block;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 29px;
+    }
+    
+    
+    .newsletter .small-centered.large-8 fieldset .button-wrapper button{
+        
+        text-indent: -999999em;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset .button-wrapper button:after{
+        
+        text-indent: 0;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset .small-12 {
+
+        margin-left: 10%;
+        margin: 0;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 36px;
+        display: block;
+        font-weight: 400;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset .submit-outer{
+        
+        margin-right: 0;
+        margin: 0;
+        padding: 0;
+        width: 36px;
+        height: 36px;
+    }
+    
+    .newsletter .small-centered.large-8 fieldset button.large {
+        
+        width: 36px;
+        padding: 0;   
+    }
+}
+
+/* #newsletter */
+
+#newsletter #subscribe_email{
+    line-height: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+}
+
+#newsletter label {
+    display: none;
+}
+
+#newsletter label + input,
+#newsletter label +  .tooltip-wrapper {
+    margin-top: 0;
+}
+
+#newsletter .tooltip-wrapper .tooltipster-icon {
+    top: 10px;
+}
+
+#newsletter small.error:after,
+#newsletter small.success:after {
+    top: -35px;
+}
+
+#newsletter .submit-outer{
+    
+    float: right;
+}
+
+
+/* Fieldset (Foundation) Overwrite */
+#newsletterForm fieldset {
+   border: none; 
+   padding: 0;
+   margin: 0;
+   position: relative;
+}
+.newsletter .form-section {
+    background: #F1F1F1;
+}
+#newsletterForm fieldset legend {
+    font-weight: inherit;
+    background: none;
+    padding: 0 ;
+    margin: 0;
+    margin-left: 0; 
+}
+
+/* Fieldset (Foundation) Overwrite - END */
+
+#newsletterForm {
+    /*margin: 0 auto;*/
+    /*width: 700px;*/
+    text-align: center;
+}
+
+#newsletterForm h2 {
+    color: #000;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 0.625em;
+    margin-top: 0;
+    vertical-align: middle;
+}
+
+#newsletterForm .row {
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+#newsletterForm .row input {
+    height: 35px;
+    line-height: 35px;
+    display: block;
+}
+
+#newsletterForm .row label {
+    display: none;
+}
+
+#newsletterForm .button-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    height: 35px;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    background: #7A0035;
+}
+
+#newsletterForm .button-wrapper:after {
+    color: #FFF;
+    font-family: 'icons';
+    content: '\e6f7';
+    display: inline-block;
+    font-family: 'icons';
+    font-size: 25px;
+    font-weight: 700;
+    position: relative;
+    right: 0;
+    top: -36px;
+}
+
+#newsletterForm .button-wrapper input {
+    display: block;
+    background: none;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    border: none;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    font-weight: 300;
+    cursor: pointer;
+    text-indent: -9999em;
+    overflow: hidden;
+}
+
+/* ----------- MEDIA QUERIES ---------- */
+@media only screen and (min-width: 40.063em) {
+    #newsletterForm h2 {
+        display: inline-block;
+        font-size: 20px;
+        line-height: 35px;
+        margin-bottom: 0;
+        margin-right: 15px;
+        /*width: 40%;*/
+    }
+    
+    #newsletterForm .row {
+        display: inline-block;
+        width: 225px;
+        margin: 0 15px 0 0;
+    }
+    
+    #newsletterForm .button-wrapper {
+        /*width: 20%;*/
+        width: 140px;
+        position: relative;
+        right: auto;
+    }
+    
+    #newsletterForm .button-wrapper:after {
+        right: -52px;
+    }
+    
+    #newsletterForm .button-wrapper input {
+        width: 100%;
+        text-indent: 0;
+        overflow: visible;
+    }
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 42em) {
+    #newsletterForm .row {
+        width: 200px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .newsletter .small-centered.large-8 h2 {
+        margin: 0;
+        line-height: 35px;
+    }
+    
+    #newsletter .submit-outer {
+        margin: 0;
+    }
+}
+
+/* Newsletter Form Component End*/

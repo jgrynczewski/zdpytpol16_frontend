@@ -1,0 +1,41 @@
+/* Section Top Component Start*/
+
+.section-top { margin-top: 25px; margin-bottom: 30px; }
+.section-top h1 { text-align: center; font-size: 32px; }
+
+#alior-private-banking .section-top h1 { padding-bottom: 15px; }
+
+.section-top p { text-align: center; font-size: 14px; }
+.section-top p:first-of-type { margin-bottom: 25px; }
+.section-top p:first-of-type:not(:last-of-type) { font-weight: 400; }
+.section-top p:last-of-type:not(:first-of-type) { font-weight: 100; margin-bottom: 30px; }
+.section-top .button {width: 100%; }
+#reports-home .section-top { margin-bottom: 0; }
+
+@media only screen and (min-width: 40.063em) {
+    .section-top { margin-top: 40px; }
+    #alior-private-banking .section-top { margin-top: 40px; margin-bottom: 70px; }
+       
+    .section-top h1 { font-size: 55px; }
+    .section-top p { font-size: 20px; }
+    .section-top a.button { font-weight: 400; width: auto; }
+    
+    #useful-documents .section-top { margin-top: 40px; margin-bottom: 30px; }
+    #useful-documents .section-top h1 { font-size: 55px; margin-top: 10px; }
+    
+    /* #structured-product-details .section-top a.button { margin-top: 40px; }  asokolowski */
+    
+    #reports-home .section-top { margin-bottom: 30px; }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .section-top p:last-of-type:not(:first-of-type) { margin-bottom: 50px; }
+    
+    #useful-documents .section-top p:first-of-type { margin-bottom:37px; }
+    
+    #alior-private-banking .section-top { margin-bottom: 110px; }
+    #alior-private-banking .section-top h1 { padding-bottom: 60px; }
+
+}
+
+/* Section Top Component End*/
